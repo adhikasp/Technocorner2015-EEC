@@ -8,27 +8,27 @@
 
 
 @section('body')
-    <h1>Welcome To EEC Online Test Site!</h1>
+    <h1>Selamat Datang di Website Tes Online EEC Technocorner 2015!</h1>
 
     <div id="login-form">
         <h2>Login</h2>
-        {{ Form::open(array('url' => 'login/masuk', 'class' => 'pure-form pure-form-stacked')) }}
+        {{ Form::open(array('url' => 'login/masuk')) }}
         <fieldset>
         {{ Form::token() }}
 
-        <div class="my-form-group">
+        <div class="form-group">
             {{ Form::label('email', 'E-mail') }}
-            {{ Form::text('email', '', array('placeholder' => 'seseorang@suatutempat.com', 'class' => 'pure-input-1')) }}
+            {{ Form::text('email', '', array('placeholder' => 'seseorang@suatutempat.com', 'class' => 'form-control' )) }}
         </div>
 
 
-        <div class="my-form-group">
+        <div class="form-group">
             {{ Form::label('password', 'Password') }}
-            {{ Form::password('password', array('placeholder' => '**********', 'class' => 'pure-input-1')) }}
+            {{ Form::password('password', array('placeholder' => '**********', 'class' => 'form-control')) }}
         </div>
 
-        <div class="my-form-group">
-            {{ Form::submit('Masuk', array('class' => 'pure-button pure-button-primary'))}}
+        <div class="form-group">
+            {{ Form::submit('Masuk', array('class' => 'btn btn-primary'))}}
         </div>
         </fieldset>
         {{ Form::close() }}

@@ -12,11 +12,17 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <link rel="shortcut icon" href="img/favicon.ico">
 
+        <!-- Library CSS -->
         <link rel="stylesheet" href="lib/normalize/normalize.css">
         <link rel="stylesheet" href="css/boilerplate.css">
-        <link rel="stylesheet" href="lib/yahoo.pure/pure-min.css">
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+        <!-- CSS tema milik kita sendiri -->
         <link rel="stylesheet" href="css/main.css">
+
+        <!-- Library JS -->
         <script src="lib/modernizr/modernizr-2.6.2.min.js"></script>
+        <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+
 
         <!-- Costum content per page -->
         @yield('head')
