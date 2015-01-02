@@ -3,7 +3,7 @@ h1
     text-align: center;
 }
 
-#login-form
+#form-login
 {
     border : 1px solid black;
     background-color: #FFECB3;
@@ -12,8 +12,4 @@ h1
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
-
-#login-form > h2
-{
 }

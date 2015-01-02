@@ -20,6 +20,12 @@ Route::post('login/masuk', function() {
     return 'Hello world!';
 });
 
+Route::any('/daftar', array(
+    'uses' => 'UserController@showDaftar'
+));
+
+
+// Testing
 
 Route::get('/tutor/markdown', function () {
     $res = Response::make('### Ini adalah Markdown');

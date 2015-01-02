@@ -19,7 +19,7 @@ Web EEC ini dikembangkan dengan [Framework Laravel](laravel.com) karena sekaligu
 2. Install Apache, PHP, MySQL (LAMP/WAMP/sejenisnya)
 3. Copy semua yang ada di dalam direktori **www** ke dalam folder www nya Apache
 4. Pastikan jika kamu membuka localhost, maka yang kebuka adalah folder **public** bukan root nya www (bisa diakali dengan langsung membuka localhost/public jika dirasa repot mengganti settingan Apache nya)
-5. Seharusnya sudah dapat dibuka dengan lancar
+5. Seharusnya sudah dapat dibuka dengan lancar *amin*
 
 ### Dengan Virtual Machine
 

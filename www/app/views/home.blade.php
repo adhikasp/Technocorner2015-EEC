@@ -2,7 +2,6 @@
 
 
 @section('head')
-    <link rel="stylesheet" href="css/home.css">
     <title>Home Page</title>
 @stop
 
@@ -10,7 +9,7 @@
 @section('body')
     <h1>Selamat Datang di Website Tes Online EEC Technocorner 2015!</h1>
 
-    <div id="login-form">
+    <div id="form-login">
         <h2>Login</h2>
         {{ Form::open(array('url' => 'login/masuk')) }}
         <fieldset>
@@ -28,8 +27,11 @@
         </div>
 
         <div class="form-group">
-            {{ Form::submit('Masuk', array('class' => 'btn btn-primary'))}}
+            {{ Form::submit('Masuk', array('class' => 'btn'))}}
+            <a href="daftar" class="btn btn-primary">Daftar Baru</a>
         </div>
+
+
         </fieldset>
         {{ Form::close() }}
     </div>
