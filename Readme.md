@@ -28,8 +28,8 @@ Web EEC ini dikembangkan dengan [Framework Laravel](laravel.com) karena sekaligu
 3. Buat direktori yang untuk menyimpan file file ini
 4. git clone semua repo ini ke dalam direktori itu
 5. Buka direktori itu dalam command line
-6. Ketikkan perintah **vagrant up** untuk menjalankan vm
-7. Website bisa dibuka dengan alamat **localhost:10080** atau **192.168.2.2**
+6. Ketikkan perintah **vagrant up** untuk menjalankan vm **update, minta file vm box dari Dhika dulu**
+7. Website bisa dibuka dengan alamat **localhost:10088** atau **192.168.2.2**
 
 *NB kalau menjalankan vagrant up, berarti akan mendownload file installer Ubuntu yang kira2 besarnya 500 MB, jadi posisikan diri dulu di wifi yang kenceng.*
 

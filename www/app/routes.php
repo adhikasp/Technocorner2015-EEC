@@ -15,3 +15,19 @@ Route::get('/', array(
     'as' => 'home',
     'uses' => 'HomeController@showHome'
 ));
+
+Route::post('login/masuk', function() {
+    return 'Hello world!';
+});
+
+
+Route::get('/tutor/markdown', function () {
+    $res = Response::make('### Ini adalah Markdown');
+    $res->headers->set('Content-Type', 'text/x-markdown');
+    return $res;
+});
+
+Route::get('/tutor/{namaku}', function($namaku) {
+    $data['nama'] = $namaku;
+    return View::make('tutor.home', $data);
+});

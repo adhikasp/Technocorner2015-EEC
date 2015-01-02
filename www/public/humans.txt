@@ -4,6 +4,7 @@
 # TEAM
 
     <name> -- <role> -- <twitter>
+    Adhika Setya P -- Developer -- @dhika_sp_sp
 
 # THANKS
 
