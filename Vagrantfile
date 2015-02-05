@@ -128,8 +128,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
      v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
   end
 
-  # Default ssh shell pakai zsh
-  config.ssh.shell = "zsh"
+  # # Default ssh shell pakai zsh
+  # config.ssh.shell = "zsh"
 
   # Enable vagrant-hostmanager
   config.hostmanager.enabled = true
