@@ -1,0 +1,30 @@
+{
+  "name": "Technocorner2015-EEC",
+  "version": "0.0.1",
+  "description": "Online test module for Electro Engineering Contest in Technocorner 2015 Jurusan Teknik Elektro dan Teknologi Informasi UGM",
+  "main": "index.php",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/adhikasp/Technocorner2015-EEC"
+  },
+  "keywords": [
+    "php",
+    "laravel",
+    "onlinetest"
+  ],
+  "author": "Adhika Setya Pramudita",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adhikasp/Technocorner2015-EEC/issues"
+  },
+  "homepage": "https://github.com/adhikasp/Technocorner2015-EEC",
+  "dependencies": {
+    "grunt": "^0.4.5"
+  }
+}
