@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="style/boilerplate.css">
         <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
         <!-- CSS tema milik kita sendiri -->
-        <link rel="stylesheet" href="style/main.css">
+        <link rel="stylesheet" href="style/main.min.css">
 
         <!-- Library JS -->
         <script src="lib/modernizr/modernizr-2.6.2.min.js"></script>
