@@ -1,19 +1,25 @@
 body {
   padding: 10px;
+  color: white;
+  background-color: #ed6333;
 }
 
 h1 {
-  text-align: right;
+  text-align: center;
 }
 
 #form-login {
-  border: 1px solid black;
-  background-color: #FFECB3;
+  background-color: #343434;
   padding: 1em;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 350px;
+  width: 400px;
+}
+@media only screen and (max-width: 400px) {
+  #form-login {
+    width: 300px;
+  }
 }
 
 #form-daftar {

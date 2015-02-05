@@ -1,1 +1,1 @@
-body{padding:10px}h1{text-align:right}#form-login{border:1px solid #000;background-color:#FFECB3;padding:1em;display:block;margin-left:auto;margin-right:auto;width:350px}#form-daftar{width:800px}
+body{padding:10px;color:#fff;background-color:#ed6333}h1{text-align:center}#form-login{background-color:#343434;padding:1em;display:block;margin-left:auto;margin-right:auto;width:400px}@media only screen and (max-width:400px){#form-login{width:300px}}#form-daftar{width:800px}

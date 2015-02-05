@@ -20,8 +20,11 @@ gulp.task('watch', function() {
     gulp.watch('../../laravel4/app/dev/sass/main.sass', ['styles'])
 
     // Buat server livereload
-    livereload.listen();
-    gulp.watch(['style/**']).on('change', livereload.change);
+    livereload.listen({
+        port: 9000,
+    });
+    gulp.watch(['style/**']).on('change', livereload.changed);
+    gulp.watch(['../../laravel4/app/views/**/*.blade.php']).on('change', livereload.changed);
 })
 
 gulp.task('default', function() {

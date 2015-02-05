@@ -10,18 +10,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="shortcut icon" href="img/favicon.ico">
+        <link rel="shortcut icon" href="/img/favicon.ico">
 
         <!-- Library CSS -->
-        <link rel="stylesheet" href="lib/normalize/normalize.css">
-        <link rel="stylesheet" href="style/boilerplate.css">
-        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/lib/normalize/normalize.css">
+        <link rel="stylesheet" href="/style/boilerplate.css">
+        <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
         <!-- CSS tema milik kita sendiri -->
-        <link rel="stylesheet" href="style/main.min.css">
+        <link rel="stylesheet" href="/style/main.min.css">
 
         <!-- Library JS -->
-        <script src="lib/modernizr/modernizr-2.6.2.min.js"></script>
-        <script src="lib/bootstrap/script/bootstrap.min.js"></script>
+        <script src="/lib/modernizr/modernizr-2.6.2.min.js"></script>
+        <script src="/lib/bootstrap/script/bootstrap.min.js"></script>
 
 
         <!-- Costum content per page -->
@@ -39,7 +39,7 @@
 
         <!-- Footer of base template -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="lib/jquery/jquery-1.10.2.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="/lib/jquery/jquery-1.10.2.min.js"><\/script>')</script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
@@ -52,5 +52,8 @@
             ga('create','UA-XXXXX-X');ga('send','pageview');
         */
         </script>
+        @if( App::environment() == 'local')
+        <script src="http://192.168.1.1:9000/livereload.js?snipver=1"></script>
+        @endif
     </body>
 </html>

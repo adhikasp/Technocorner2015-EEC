@@ -1,17 +1,24 @@
+$break-hp: "only screen and (max-width : 400px)"
+$tc-terang: #ed6333
+$tc-gelap: #343434
+
 body
     padding: 10px
+    color: white
+    background-color: $tc-terang
 
 h1
-    text-align: right
+    text-align: center
 
 #form-login
-    border : 1px solid black
-    background-color: #FFECB3
+    background-color: $tc-gelap
     padding: 1em
     display: block
     margin-left: auto
     margin-right: auto
-    width: 350px
+    width: 400px
+    @media #{$break-hp}
+        width: 300px
 
 #form-daftar
     width: 800px

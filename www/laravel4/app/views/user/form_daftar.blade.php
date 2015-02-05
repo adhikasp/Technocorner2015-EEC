@@ -1,4 +1,4 @@
-@extends('layout.base')
+@extends('layout.master')
 
 @section('head')
     <title>EEC - Daftar Peserta Baru</title>

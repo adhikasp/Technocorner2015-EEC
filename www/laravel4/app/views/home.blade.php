@@ -7,7 +7,7 @@
 
 
 @section('body')
-    <h1>Selamat Datang di Website Tes Online EEC Technocorner 2015!</h1>
+    <h1>Website Tes Online EEC Technocorner 2015!</h1>
 
     <div id="form-login">
         <h2>Login</h2>
