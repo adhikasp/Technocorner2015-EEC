@@ -27,8 +27,10 @@
         </div>
 
         <div class="form-group">
-            {{ Form::submit('Masuk', array('class' => 'btn'))}}
-            <a href="daftar" class="btn btn-primary">Daftar Baru</a>
+            <div class="form-inline">
+                {{ Form::submit('Masuk', array('class' => 'btn btn-dasar'))}}
+                <a href="{{ route('user.create') }}" class="btn btn-dasar btn-important">Daftar Baru</a>
+            </div>
         </div>
 
 

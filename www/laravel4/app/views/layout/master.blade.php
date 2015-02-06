@@ -19,19 +19,35 @@
         <!-- CSS tema milik kita sendiri -->
         <link rel="stylesheet" href="/style/main.min.css">
 
-        <!-- Library JS -->
-        <script src="/lib/modernizr/modernizr-2.6.2.min.js"></script>
-        <script src="/lib/bootstrap/script/bootstrap.min.js"></script>
-
 
         <!-- Costum content per page -->
-        @yield('head')
+        @yield('head', '<title>Technocorner 2015</title>')
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-collapse">
+                        <span class="sr-only">Buka navigasi</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                <a href="#" class="navbar-brand">Brand</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="menu-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/home">Home</a></li>
+                        <li><a href="//technocornerugm.com">Web Official</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
         <!-- Add your site or application content here -->
         @yield('body', "Generic content")
@@ -40,6 +56,12 @@
         <!-- Footer of base template -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="/lib/jquery/jquery-1.10.2.min.js"><\/script>')</script>
+
+        <!-- Library JS -->
+        <script src="/lib/modernizr/modernizr-2.6.2.min.js"></script>
+        <script src="/lib/bootstrap/script/bootstrap.min.js"></script>
+
+        @yield('script')
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
@@ -53,7 +75,7 @@
         */
         </script>
         @if( App::environment() == 'local')
-        <script src="http://192.168.1.1:9000/livereload.js?snipver=1"></script>
+        <script src="http://10.42.16.176:9000/livereload.js?snipver=1"></script>
         @endif
     </body>
 </html>

@@ -23,7 +23,7 @@ gulp.task('watch', function() {
     livereload.listen({
         port: 9000,
     });
-    gulp.watch(['style/**']).on('change', livereload.changed);
+    gulp.watch(['**/*']).on('change', livereload.changed);
     gulp.watch(['../../laravel4/app/views/**/*.blade.php']).on('change', livereload.changed);
 })
 

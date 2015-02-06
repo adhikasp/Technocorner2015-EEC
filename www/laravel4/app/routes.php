@@ -20,9 +20,20 @@ Route::post('login/masuk', function() {
     return 'Hello world!';
 });
 
-Route::any('/daftar', array(
-    'uses' => 'UserController@showDaftar'
+Route::any('user/daftar', array(
+  'as'  => 'user.create',
+  'uses' => 'PesertaController@create'
+))
+
+;Route::any('user/buat', array(
+  'as'  => 'user.store',
+  'uses' => 'PesertaController@store'
 ));
+
+Route::get('user', [
+  'as' => 'user.index',
+  'uses' => 'PesertaController@index'
+]);
 
 
 // Testing

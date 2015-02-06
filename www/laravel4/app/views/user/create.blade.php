@@ -7,9 +7,8 @@
 @section('body')
     <h1>Form Pendaftaran Peserta</h1>
 
-    <div id='form-daftar'>
-        {{ Form::open(array('url' => 'daftar/proses', 'class' => 'form-horizontal')) }}
-        <fieldset>
+    {{ Form::open(array('route' => 'user.store', 'class' => 'form-horizontal', 'id' => 'form-daftar')) }}
+    <fieldset>
 
         <div class="form-group">
             {{ Form::label('nama_tim', 'Nama Tim', array('class' => 'control-label col-sm-2')) }}
@@ -34,10 +33,9 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('asal', 'Asal Sekolah', array('class' => 'control-label col-sm-2')) }}
+            {{ Form::label('konfirm_password', 'Konfirmasi Password', array('class' => 'control-label col-sm-2')) }}
             <div class="col-sm-10">
-                {{ Form::text('asal', '', array('class' => 'form-control')) }}
-                <span class='help-block'>Contoh format: SMAN 1 Sukamaju</span>
+                {{ Form::password('konfirm_password', array('class' => 'form-control')) }}
             </div>
         </div>
 
@@ -62,10 +60,17 @@
             </div>
         </div>
 
+        <div class="form-group">
+            {{ Form::label('asal', 'Asal Sekolah', array('class' => 'control-label col-sm-2')) }}
+            <div class="col-sm-10">
+                {{ Form::text('asal', '', array('class' => 'form-control')) }}
+                <span class='help-block'>Contoh format: SMA N 99 Yogyakarta</span>
+            </div>
+        </div>
+
         {{ Form::submit('Daftar', array('class' => 'btn btn-primary btn-lg col-sm-offset-2')) }}
 
-        </fieldset>
-        {{ Form::close() }}
-    </div>
+    </fieldset>
+    {{ Form::close() }}
 
 @stop
