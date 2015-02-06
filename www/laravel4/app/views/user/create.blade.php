@@ -61,9 +61,9 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('asal', 'Asal Sekolah', array('class' => 'control-label col-sm-2')) }}
+            {{ Form::label('asal_sekolah', 'Asal Sekolah', array('class' => 'control-label col-sm-2')) }}
             <div class="col-sm-10">
-                {{ Form::text('asal', '', array('class' => 'form-control')) }}
+                {{ Form::text('asal_sekolah', '', array('class' => 'form-control')) }}
                 <span class='help-block'>Contoh format: SMA N 99 Yogyakarta</span>
             </div>
         </div>

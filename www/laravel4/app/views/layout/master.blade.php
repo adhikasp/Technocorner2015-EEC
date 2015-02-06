@@ -37,7 +37,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                <a href="#" class="navbar-brand">Brand</a>
+                <a href="#" class="navbar-brand">Technocorner 2015</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="menu-collapse">
@@ -59,7 +59,7 @@
 
         <!-- Library JS -->
         <script src="/lib/modernizr/modernizr-2.6.2.min.js"></script>
-        <script src="/lib/bootstrap/script/bootstrap.min.js"></script>
+        <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
 
         @yield('script')
 

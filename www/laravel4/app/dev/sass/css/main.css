@@ -45,7 +45,9 @@ h1 {
 
 .navbar-default {
   background-color: #343434;
-  border-color: #bc423b;
+  border-color: #343434;
+  border-radius: 0;
+  margin: 0;
 }
 .navbar-default .navbar-brand {
   color: #ecf0f1;

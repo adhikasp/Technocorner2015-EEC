@@ -16,25 +16,39 @@ Route::get('/', array(
     'uses' => 'HomeController@showHome'
 ));
 
+Route::get('home', function() {
+    return Redirect::route('home');
+});
+
 Route::post('login/masuk', function() {
     return 'Hello world!';
 });
 
+// Ranah Peserta
+
 Route::any('user/daftar', array(
   'as'  => 'user.create',
   'uses' => 'PesertaController@create'
-))
+));
 
-;Route::any('user/buat', array(
+Route::post('user/buat', array(
   'as'  => 'user.store',
   'uses' => 'PesertaController@store'
 ));
 
 Route::get('user', [
+  'before' => 'auth',
   'as' => 'user.index',
   'uses' => 'PesertaController@index'
 ]);
 
+
+// Ranah Admin
+
+Route::get('admin-tc/peserta', [
+  'as' => 'admin.viewAllPeserta',
+  'uses' => 'AdminController@viewAllPeserta'
+]);
 
 // Testing
 
