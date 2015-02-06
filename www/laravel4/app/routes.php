@@ -27,19 +27,24 @@ Route::post('login/masuk', function() {
 // Ranah Peserta
 
 Route::any('user/daftar', array(
-  'as'  => 'user.create',
+  'as'  => 'peserta.create',
   'uses' => 'PesertaController@create'
 ));
 
 Route::post('user/buat', array(
-  'as'  => 'user.store',
+  'as'  => 'peserta.store',
   'uses' => 'PesertaController@store'
 ));
 
 Route::get('user', [
-  'before' => 'auth',
-  'as' => 'user.index',
-  'uses' => 'PesertaController@index'
+  'before' => 'auth.peserta',
+  'as' => 'peserta.dashboard',
+  'uses' => 'PesertaController@dashboard'
+]);
+
+Route::post('user/login', [
+  'as' => 'peserta.login',
+  'uses' => 'PesertaController@login'
 ]);
 
 
@@ -49,6 +54,11 @@ Route::get('admin-tc/peserta', [
   'as' => 'admin.viewAllPeserta',
   'uses' => 'AdminController@viewAllPeserta'
 ]);
+
+Route::get('admin-tc/peserta/{id}', [
+  'as' => 'admin.viewDetailPeserta',
+  'uses' => 'AdminController@viewDetailPeserta'
+])->where('id', '[0-9]+');
 
 // Testing
 

@@ -9,4 +9,12 @@ class AdminController extends BaseController {
       ->withPeserta($peserta);
   }
 
+  public function viewDetailPeserta($id)
+  {
+    $peserta = Peserta::find($id);
+
+    return View::make('admin.detailPeserta')
+      ->withPeserta($peserta);
+  }
+
 }

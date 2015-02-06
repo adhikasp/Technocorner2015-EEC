@@ -75,7 +75,7 @@
         */
         </script>
         @if( App::environment() == 'local')
-        <script src="http://10.42.16.176:9000/livereload.js?snipver=1"></script>
+        <script src="http://192.168.1.1:9000/livereload.js?snipver=1"></script>
         @endif
     </body>
 </html>

@@ -39,6 +39,11 @@ h1 {
   color: #343434;
 }
 
+.bg-error {
+  padding: 0.2rem;
+  background-color: #bc423b;
+}
+
 .help-block {
   color: white;
 }

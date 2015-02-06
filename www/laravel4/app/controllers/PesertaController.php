@@ -2,14 +2,14 @@
 
 class PesertaController extends BaseController {
 
-    public function showDashboard()
+    public function dashboard()
     {
         return "Hello User :)";
     }
 
     public function create()
     {
-        return View::make('user.create');
+        return View::make('peserta.create');
     }
 
     public function store()
@@ -26,14 +26,24 @@ class PesertaController extends BaseController {
       $p->asal_sekolah = Input::get('asal_sekolah');
       $p->save();
 
-      return Redirect::route('user.index');
+      return Redirect::route('peserta.index');
     }
 
     public function index()
     {
       $peserta = Peserta::all();
 
-      return View::make('user.index')
+      return View::make('peserta.index')
         ->withPeserta($peserta);
+    }
+
+    public function login()
+    {
+      if (Auth::attempt(['email' => Input::get('email'), 'password' => Hash::make(Input::get('password'))])) {
+        return Redirect::intended('peserta.index');
+      }
+
+      return View::make('Home')
+        ->withPesan('gagal_login');
     }
 }

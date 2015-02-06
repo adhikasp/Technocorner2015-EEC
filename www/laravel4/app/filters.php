@@ -45,6 +45,17 @@ Route::filter('auth', function()
 	}
 });
 
+Route::filter('auth.peserta', function()
+{
+	if (Auth::guest() || Auth::user()->userable_type != 'Peserta')
+	{
+		if (Request::ajax())
+		{
+			return Response::make('Unauthorized', 401);
+		}
+		return Redirect::route('home');
+	}
+});
 
 Route::filter('auth.basic', function()
 {
