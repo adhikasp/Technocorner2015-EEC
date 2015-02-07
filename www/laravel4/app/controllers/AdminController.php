@@ -9,17 +9,50 @@ class AdminController extends BaseController {
 
   public function create()
   {
-    return View::make('admin.home');
+    return View::make('admin.create');
+  }
+
+  public function store()
+  {
+    if( strtolower(Input::get('secret')) != 'reza')
+    {
+      return Redirect::route('home');
+    }
+
+    $u = new User;
+    $u->email = Input::get('email');
+    $u->password = Hash::make(Input::get('password'));
+    $u->save();
+
+    $a = new Admin;
+    $a->name = Input::get('name');
+    $a->save();
+
+    // Polymorph magic
+    $a->user()->save($u);
+
+    // Automatic login after creating new Admin
+    Auth::login($u);
+
+    return View::make('admin.dashboard');
   }
 
   public function login()
   {
-    return View::make('admin.home');
+    if(Auth::attempt(['email' => Input::get('email'), 'password' => Input::get('password')])) {
+      return Redirect::route('admin.dashboard');
+    }
+
+    return Redirect::route('admin.home')
+      ->withMessage('login_fail');
   }
 
   public function dashboard()
   {
-    return View::make('admin.home');
+    $questions = Question::all();
+
+    return View::make('admin.dashboard')
+      ->withQuestions($questions);
   }
 
   public function viewAllParticipant() {

@@ -1,7 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+html, body {
+  height: 100%;
+}
+
 body {
   color: white;
-  background-color: #ed6333;
+  background-color: #bc423b;
 }
 
 h1 {
@@ -10,6 +14,26 @@ h1 {
 
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: "Open Sans", "Ubuntu", Helvetica, Arial, sans-serif !important;
+}
+
+main {
+  max-width: 1000px;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  background-color: #524F52;
+  margin: 0 auto -100px auto;
+  padding-top: 70px;
+  padding-bottom: 150px;
+}
+
+footer {
+  height: 100px;
+  background-color: #ed6333;
+}
+
+section.dashboard h1 {
+  text-align: left;
 }
 
 #form-login {
@@ -26,17 +50,22 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   }
 }
 
-#form-daftar {
-  width: 800px;
+.form-daftar {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .btn-dasar {
   background-color: #343434;
+  display: inline-block;
   padding: 7px 15px;
   border-radius: 0;
   color: white;
   border: 1px solid white;
   transition: all 200ms ease;
+  min-width: 100px;
+  text-align: center;
 }
 
 .btn-dasar:visited, .btn-dasar:link {
@@ -56,18 +85,22 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   text-decoration: none;
 }
 
+.btn-primary {
+  background-color: #152EBA;
+}
+
 .btn-important {
-  background-color: green;
+  background-color: #167f10;
 }
 
 .bg-error {
-  padding: 0.2rem;
+  padding: 1rem;
   background-color: #bc423b;
 }
 
 .bg-success {
-  padding: 0.3rem;
-  background-color: green;
+  padding: 1rem;
+  background-color: #167f10;
 }
 
 .help-block {
@@ -142,4 +175,19 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     color: white;
     background-color: #bc423b;
   }
+}
+.nav-tabs li.active a {
+  color: white;
+  background-color: #ed6333;
+}
+.nav-tabs li:hover.active a {
+  background-color: #f49e80;
+  color: white;
+}
+.nav-tabs li a {
+  color: white;
+}
+.nav-tabs li:hover a {
+  color: white;
+  background-color: #f49e80;
 }

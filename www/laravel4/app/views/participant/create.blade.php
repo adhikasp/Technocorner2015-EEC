@@ -5,9 +5,10 @@
 @stop
 
 @section('body')
+<main class="container-fluid">
     <h1>Form Pendaftaran Peserta</h1>
 
-    {{ Form::open(array('route' => 'participant.store', 'class' => 'form-horizontal', 'id' => 'form-daftar')) }}
+    {{ Form::open(array('route' => 'participant.store', 'class' => 'form-horizontal form-daftar')) }}
     <fieldset>
 
         <div class="form-group">
@@ -68,9 +69,9 @@
             </div>
         </div>
 
-        {{ Form::submit('Daftar', array('class' => 'btn btn-primary btn-lg col-sm-offset-2')) }}
+        {{ Form::submit('Daftar', array('class' => 'btn btn-primary btn-lg col-sm-offset-2 col-sm-10')) }}
 
     </fieldset>
     {{ Form::close() }}
-
+</main>
 @stop

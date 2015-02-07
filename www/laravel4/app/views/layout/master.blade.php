@@ -28,7 +28,7 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-collapse">
@@ -46,19 +46,29 @@
                         <li><a href="//technocornerugm.com">Web Official</a></li>
                     </ul>
 
+                    @if(Auth::check())
                     <ul class="nav navbar-nav navbar-right">
-                        @if(Auth::check() && Auth::user()->userable_type == 'Participant')
+                        @if(Auth::user()->userable_type == 'Participant')
                             <li class="navbar-text">Login sebagai tim {{ Auth::user()->userable->team_name }}</li>
+                            <li>{{ link_to_route('participant.dashboard', 'Dashboard') }}</li>
                             <li>{{ link_to_route('participant.logout', 'Logout') }}</li>
+                        @elseif(Auth::user()->userable_type == 'Admin')
+                            <li class="navbar-text">Login sebagai ADMIN {{ Auth::user()->userable->name }}</li>
+                            <li>{{ link_to_route('admin.dashboard', 'Dashboard') }}</li>
+                            <li>{{ link_to_route('admin.dashboard', 'Logout') }}</li>
                         @endif
-
                     </ul>
+                    @endif
                 </div>
             </div>
         </nav>
 
         <!-- Add your site or application content here -->
         @yield('body', "Generic content")
+
+        <footer>
+            Tes ini adalah bagian footer.
+        </footer>
 
 
         <!-- Footer of base template -->

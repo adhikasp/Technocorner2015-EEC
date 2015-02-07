@@ -57,14 +57,19 @@ Route::get('admin-tc', [
   'uses' => 'AdminController@home'
 ]);
 
-Route::get('admin-tc/login', [
+Route::post('admin-tc/login', [
   'as' => 'admin.login',
   'uses' => 'AdminController@login'
 ]);
 
-Route::get('admin-tc/create', [
+Route::get('admin-tc/daftar', [
   'as' => 'admin.create',
   'uses' => 'AdminController@create'
+]);
+
+Route::post('admin-tc/store', [
+  'as' => 'admin.store',
+  'uses' => 'AdminController@store'
 ]);
 
 Route::get('admin-tc/dashboard', [
@@ -72,15 +77,25 @@ Route::get('admin-tc/dashboard', [
   'uses' => 'AdminController@dashboard'
 ]);
 
-Route::get('admin-tc/peserta', [
+Route::get('admin-tc/dashboard/peserta', [
   'as' => 'admin.viewAllParticipant',
   'uses' => 'AdminController@viewAllParticipant'
 ]);
 
-Route::get('admin-tc/peserta/{id}', [
+Route::get('admin-tc/dashboard/peserta/{id}', [
   'as' => 'admin.viewDetailParticipant',
   'uses' => 'AdminController@viewDetailParticipant'
 ])->where('id', '[0-9]+');
+
+Route::get('admin-tc/dashboard/soal/tambah', [
+  'as' => 'admin.question.create',
+  'uses' => 'QuestionController@create'
+]);
+
+Route::post('admin-tc/dashboard/soal/simpan', [
+  'as' => 'admin.question.store',
+  'uses' => 'QuestionController@store'
+]);
 
 // Testing
 

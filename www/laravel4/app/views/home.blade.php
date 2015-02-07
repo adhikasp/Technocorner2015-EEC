@@ -8,7 +8,7 @@
 
 @section('body')
   <main class="container-fluid">
-    <h1>Website Tes Online EEC Technocorner 2015</h1>
+    <h1 class="important">Website Tes Online EEC Technocorner 2015</h1>
 
     <div id="form-login">
         <h2>Login</h2>

@@ -1,6 +1,0 @@
-laravel/composer.phar
-laravel/composer.lock
-laravel/.env.*.php
-laravel/.env.php
-laravel/.DS_Store
-laravel/Thumbs.db
