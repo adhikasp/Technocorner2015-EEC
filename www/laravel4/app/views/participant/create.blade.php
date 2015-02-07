@@ -7,13 +7,13 @@
 @section('body')
     <h1>Form Pendaftaran Peserta</h1>
 
-    {{ Form::open(array('route' => 'user.store', 'class' => 'form-horizontal', 'id' => 'form-daftar')) }}
+    {{ Form::open(array('route' => 'participant.store', 'class' => 'form-horizontal', 'id' => 'form-daftar')) }}
     <fieldset>
 
         <div class="form-group">
-            {{ Form::label('nama_tim', 'Nama Tim', array('class' => 'control-label col-sm-2')) }}
+            {{ Form::label('team_name', 'Nama Tim', array('class' => 'control-label col-sm-2')) }}
             <div class="col-sm-10">
-                {{ Form::text('nama_tim', '', array('class' => 'form-control')) }}
+                {{ Form::text('team_name', '', array('class' => 'form-control')) }}
             </div>
         </div>
 
@@ -40,30 +40,30 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('anggota_1', 'Anggota 1', array('class' => 'control-label col-sm-2')) }}
+            {{ Form::label('member_1', 'Anggota 1', array('class' => 'control-label col-sm-2')) }}
             <div class="col-sm-10">
-                {{ Form::text('anggota_1', '', array('class' => 'form-control')) }}
+                {{ Form::text('member_1', '', array('class' => 'form-control')) }}
             </div>
         </div>
 
         <div class="form-group">
-            {{ Form::label('anggota_2', 'Anggota 2', array('class' => 'control-label col-sm-2')) }}
+            {{ Form::label('member_2', 'Anggota 2', array('class' => 'control-label col-sm-2')) }}
             <div class="col-sm-10">
-                {{ Form::text('anggota_2', '', array('class' => 'form-control')) }}
+                {{ Form::text('member_2', '', array('class' => 'form-control')) }}
             </div>
         </div>
 
         <div class="form-group">
-            {{ Form::label('anggota_3', 'Anggota 3', array('class' => 'control-label col-sm-2')) }}
+            {{ Form::label('member_3', 'Anggota 3', array('class' => 'control-label col-sm-2')) }}
             <div class="col-sm-10">
-                {{ Form::text('anggota_3', '', array('class' => 'form-control')) }}
+                {{ Form::text('member_3', '', array('class' => 'form-control')) }}
             </div>
         </div>
 
         <div class="form-group">
-            {{ Form::label('asal_sekolah', 'Asal Sekolah', array('class' => 'control-label col-sm-2')) }}
+            {{ Form::label('school', 'Asal Sekolah', array('class' => 'control-label col-sm-2')) }}
             <div class="col-sm-10">
-                {{ Form::text('asal_sekolah', '', array('class' => 'form-control')) }}
+                {{ Form::text('school', '', array('class' => 'form-control')) }}
                 <span class='help-block'>Contoh format: SMA N 99 Yogyakarta</span>
             </div>
         </div>

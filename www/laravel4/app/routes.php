@@ -24,40 +24,40 @@ Route::post('login/masuk', function() {
     return 'Hello world!';
 });
 
-// Ranah Peserta
+// Participant related Route
 
-Route::any('user/daftar', array(
-  'as'  => 'peserta.create',
-  'uses' => 'PesertaController@create'
+Route::get('user/daftar', array(
+  'as'  => 'participant.create',
+  'uses' => 'ParticipantController@create'
 ));
 
 Route::post('user/buat', array(
-  'as'  => 'peserta.store',
-  'uses' => 'PesertaController@store'
+  'as'  => 'participant.store',
+  'uses' => 'ParticipantController@store'
 ));
 
 Route::get('user', [
-  'before' => 'auth.peserta',
-  'as' => 'peserta.dashboard',
-  'uses' => 'PesertaController@dashboard'
+  'before' => 'auth.participant',
+  'as' => 'participant.dashboard',
+  'uses' => 'ParticipantController@dashboard'
 ]);
 
 Route::post('user/login', [
-  'as' => 'peserta.login',
-  'uses' => 'PesertaController@login'
+  'as' => 'participant.login',
+  'uses' => 'ParticipantController@login'
 ]);
 
 
 // Ranah Admin
 
 Route::get('admin-tc/peserta', [
-  'as' => 'admin.viewAllPeserta',
-  'uses' => 'AdminController@viewAllPeserta'
+  'as' => 'admin.viewAllParticipant',
+  'uses' => 'AdminController@viewAllParticipant'
 ]);
 
 Route::get('admin-tc/peserta/{id}', [
-  'as' => 'admin.viewDetailPeserta',
-  'uses' => 'AdminController@viewDetailPeserta'
+  'as' => 'admin.viewDetailParticipant',
+  'uses' => 'AdminController@viewDetailParticipant'
 ])->where('id', '[0-9]+');
 
 // Testing

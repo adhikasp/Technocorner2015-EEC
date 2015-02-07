@@ -19,7 +19,7 @@
                 </p>
             @endif
         @endif
-        {{ Form::open(array('route' => 'peserta.login')) }}
+        {{ Form::open(array('route' => 'participant.login')) }}
         <fieldset>
         {{ Form::token() }}
 
@@ -37,7 +37,7 @@
         <div class="form-group">
             <div class="form-inline">
                 {{ Form::submit('Masuk', array('class' => 'btn btn-dasar'))}}
-                <a href="{{ route('peserta.create') }}" class="btn btn-dasar btn-important">Daftar Baru</a>
+                <a href="{{ route('participant.create') }}" class="btn btn-dasar btn-important">Daftar Baru</a>
             </div>
         </div>
 

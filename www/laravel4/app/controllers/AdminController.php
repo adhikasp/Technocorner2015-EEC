@@ -2,19 +2,19 @@
 
 class AdminController extends BaseController {
 
-  public function viewAllPeserta() {
-    $peserta = Peserta::all();
+  public function viewAllParticipant() {
+    $participant = Participant::all();
 
-    return View::make('admin.allPeserta')
-      ->withPeserta($peserta);
+    return View::make('admin.allParticipant')
+      ->withParticipant($participant);
   }
 
-  public function viewDetailPeserta($id)
+  public function viewDetailParticipant($id)
   {
-    $peserta = Peserta::find($id);
+    $participant = Participant::find($id);
 
-    return View::make('admin.detailPeserta')
-      ->withPeserta($peserta);
+    return View::make('admin.detailParticipant')
+      ->withParticipant($participant);
   }
 
 }

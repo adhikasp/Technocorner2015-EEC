@@ -8,54 +8,54 @@
       <div class="form-group">
         <label for="" class="control-label col-sm-2">ID</label>
         <div class="col-sm-10">
-          <p class="form-control-static">{{ $peserta->id }}</p>
+          <p class="form-control-static">{{ $participant->id }}</p>
         </div>
       </div>
       <div class="form-group">
         <label for="" class="control-label col-sm-2">Nama Tim</label>
         <div class="col-sm-10">
-          <p class="form-control-static">{{ $peserta->nama_tim }}</p>
+          <p class="form-control-static">{{ $participant->team_name }}</p>
         </div>
       </div>
       <div class="form-group">
         <label for="" class="control-label col-sm-2">Asal Sekolah</label>
         <div class="col-sm-10">
-          <p class="form-control-static">{{ $peserta->asal_sekolah }}</p>
+          <p class="form-control-static">{{ $participant->school }}</p>
         </div>
       </div>
       <div class="form-group">
         <label for="" class="control-label col-sm-2">Anggota 1</label>
         <div class="col-sm-10">
-          <p class="form-control-static">{{ $peserta->anggota_1 }}</p>
+          <p class="form-control-static">{{ $participant->member_1 }}</p>
         </div>
       </div>
       <div class="form-group">
         <label for="" class="control-label col-sm-2">Anggota 2</label>
         <div class="col-sm-10">
-          <p class="form-control-static">{{ $peserta->anggota_2 }}</p>
+          <p class="form-control-static">{{ $participant->member_2 }}</p>
         </div>
       </div>
       <div class="form-group">
         <label for="" class="control-label col-sm-2">Anggota 3</label>
         <div class="col-sm-10">
-          <p class="form-control-static">{{ $peserta->anggota_3 }}</p>
+          <p class="form-control-static">{{ $participant->member_3 }}</p>
         </div>
       </div>
       <div class="form-group">
         <label for="" class="control-label col-sm-2">Email</label>
         <div class="col-sm-10">
-          <p class="form-control-static">{{ $peserta->user->email }}</p>
+          <p class="form-control-static">{{ $participant->user->email }}</p>
         </div>
       </div>
       <div class="form-group">
         <label for="" class="control-label col-sm-2">Password</label>
         <div class="col-sm-10">
-          <p class="form-control-static">{{ $peserta->user->password }}</p>
+          <p class="form-control-static">{{ $participant->user->password }}</p>
         </div>
       </div>
     </fieldset>
     {{ Form::close() }}
 
-    {{ link_to_route('admin.viewAllPeserta', 'Kembali ke index peserta')}}
+    {{ link_to_route('admin.viewAllParticipant', 'Kembali ke index peserta')}}
   </main>
 @stop

@@ -25,17 +25,20 @@ class CreatePesertaTable extends Migration {
 			$t->timestamps();
 		});
 
-		Schema::create('users_peserta', function(Blueprint $t)
+		Schema::create('users_participant', function(Blueprint $t)
 		{
 			$t->increments('id');
-			$t->string('nama_tim', 30)->unique();
+			$t->string('team_name', 30)->unique();
 
-			$t->string('anggota_1', 30);
-			$t->string('anggota_2', 30)->nullable();
-			$t->string('anggota_3', 30)->nullable();
-			$t->string('asal_sekolah', 40);
+			$t->string('member_1', 30);
+			$t->string('member_2', 30)->nullable();
+			$t->string('member_3', 30)->nullable();
+			$t->string('school', 40);
 
-			$t->integer('skor')->nullable();
+			$t->integer('exam_status')->default(0);
+			$t->dateTime('exam_datetime')->nullable()->default(null);
+
+			$t->integer('score')->nullable();
 		});
 	}
 
@@ -46,8 +49,8 @@ class CreatePesertaTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('users');
-		Schema::dropIfExists('users_peserta');
+		Schema::drop('users');
+		Schema::drop('users_participant');
 	}
 
 }

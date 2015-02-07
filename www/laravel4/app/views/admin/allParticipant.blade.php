@@ -12,13 +12,13 @@
         <th>Asal Sekolah</th>
         <th>Aksi</th>
       </tr>
-      @foreach($peserta as $tim)
+      @foreach($participant as $team)
         <tr>
-          <td>{{ $tim->id }}</td>
-          <td>{{ $tim->nama_tim }}</td>
-          <td>{{ $tim->user->email }}</td>
-          <td>{{ $tim->asal_sekolah }}</td>
-          <td>{{ link_to_route('admin.viewDetailPeserta', 'Detail', $tim->id) }}</td>
+          <td>{{ $team->id }}</td>
+          <td>{{ $team->team_name }}</td>
+          <td>{{ $team->user->email }}</td>
+          <td>{{ $team->school }}</td>
+          <td>{{ link_to_route('admin.viewDetailParticipant', 'Detail', $team->id) }}</td>
         </tr>
       @endforeach
     </table>
