@@ -20,10 +20,6 @@ Route::get('home', function() {
     return Redirect::route('home');
 });
 
-Route::post('login/masuk', function() {
-    return 'Hello world!';
-});
-
 // Participant related Route
 
 Route::get('user/daftar', array(
@@ -31,7 +27,7 @@ Route::get('user/daftar', array(
   'uses' => 'ParticipantController@create'
 ));
 
-Route::post('user/buat', array(
+Route::post('user/simpan', array(
   'as'  => 'participant.store',
   'uses' => 'ParticipantController@store'
 ));
@@ -45,6 +41,12 @@ Route::get('user', [
 Route::post('user/login', [
   'as' => 'participant.login',
   'uses' => 'ParticipantController@login'
+]);
+
+Route::get('user/logout', [
+  // 'before' => 'auth.participant',
+  'as' => 'participant.logout',
+  'uses' => 'ParticipantController@logout'
 ]);
 
 

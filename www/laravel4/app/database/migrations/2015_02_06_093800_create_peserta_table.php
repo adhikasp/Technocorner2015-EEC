@@ -18,6 +18,7 @@ class CreatePesertaTable extends Migration {
 			$t->string('email', 40)->unique();
 			$t->string('password', 60); // Fungsi Hash::make() Laravel SELALU mengeluarkan 60 karakter
 
+			// Laravel polymorph field
 			$t->integer('userable_id')->nullable();
 			$t->string('userable_type')->nullable();
 
@@ -36,7 +37,7 @@ class CreatePesertaTable extends Migration {
 			$t->string('school', 40);
 
 			$t->integer('exam_status')->default(0);
-			$t->dateTime('exam_datetime')->nullable()->default(null);
+			$t->dateTime('exam_time')->nullable()->default(null);
 
 			$t->integer('score')->nullable();
 		});

@@ -45,14 +45,21 @@ Route::filter('auth', function()
 	}
 });
 
-Route::filter('auth.peserta', function()
+Route::filter('auth.participant', function()
 {
-	if (Auth::guest() || Auth::user()->userable_type != 'Peserta')
+	if (Auth::guest())
 	{
 		if (Request::ajax())
 		{
 			return Response::make('Unauthorized', 401);
 		}
+		return Redirect::route('home')
+			->withMessage('unauthorized_access');
+	}
+
+	// The IF statement can't be combined because if the first IF (check if user already login) fail, then Auth::user() will throw an error because it can't access logged User model.
+	if (Auth::user()->userable_type != 'Participant')
+	{
 		return Redirect::route('home');
 	}
 });

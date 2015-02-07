@@ -41,9 +41,17 @@
                 </div>
 
                 <div class="collapse navbar-collapse" id="menu-collapse">
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav navbar-left">
                         <li><a href="/home">Home</a></li>
                         <li><a href="//technocornerugm.com">Web Official</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        @if(Auth::check() && Auth::user()->userable_type == 'Participant')
+                            <li class="navbar-text">Login sebagai tim {{ Auth::user()->userable->team_name }}</li>
+                            <li>{{ link_to_route('participant.logout', 'Logout') }}</li>
+                        @endif
+
                     </ul>
                 </div>
             </div>

@@ -4,7 +4,7 @@ class ParticipantController extends BaseController {
 
     public function dashboard()
     {
-        return "Hello User :)";
+        return View::make('participant.dashboard');
     }
 
     public function create()
@@ -46,11 +46,18 @@ class ParticipantController extends BaseController {
 
     public function login()
     {
-      if (Auth::attempt(['email' => Input::get('email'), 'password' => Hash::make(Input::get('password'))])) {
-        return Redirect::intended('participant.index');
+      if (Auth::attempt(['email' => Input::get('email'), 'password' => Input::get('password') ])) {
+        return Redirect::intended(route('participant.dashboard'));
       }
 
-      return View::make('Home')
-        ->withPesan('gagal_login');
+      return Redirect::route('home')
+        ->withMessage('login_fail');
+    }
+
+    public function logout()
+    {
+      Auth::logout();
+      return Redirect::route('home')
+        ->withMessage('logout_participant');
     }
 }

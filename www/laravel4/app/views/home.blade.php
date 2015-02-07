@@ -11,14 +11,25 @@
 
     <div id="form-login">
         <h2>Login</h2>
-        @if(Session::has('pesan'))
-            @if($pesan == 'gagal_login')
+        @if(Session::has('message'))
+            @if(Session::get('message') == 'login_fail')
                 <p class="bg-error">
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                     <strong>Error</strong>: Login gagal, pastikan email dan/atau password Anda sudah benar.
                 </p>
+            @elseif(Session::get('message') == 'logout_participant')
+                <p class="bg-success">
+                    <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                    <strong>Sukses</strong>: Anda sudah logout dari sistem.
+                </p>
+            @elseif(Session::get('message') == 'unauthorized_access')
+                <p class="bg-error">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    <strong>Error</strong>: Maaf, kamu harus login dahulu.
+                </p>
             @endif
         @endif
+
         {{ Form::open(array('route' => 'participant.login')) }}
         <fieldset>
         {{ Form::token() }}
