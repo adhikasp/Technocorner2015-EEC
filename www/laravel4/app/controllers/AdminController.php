@@ -2,6 +2,11 @@
 
 class AdminController extends BaseController {
 
+  public function home()
+  {
+    return View::make('admin.home');
+  }
+
   public function viewAllParticipant() {
     $participant = Participant::all();
 

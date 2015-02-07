@@ -52,6 +52,11 @@ Route::get('user/logout', [
 
 // Ranah Admin
 
+Route::get('admin-tc', [
+  'as' => 'admin.home',
+  'uses' => 'AdminController@home'
+]);
+
 Route::get('admin-tc/peserta', [
   'as' => 'admin.viewAllParticipant',
   'uses' => 'AdminController@viewAllParticipant'

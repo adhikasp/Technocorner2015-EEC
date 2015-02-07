@@ -7,6 +7,7 @@
 
 
 @section('body')
+  <main class="container-fluid">
     <h1>Website Tes Online EEC Technocorner 2015</h1>
 
     <div id="form-login">
@@ -51,10 +52,8 @@
                 <a href="{{ route('participant.create') }}" class="btn btn-dasar btn-important">Daftar Baru</a>
             </div>
         </div>
-
-
         </fieldset>
         {{ Form::close() }}
     </div>
-
+  </main>
 @stop
