@@ -13,6 +13,9 @@ class DatabaseSeeder extends Seeder {
 
 		$this->call('ParticipantTableSeeder');
 		$this->command->info('Participant table seeded!');
+
+		$this->call('AdminTableSeeder');
+		$this->command->info('Admin table seeded!');
 	}
 
 }
@@ -22,9 +25,8 @@ class ParticipantTableSeeder extends Seeder
 
 	public function run()
 	{
-		DB::table('users')->delete();
-
 		DB::table('users_participant')->delete();
+
 		Participant::create([
 			'id' 					 => 1,
 			'team_name'     => 'Technocorner Dummy Team 4EVER',
@@ -51,7 +53,7 @@ class ParticipantTableSeeder extends Seeder
 		]);
 
 		$u = new User;
-		$u->email = 'adhika.setyap@gmail.com';
+		$u->email = 'dhika_sp@yahoo.com';
 		$u->password = Hash::make('1234');
 		$u->save();
 
@@ -65,6 +67,24 @@ class ParticipantTableSeeder extends Seeder
 
 		$p = Participant::find(2);
 		$p->user()->save($u);
+	}
+}
 
+class AdminTableSeeder extends Seeder
+{
+	public function run()
+	{
+		DB::table('users_admin')->delete();
+
+		$u = new User;
+		$u->email = 'adhika.setyap@gmail.com';
+		$u->password = Hash::make('1234');
+		$u->save();
+
+		$a = new Admin;
+		$a->name = 'Adhika Setya Pramudita';
+		$a->save();
+
+		$a->user()->save($u);
 	}
 }

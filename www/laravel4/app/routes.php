@@ -57,6 +57,21 @@ Route::get('admin-tc', [
   'uses' => 'AdminController@home'
 ]);
 
+Route::get('admin-tc/login', [
+  'as' => 'admin.login',
+  'uses' => 'AdminController@login'
+]);
+
+Route::get('admin-tc/create', [
+  'as' => 'admin.create',
+  'uses' => 'AdminController@create'
+]);
+
+Route::get('admin-tc/dashboard', [
+  'as' => 'admin.dashboard',
+  'uses' => 'AdminController@dashboard'
+]);
+
 Route::get('admin-tc/peserta', [
   'as' => 'admin.viewAllParticipant',
   'uses' => 'AdminController@viewAllParticipant'

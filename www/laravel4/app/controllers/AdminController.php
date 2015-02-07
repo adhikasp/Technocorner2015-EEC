@@ -7,6 +7,21 @@ class AdminController extends BaseController {
     return View::make('admin.home');
   }
 
+  public function create()
+  {
+    return View::make('admin.home');
+  }
+
+  public function login()
+  {
+    return View::make('admin.home');
+  }
+
+  public function dashboard()
+  {
+    return View::make('admin.home');
+  }
+
   public function viewAllParticipant() {
     $participant = Participant::all();
 

@@ -41,6 +41,12 @@ class CreatePesertaTable extends Migration {
 
 			$t->integer('score')->nullable();
 		});
+
+		Schema::create('users_admin', function(Blueprint $t)
+		{
+			$t->increments('id');
+			$t->string('name');
+		});
 	}
 
 	/**
@@ -50,8 +56,9 @@ class CreatePesertaTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('users');
-		Schema::drop('users_participant');
+		Schema::dropIfExists('users');
+		Schema::dropIfExists('users_participant');
+		Schema::dropIfExists('users_admin');
 	}
 
 }
