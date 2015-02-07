@@ -10,8 +10,8 @@ Web EEC ini dikembangkan dengan [Framework Laravel](laravel.com) karena sekaligu
 - [Vagrant](vagrantup.com)
 - [Twitter Bootstrap](getbootstrap.com) - untuk desain awal CSS, selagi menunggu desain beneran
 - [HTML 5 Boilerplate](html5boilerplate.com) - kerangka awal html5 yang rapi
-- [NodeJS]() - Untuk menginstall gulp
-- [Gulp]() - Automatic task runner, otomatis me minify CSS
+- [NodeJS](#) - Untuk menginstall gulp
+- [Gulp](#) - Automatic task runner, otomatis me minify CSS
 - [SASS](sass-lang.com) - CSS yang lebih baik
 
 ## Cara menginstall
