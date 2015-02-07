@@ -1,2 +1,10 @@
- www/public_html/onlinetest/.sass-cache/
- html
+www/public_html/onlinetest/.sass-cache/
+html
+app
+www/laravel4/vendor
+www/laravel4/composer.phar
+www/laravel4/composer.lock
+www/laravel4/.env.*.php
+www/laravel4/.env.php
+www/laravel4/.DS_Store
+www/laravel4/Thumbs.db

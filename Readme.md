@@ -15,11 +15,17 @@ Web EEC ini dikembangkan dengan [Framework Laravel](laravel.com) karena sekaligu
 
 ### Tanpa Virtual Machine
 
+Program yang **HARUS** ada :
+
 1. Git clone semua repo ini
 2. Install Apache, PHP, MySQL (LAMP/WAMP/sejenisnya)
-3. Copy semua yang ada di dalam direktori **www** ke dalam folder www nya Apache
-4. Pastikan jika kamu membuka localhost, maka yang kebuka adalah folder **public** bukan root nya www (bisa diakali dengan langsung membuka localhost/public jika dirasa repot mengganti settingan Apache nya)
-5. Seharusnya sudah dapat dibuka dengan lancar *amin*
+3. Pastikan mod_rewrite dan php5-mcrypt sudah aktif
+3. Install Nodejs
+4. Copy semua yang ada di dalam direktori **www** ke dalam folder www nya Apache
+5. Ubah setting site-available apache agar public_html jadi ke folder /www/public_html/onlinetest (tidak perlu di server produksi)
+5. Buka folder www/laravel4 dan jalankan perintah `php composer.phar install`
+6. Buka folder www/public_html/onlinetes dan jalankan perintah `npm install`
+6. Seharusnya sudah dapat dibuka dengan lancar *amin*
 
 ### Dengan Virtual Machine
 
