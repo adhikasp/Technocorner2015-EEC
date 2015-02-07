@@ -1,4 +1,5 @@
-www/public_html/onlinetest/.sass-cache/
+www/public_html/onlinewww/public_html/
+onlinetest/node_modules/*
 html
 app
 www/laravel4/vendor
