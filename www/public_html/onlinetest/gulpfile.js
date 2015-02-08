@@ -9,19 +9,18 @@
 
 var dev = '../../laravel4/app/dev/'
 
-gulp.task('compile_sass', function(cb) {
-    return sass(dev+'sass/main.sass', ({ style: 'expanded' }));
+gulp.task('compile_sass', function() {
+    return sass(dev+'sass/main.sass', ({ style: 'expanded' }))
+        .pipe(gulp.dest(dev+'sass/css'));
         // .pipe(gulp.dest(dev+'/sass/css'))
         // .pipe(rename({ suffix: '.min' }))
         // .pipe(minifycss())
-        // .pipe(gulp.dest(dev+'sass/min'))
         // .pipe(gulp.dest('style'))
         // .pipe(notify({ message: 'Styles task selesai.' }));
-    cb(err);
 });
 
 gulp.task('minify_css', ['compile_sass'], function() {
-    return gulp.src(dev+'sass/css/*.css')
+    return gulp.src(dev+'sass/css/main.css')
         .pipe(rename({ suffix: '.min' }))
         .pipe(minifycss())
         .pipe(gulp.dest(dev+'sass/min'));
