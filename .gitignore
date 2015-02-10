@@ -7,3 +7,4 @@ www/laravel4/.env.*.php
 www/laravel4/.env.php
 www/laravel4/.DS_Store
 www/laravel4/Thumbs.db
+www/laravel4/bootstrap/paths.php
