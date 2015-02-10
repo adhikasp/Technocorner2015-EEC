@@ -24,7 +24,7 @@ return array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
 			'database'  => 'tc_eec',
-			'username'  => 'root',
+			'username'  => 'admin-tc',
 			'password'  => 'password',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
