@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"> -->
         <!-- CSS tema milik kita sendiri -->
         <!-- <link rel="stylesheet" href="/style/main.min.css"> -->
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- One styles to rule them ALL! -->
         <link rel="stylesheet" href="/style/styles.min.css">
@@ -83,7 +84,7 @@
 
         <!-- Library JS -->
         <script src="/lib/modernizr/modernizr-2.6.2.min.js"></script>
-        <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <script src="/script/main.min.js"></script>
 
         @yield('script')
