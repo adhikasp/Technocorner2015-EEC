@@ -1,7 +1,5 @@
-www/public_html/onlinewww/public_html/
-onlinetest/node_modules/*
-html
-app
+/www/public_html/onlinetest/node_modules/*
+/html
 www/laravel4/vendor
 www/laravel4/composer.phar
 www/laravel4/composer.lock

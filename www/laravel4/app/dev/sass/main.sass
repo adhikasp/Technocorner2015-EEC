@@ -1,0 +1,221 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans)
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:700)
+
+$break-hp: "only screen and (max-width : 400px)"
+$tc-light: #ed6333
+$tc-dark: #343434
+$tc-monokai: #524F52
+$tc-red: #bc423b
+$tc-blue: #2732b0
+$tc-green: #167f10
+
+html, body
+  height: 100%
+
+body
+  color: white
+  background-color: $tc-red
+
+h1
+  text-align: center
+
+body,h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6
+  font-family: "Open Sans", "Ubuntu", Helvetica, Arial, sans-serif!important
+
+main
+  max-width: 1000px
+  min-height: 100%
+  height: auto !important
+  height: 100%
+  background-color: $tc-monokai
+  margin: 0 auto -100px auto
+  padding-top: 70px
+  padding-bottom: 150px
+
+footer
+  height: 100px
+  background-color: $tc-light
+
+section.dashboard h1
+  text-align: left
+
+strong
+  font-weight: 700
+
+#form-login
+  background-color: $tc-dark
+  padding: 1em
+  display: block
+  margin-left: auto
+  margin-right: auto
+  width: 400px
+  @media #{$break-hp}
+    width: 300px
+
+.form-daftar
+  width: 90%
+  margin-left: auto
+  margin-right: auto
+
+legend
+  color: white
+
+.btn-dasar
+  background-color: $tc-dark
+  display: inline-block
+  padding: 7px 15px
+  border-radius: 0
+  color: white
+  border: 1px solid white
+  transition: all 200ms ease
+  min-width: 100px
+  text-align: center
+
+.btn-dasar:visited, .btn-dasar:link
+  text-decoration: none
+  color: white
+
+.btn-dasar:hover
+  background-color: white
+  color: $tc-dark
+  text-decoration: none
+
+.btn-dasar:active
+  color: $tc-dark
+  background-color: white
+  text-decoration: none
+
+.btn-primary
+  background-color: $tc-blue
+
+.btn-important
+  background-color: $tc-green
+
+.bg-error
+  padding: 1rem
+  background-color: $tc-red
+
+.bg-success
+  padding: 1rem
+  background-color: $tc-green
+
+.help-block
+  color: white
+
+.dashboard-action
+  a, a:hover, a:link, a:visited, a:active
+    color: #82CDB9
+    padding: 2px 5px
+    display: inline-block
+    span.glyphicon
+      color: white
+
+$bgDefault      : $tc-dark
+$bgHighlight    : $tc-red
+$colDefault     : #ecf0f1
+$bgHover        : $tc-red
+$colHover       : white
+$dropDown       : false
+$navbar-height  : 70px
+
+.navbar-default
+  padding-left: 75px
+  background-color: $bgDefault
+  border-color: $bgDefault
+  border-bottom: 1px solid black
+  border-radius: 0
+  margin: 0
+  height: $navbar-height
+  .navbar-brand
+    color: $colDefault
+    font-weight: bold
+    img
+      width: 40px
+      height: auto
+      padding-top: 12px
+      padding-left: 0
+    &:hover, &:focus
+      color: white
+    //   background-color: $bgHover
+  .navbar-text
+    color: $colDefault
+    height: $navbar-height
+    margin-top: 0
+  .navbar-nav
+    > li
+      > a
+        color: $colDefault
+        transition: all 300ms ease
+        height: $navbar-height
+        &:hover, &:focus
+          background-color: $bgHover
+          color: $colHover
+      @if $dropDown
+        > .dropdown-menu
+          background-color: $bgDefault
+          > li > a
+            color: $colDefault
+            &:hover, &:focus
+              background-color: $bgHover
+              color: $colHover
+              background-color: $bgHighlight
+          .divider
+            background-color: $bgHighlight
+    > .active
+      > a, > a:hover, > a:focus
+        background-color: $bgHover
+        color: $colHover
+        background-color: $bgHighlight
+    > .open
+      > a, > a:hover, > a:focus
+        background-color: $bgHover
+        color: $colHover
+        background-color: $bgHighlight
+  .navbar-toggle
+    border-color: $bgHighlight
+    &:hover, &:focus
+      background-color: $bgHighlight
+    .icon-bar
+      background-color: $colDefault
+  .navbar-collapse,
+  .navbar-form
+    border-color: $colDefault
+  .navbar-link
+    color: $colDefault
+    &:hover
+      background-color: $bgHover
+      color: $colHover
+@media (max-width: 767px)
+  .navbar-default .navbar-nav .open .dropdown-menu
+    > li > a
+      color: $colDefault
+      &:hover, &:focus
+        background-color: $bgHover
+        color: $colHover
+    > .active
+      > a, > a:hover, > a:focus,
+        background-color: $bgHover
+        color: $colHover
+        background-color: $bgHighlight
+
+.navbar-brand, .navbar-nav li a, .navbar-text
+  line-height: $navbar-height
+  height: $navbar-height
+  padding-top: 0
+
+.nav-tabs
+  li.active a
+    color: white
+    background-color: #F37259
+  li:hover.active a
+    background-color: #f49e80
+    color: white
+  li a
+    color: white
+  li:hover a
+    color: white
+    background-color: #f49e80
+
+.modal
+  p, h1, h2, h3, h4
+    color: black
