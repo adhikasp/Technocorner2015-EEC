@@ -13,16 +13,10 @@
         <link rel="shortcut icon" href="/img/favicon.ico">
 
         <!-- Library CSS -->
-        <!-- <link rel="stylesheet" href="/lib/normalize/normalize.css">
-        <link rel="stylesheet" href="/style/boilerplate.css">
-        <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"> -->
-        <!-- CSS tema milik kita sendiri -->
-        <!-- <link rel="stylesheet" href="/style/main.min.css"> -->
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- One styles to rule them ALL! -->
         <link rel="stylesheet" href="/style/styles.min.css">
-
 
         <!-- Costum content per page -->
         @yield('head', '<title>Technocorner 2015</title>')
