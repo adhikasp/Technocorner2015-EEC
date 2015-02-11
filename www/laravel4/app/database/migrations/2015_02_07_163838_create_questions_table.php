@@ -22,6 +22,7 @@ class CreateQuestionsTable extends Migration {
 			$t->string('chB');
 			$t->string('chC');
 			$t->string('chD');
+			$t->string('chE');
 			$t->string('answer', 1);
 
 			$t->timestamps();
