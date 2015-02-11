@@ -86,5 +86,16 @@ class AdminTableSeeder extends Seeder
 		$a->save();
 
 		$a->user()->save($u);
-	}
+
+        $u = new User;
+		$u->email = 'abdillah96bu@gmail.com';
+		$u->password = Hash::make('1234');
+		$u->save();
+
+		$a = new Admin;
+		$a->name = 'Hernawan Fa\'iz Abdillah';
+		$a->save();
+
+		$a->user()->save($u);
+    }
 }
