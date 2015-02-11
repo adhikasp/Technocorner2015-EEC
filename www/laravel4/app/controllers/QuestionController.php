@@ -50,6 +50,9 @@ class QuestionController extends BaseController {
   public function edit($id)
   {
     $q = Question::find($id);
+
+    return View::make('admin.question.edit')
+      ->withQuestion($q);
   }
 
   public function delete($id)
