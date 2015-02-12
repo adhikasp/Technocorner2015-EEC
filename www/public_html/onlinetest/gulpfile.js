@@ -30,7 +30,7 @@ gulp.task('styles', ['minify_css'], function() {
     var files = [
         dev+'sass/min/normalize.min.css',
         dev+'sass/min/boilerplate.min.css',
-        dev+'sass/min/bootstrap.min.css',
+//        dev+'sass/min/bootstrap.min.css',
         dev+'sass/min/main.min.css'
     ]
 
@@ -49,7 +49,7 @@ gulp.task('scripts', function() {
 })
 
 gulp.task('watch', function() {
-    gulp.watch('../../laravel4/app/dev/sass/main.sass', ['styles'])
+    gulp.watch(dev+'sass/main.sass', ['styles'])
     gulp.watch(dev+'js/main.js', ['scripts'])
 
     // Buat server livereload
