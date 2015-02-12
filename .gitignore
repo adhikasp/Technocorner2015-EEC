@@ -11,3 +11,4 @@ www/laravel4/bootstrap/paths.php
 www/laravel4/bootstrap/compiled.php
 www/public_html/onlinetest/.sass-cache/
 www/public_html/onlinetest/node_modules/
+dev/sass/min/*.min.css
