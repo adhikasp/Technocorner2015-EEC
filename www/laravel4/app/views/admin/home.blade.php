@@ -1,12 +1,11 @@
 @extends('layout.master')
 
 @section('body')
-
-  <main class="container-fluid">
-    <h1>Website Tes Online EEC Technocorner 2015</h1>
-
+  <main class="container-fluid login-container">
+    <h1 class="important">Tes Online<br/><small>Technocorner EEC 2015</small></h1>
+    <hr/>
     <div id="form-login">
-      <h2>Login Khusus Admin</h2>
+      <h2>Login <small>(Admin)</small></h2>
       @if(Session::has('message'))
           @if(Session::get('message') == 'login_fail')
               <p class="bg-error">
@@ -46,7 +45,9 @@
       </fieldset>
       {{ Form::close() }}
     </div>
-
+    <hr/>
+    <div class="paper-footer">
+      <small>(c) Technocorner</small>
+    </div>
   </main>
-
 @stop

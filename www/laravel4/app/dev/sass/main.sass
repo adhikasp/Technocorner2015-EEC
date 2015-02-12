@@ -8,12 +8,13 @@ $tc-monokai: #524F52
 $tc-red: #bc423b
 $tc-blue: #2732b0
 $tc-green: #167f10
+$tc-white: #fafafa
 
 html, body
   height: 100%
 
 body
-  color: white
+  color: $tc-dark
   background-color: $tc-red
 
 h1
@@ -27,10 +28,10 @@ main
   min-height: 100%
   height: auto !important
   height: 100%
-  background-color: $tc-monokai
-  margin: 0 auto -100px auto
-  padding-top: 70px
-  padding-bottom: 150px
+  background-color: $tc-white
+  margin: 100px auto 100px auto
+  padding-top: 30px
+  padding-bottom: 30px
 
 footer
   height: 100px
@@ -42,15 +43,24 @@ section.dashboard h1
 strong
   font-weight: 700
 
+.login-container
+  min-height: 0
+
+.paper-footer
+  text-align: right
+
 #form-login
   background-color: $tc-dark
+  border-radius: 10px
   padding: 1em
   display: block
-  margin-left: auto
-  margin-right: auto
+  margin: 20px auto
   width: 400px
   @media #{$break-hp}
     width: 300px
+
+  h2
+    color: $tc-white
 
 .form-daftar
   width: 90%

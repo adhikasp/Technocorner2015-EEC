@@ -7,9 +7,9 @@
 
 
 @section('body')
-  <main class="container-fluid">
-    <h1 class="important">Website Tes Online EEC Technocorner 2015</h1>
-
+  <main class="container-fluid login-container">
+    <h1 class="important">Tes Online<br/><small>Technocorner EEC 2015</small></h1>
+    <hr/>
     <div id="form-login">
         <h2>Login</h2>
         @if(Session::has('message'))
@@ -59,6 +59,10 @@
         </div>
         </fieldset>
         {{ Form::close() }}
+    </div>
+    <hr/>
+    <div class="paper-footer">
+      <small>(c) Technocorner</small>
     </div>
   </main>
 @stop
