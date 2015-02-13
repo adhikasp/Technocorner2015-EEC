@@ -2,8 +2,9 @@
 
 @section('body')
   <main class="container-fluid">
+    <h1>Dashboard Admin</h1>
+    <hr/>
     <section class="dashboard">
-      <h1>Dashboard Admin</h1>
       <h2>Hai {{ Auth::user()->userable->name }} :)</h2>
 
       <ul class="nav nav-tabs">
@@ -57,3 +58,4 @@
 
 @section('script')
 @stop
+

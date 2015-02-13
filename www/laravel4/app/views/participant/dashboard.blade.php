@@ -6,10 +6,11 @@
 
 @section('body')
   <main class="container-fluid">
+    <h1>Selamat Datang</h1>
+    <hr/>
     <section class="dashboard">
-      <h1>Selamat datang tim {{ Auth::user()->userable->team_name }}</h1>
-
-      <h2>Detail Tim kamu</h2>
+      <h2>Detail tim kamu ({{ Auth::user()->userable->team_name }})</h2>
+      <br/>
       {{ Form::open(['url' => '#', 'class' => 'form-horizontal']) }}
       <fieldset>
         <div class="form-group">

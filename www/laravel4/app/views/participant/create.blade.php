@@ -7,7 +7,7 @@
 @section('body')
 <main class="container-fluid">
     <h1>Form Pendaftaran Peserta</h1>
-
+    <hr/>
     {{ Form::open(array('route' => 'participant.store', 'class' => 'form-horizontal form-daftar')) }}
     <fieldset>
 
@@ -75,3 +75,4 @@
     {{ Form::close() }}
 </main>
 @stop
+
