@@ -60,12 +60,20 @@
       </div>
 
       <div class="form-group">
+        {{ Form::label('chE', 'Pilihan E', ['class' => 'control-label col-sm-2']) }}
+        <div class="col-sm-10">
+          <p class="form-control-static">{{ $question->chE }}</p>
+        </div>
+      </div>
+
+      <div class="form-group">
         {{ Form::label('answer', 'Kunci Jawaban', ['class' => 'control-label col-sm-2'])}}
         <div class="col-sm-10">
           <p class="form-control-static"><strong>{{ $question->answer }}</strong></p>
         </div>
       </div>
 
+      <hr/>
       {{ link_to_route('admin.dashboard', 'Kembali', null, ['class' => 'btn-dasar col-sm-offset-2']) }}
       {{ link_to_route('admin.question.edit', 'Edit Soal', ['id' => $question->id], ['class' => 'btn-dasar btn-primary']) }}
 
