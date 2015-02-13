@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-  color: white;
+  color: #343434;
   background-color: #bc423b;
 }
 
@@ -22,10 +22,10 @@ main {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  background-color: #524F52;
-  margin: 0 auto -100px auto;
-  padding-top: 70px;
-  padding-bottom: 150px;
+  background-color: #fafafa;
+  margin: 100px auto 100px auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 footer {
@@ -41,18 +41,29 @@ strong {
   font-weight: 700;
 }
 
+.login-container {
+  min-height: 0;
+}
+
+.paper-footer {
+  text-align: right;
+}
+
 #form-login {
   background-color: #343434;
+  border-radius: 10px;
   padding: 1em;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 20px auto;
   width: 400px;
 }
 @media only screen and (max-width: 400px) {
   #form-login {
     width: 300px;
   }
+}
+#form-login h2 {
+  color: #fafafa;
 }
 
 .form-daftar {
@@ -122,7 +133,7 @@ legend {
   display: inline-block;
 }
 .dashboard-action a span.glyphicon, .dashboard-action a:hover span.glyphicon, .dashboard-action a:link span.glyphicon, .dashboard-action a:visited span.glyphicon, .dashboard-action a:active span.glyphicon {
-  color: white;
+  color: #343434;
 }
 
 .navbar-default {
