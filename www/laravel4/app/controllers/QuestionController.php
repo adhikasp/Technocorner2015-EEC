@@ -12,13 +12,15 @@ class QuestionController extends BaseController {
     $imgPath = 'img/soal/';
     $imgPrefix = 'soal-';
 
-    $q = new Question;
+    // Is the question new? Or so old?
+    $q = Input::get('id')? Question::find(Input::get('id')) : new Question;
 
     $q->question = Input::get('question');
     $q->chA = Input::get('chA');
     $q->chB = Input::get('chB');
     $q->chC = Input::get('chC');
     $q->chD = Input::get('chD');
+    $q->chE = Input::get('chE');
     $q->answer = Input::get('answer');
     $q->save();
 
@@ -63,5 +65,4 @@ class QuestionController extends BaseController {
     return Redirect::route('admin.dashboard')
       ->withMessage('quest_delete');
   }
-
 }
