@@ -13,7 +13,9 @@
         <link rel="shortcut icon" href="/img/favicon.ico">
 
         <!-- Library CSS -->
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Temporary commented
+             <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet"> -->
+        <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- One styles to rule them ALL! -->
         <link rel="stylesheet" href="/style/styles.min.css">
@@ -73,12 +75,15 @@
 
 
         <!-- Footer of base template -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <!-- Temporary commented
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
         <script>window.jQuery || document.write('<script src="/lib/jquery/jquery-1.10.2.min.js"><\/script>')</script>
 
         <!-- Library JS -->
         <script src="/lib/modernizr/modernizr-2.6.2.min.js"></script>
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <!-- Temporary commented
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
+        <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
         <script src="/script/main.min.js"></script>
 
         @yield('script')
