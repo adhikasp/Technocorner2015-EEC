@@ -5,13 +5,15 @@
     concat = require('gulp-concat'),
     rename = require('gulp-rename'),
     notify = require('gulp-notify'),
-    livereload = require('gulp-livereload');
+    livereload = require('gulp-livereload'),
+	vinylPaths = require('vinyl-paths'),
+	del = require('del');
 
 var dev = '../../laravel4/app/dev/'
 
 gulp.task('compile_sass', function() {
     return sass(dev+'sass/main.sass', ({ style: 'expanded' }))
-        .pipe(gulp.dest(dev+'sass/css'));
+        .pipe(gulp.dest(dev + 'sass/css'));
         // .pipe(gulp.dest(dev+'/sass/css'))
         // .pipe(rename({ suffix: '.min' }))
         // .pipe(minifycss())
@@ -20,24 +22,33 @@ gulp.task('compile_sass', function() {
 });
 
 gulp.task('minify_css', ['compile_sass'], function() {
-    return gulp.src(dev+'sass/css/main.css')
+    return gulp.src(dev + 'sass/css/main.css')
         .pipe(rename({ suffix: '.min' }))
-        .pipe(minifycss())
-        .pipe(gulp.dest(dev+'sass/min'));
+		.pipe(notify({ message: 'Minify : Wait, in progress...' }))
+		// See bug https://github.com/jonathanepollack/gulp-minify-css/issues/61
+        .pipe(minifycss({ processImport: false }))
+		.pipe(notify({ message: 'Minify : Done.' }))
+        .pipe(gulp.dest(dev + 'sass/min'));
 })
 
 gulp.task('styles', ['minify_css'], function() {
     var files = [
-        dev+'sass/min/normalize.min.css',
-        dev+'sass/min/boilerplate.min.css',
+        dev + 'sass/min/normalize.min.css',
+        dev + 'sass/min/boilerplate.min.css',
 //        dev+'sass/min/bootstrap.min.css',
-        dev+'sass/min/main.min.css'
+        dev + 'sass/min/main.min.css'
     ]
 
+	// See https://github.com/gulpjs/gulp/blob/master/docs/recipes/delete-files-folder.md
+	var vp = vinylPaths();
     return gulp.src(files)
+		.pipe(vp)
         .pipe(concat('styles.min.css'))
         .pipe(gulp.dest('./style'))
-        .pipe(notify({ message: 'SASS compiled, all styles minifyed and concated.' }));
+        .pipe(notify({ message: 'SASS compiled, all styles minifyed and concated.' }))
+		.on('end', function () {
+        	del(vp.paths, { force: true });
+        });
 })
 
 gulp.task('scripts', function() {
@@ -49,8 +60,8 @@ gulp.task('scripts', function() {
 })
 
 gulp.task('watch', function() {
-    gulp.watch(dev+'sass/main.sass', ['styles'])
-    gulp.watch(dev+'js/main.js', ['scripts'])
+    gulp.watch(dev + 'sass/main.sass', ['styles'])
+    gulp.watch(dev + 'js/main.js', ['scripts'])
 
     // Buat server livereload
     livereload.listen({
