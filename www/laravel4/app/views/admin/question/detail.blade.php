@@ -1,8 +1,10 @@
+
 @extends('layout.master')
 
 @section('body')
   <main class="container-fluid">
     <h1>Detail Soal</h1>
+    <hr/>
     <form class="form-horizontal">
       <div class="form-group">
         {{ Form::label('id', 'ID Soal', ['class' => 'control-label col-sm-2']) }}

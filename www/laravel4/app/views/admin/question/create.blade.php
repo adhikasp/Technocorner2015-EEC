@@ -29,21 +29,21 @@
 @stop
 
 @section('field_answerA')
-  {{ Form::radio('answer', 'A') }}
+  {{ Form::radio('answer', 'A', false, ['class' => 'col-sm-1 col-sm-offset-5']) }}
 @stop
 
 @section('field_answerB')
-  {{ Form::radio('answer', 'B') }}
+  {{ Form::radio('answer', 'B', false, ['class' => 'col-sm-1']) }}
 @stop
 
 @section('field_answerC')
-  {{ Form::radio('answer', 'C') }}
+  {{ Form::radio('answer', 'C', false, ['class' => 'col-sm-1']) }}
 @stop
 
 @section('field_answerD')
-  {{ Form::radio('answer', 'D') }}
+  {{ Form::radio('answer', 'D', false, ['class' => 'col-sm-1']) }}
 @stop
 
 @section('field_answerE')
-  {{ Form::radio('answer', 'E') }}
+  {{ Form::radio('answer', 'E', false, ['class' => 'col-sm-1']) }}
 @stop
