@@ -13,8 +13,10 @@
         <link rel="shortcut icon" href="/img/favicon.ico">
 
         <!-- Library CSS -->
+        <!-- Normalize + html5 boilerplate -->
+        <link rel="stylesheet" href="/style/reset.min.css">
         <!-- Temporary commented
-             <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet"> -->
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet"> -->
         <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- One styles to rule them ALL! -->
