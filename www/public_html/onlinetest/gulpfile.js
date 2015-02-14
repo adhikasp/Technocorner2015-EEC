@@ -19,7 +19,7 @@ var imgdevdir = devdir + 'img/';
 /**
  * Compile sass based style and put on temporary dir
  */
-gulp.task('compile_sass', function() {
+gulp.task('style:sass-compile', function() {
     return sass(styledevdir + 'raw/', ({ style: 'expanded' }))
         .pipe(rename({ extname: '.max.css' }))
         .pipe(gulp.dest(styledevdir + 'temp'));
@@ -28,7 +28,7 @@ gulp.task('compile_sass', function() {
 /**
  * Compile (copy) css and put on temporary dir
  */
-gulp.task('compile_css', function() {
+gulp.task('style:css-compile', function() {
     return gulp.src(styledevdir + 'raw/*.css')
         .pipe(rename({ extname: '.max.css' }))
         .pipe(gulp.dest(styledevdir + 'temp'));
@@ -37,7 +37,7 @@ gulp.task('compile_css', function() {
 /**
  * Minify compiled sass (already css-typed) and put on temp dir too
  */
-gulp.task('minify_css', ['compile_sass', 'compile_css'], function() {
+gulp.task('style:minify', ['style:sass-compile', 'style:css-compile'], function() {
     return gulp.src(styledevdir + 'temp/*.max.css')
         .pipe(rename({ extname: '' }))
         .pipe(rename({ extname: '.min.css' }))
@@ -47,9 +47,17 @@ gulp.task('minify_css', ['compile_sass', 'compile_css'], function() {
 });
 
 /**
+ * Move all ready-to-deploy style into public dir
+ */
+gulp.task('style:move-ready-to-deploy', function() {
+    return gulp.src(styledevdir + 'deploy/*.css')
+        .pipe(gulp.dest('./style'));
+});
+
+/**
  * Concatenate all style and put on public dir
  */
-gulp.task('styles', ['minify_css'], function() {
+gulp.task('styles', ['style:minify', 'style:move-ready-to-deploy'], function() {
 	// See bug https://github.com/jonathanepollack/gulp-minify-css/issues/61
 	var vp = vinylPaths();
 
@@ -63,9 +71,17 @@ gulp.task('styles', ['minify_css'], function() {
 });
 
 /**
+ * Move all ready-to-deploy script into public dir
+ */
+gulp.task('script:move-ready-to-deploy', function() {
+    return gulp.src(scriptdevdir + 'deploy/*.js')
+        .pipe(gulp.dest('./script'));
+});
+
+/**
  * Minify (uglify) then concatenate all script and put on public dir
  */
-gulp.task('scripts', function() {
+gulp.task('scripts', ['script:move-ready-to-deploy'], function() {
     return gulp.src(scriptdevdir + 'raw/*.js')
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
