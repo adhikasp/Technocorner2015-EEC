@@ -5,6 +5,7 @@
 
     <name> -- <role> -- <twitter>
     Adhika Setya P -- Developer -- @dhika_sp_sp
+	Hernawan Fa'iz Abdillah -- (Mostly) Front End Developer -- @lizen
 
 # THANKS
 
