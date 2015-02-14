@@ -1,11 +1,5 @@
 @extends('layout.master')
 
-@section('head')
-  <script>
-  // Create answer selector
-  </script>
-@stop
-
 @section('body')
   <main class="container-fluid">
     <h1>Buat Soal Baru</h1>
