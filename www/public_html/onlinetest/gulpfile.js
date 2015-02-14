@@ -18,7 +18,16 @@ var imgdevdir = devdir + 'img/';
  * Compile sass based style and put on temporary dir
  */
 gulp.task('compile_sass', function() {
-    return sass(styledevdir + 'raw/main.sass', ({ style: 'expanded' }))
+    return sass(styledevdir + 'raw/', ({ style: 'expanded' }))
+        .pipe(rename({ extname: '.max.css' }))
+        .pipe(gulp.dest(styledevdir + 'temp'));
+});
+
+/**
+ * Compile (copy) css and put on temporary dir
+ */
+gulp.task('compile_css', function() {
+    return gulp.src(styledevdir + 'raw/*.css')
         .pipe(rename({ extname: '.max.css' }))
         .pipe(gulp.dest(styledevdir + 'temp'));
 });
@@ -26,7 +35,7 @@ gulp.task('compile_sass', function() {
 /**
  * Minify compiled sass (already css-typed) and put on temp dir too
  */
-gulp.task('minify_css', ['compile_sass'], function() {
+gulp.task('minify_css', ['compile_sass', 'compile_css'], function() {
     return gulp.src(styledevdir + 'temp/*.max.css')
         .pipe(rename({ extname: '' }))
         .pipe(rename({ extname: '.min.css' }))
@@ -42,6 +51,17 @@ gulp.task('styles', ['minify_css'], function() {
         .pipe(concat('styles.min.css'))
         .pipe(gulp.dest('./style'))
         .pipe(notify({ message: 'SASS compiled, all styles minifyed and concated.' }));
+});
+
+/**
+ * Minify (uglify) then concatenate all script and put on public dir
+ */
+gulp.task('scripts', function() {
+    return gulp.src(scriptdevdir + 'raw/*.js')
+        .pipe(uglify())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('./script'))
+        .pipe(notify({ message: 'JavaScript ready.' }));
 });
 
 /**
@@ -72,17 +92,6 @@ gulp.task('others', function() {
         .pipe(gulp.dest('./'));
 });
 
-/**
- * Minify (uglify) then concatenate all script and put on public dir
- */
-gulp.task('scripts', function() {
-    return gulp.src(scriptdevdir + 'raw/*.js')
-        .pipe(uglify())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./script'))
-        .pipe(notify({ message: 'JavaScript ready.' }));
-});
-
 function syncAll() {
     gulp.start('styles');
     gulp.start('scripts');
@@ -97,7 +106,7 @@ function syncAll() {
  */
 gulp.task('watch', function() {
 	syncAll();
-    gulp.watch(styledevdir + 'raw/*.sass', ['styles']);
+    gulp.watch(styledevdir + 'raw/*', ['styles']);
     gulp.watch(scriptdevdir + 'raw/*.js', ['scripts']);
     gulp.watch(libdevdir + '**/*', ['libs']);
     gulp.watch(imgdevdir + '**/*', ['imgs']);
