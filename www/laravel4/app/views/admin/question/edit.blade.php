@@ -1,5 +1,10 @@
 @extends('admin.question.editable')
 
+@section('field_qtype')
+  {{ Form::select('qtype', $qtypes, $question->qtype->id, ['id' => 'qtype', 'class' => 'form-control', 'rows' => 1, 'required' => true]) }}
+  {{ Form::text('qtype_new', '', ['id' => 'qtype-new', 'class' => 'form-control', 'rows' => 1, 'placeholder' => 'Add new type']) }}
+@stop
+
 @section('field_question')
   {{ Form::hidden('id', $question->id) }}
   {{ Form::textarea('question', $question->question, ['class' => 'form-control', 'rows' => 5, 'required' => true]) }}
@@ -47,4 +52,8 @@
 
 @section('field_answerE')
   {{ Form::radio('answer', 'E', ($question->answer == 'E')? true : false) }}
+@stop
+
+@section('script')
+  <script src="/script/admin.question.edit.min.js"></script>
 @stop

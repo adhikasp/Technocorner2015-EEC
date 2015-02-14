@@ -1,5 +1,9 @@
 @extends('admin.question.editable')
 
+@section('field_qtype')
+  {{ Form::text('qtype', Input::old('qtype'), ['class' => 'form-control', 'rows' => 1, 'required' => true]) }}
+@stop
+
 @section('field_question')
   {{ Form::textarea('question', Input::old('question'), ['class' => 'form-control', 'rows' => 5, 'required' => true]) }}
 @stop

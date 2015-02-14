@@ -13,6 +13,13 @@
     {{ Form::open(['route' => 'admin.question.store', 'class' => 'form-horizontal', 'files' => true]) }}
     <fieldset>
       <div class="form-group">
+        {{ Form::label('qtype', 'Tipe Soal', ['class' => 'control-label col-sm-2']) }}
+        <div class="col-sm-10">
+          @yield('field_qtype', Form::text('qtype', Input::old('qtype'), ['class' => 'form-control', 'rows' => 5, 'required' => true]))
+        </div>
+      </div>
+
+      <div class="form-group">
         {{ Form::label('question', 'Pertanyaan', ['class' => 'control-label col-sm-2']) }}
         <div class="col-sm-10">
           @yield('field_question', Form::textarea('question', Input::old('question'), ['class' => 'form-control', 'rows' => 5, 'required' => true]))
