@@ -83,10 +83,20 @@ gulp.task('scripts', function() {
         .pipe(notify({ message: 'JavaScript ready.' }));
 });
 
+function syncAll() {
+    gulp.start('styles');
+    gulp.start('scripts');
+    gulp.start('libs');
+    gulp.start('imgs');
+    gulp.start('htmls');
+    gulp.start('others');
+}
+
 /**
  * Watch for change event
  */
 gulp.task('watch', function() {
+	syncAll();
     gulp.watch(styledevdir + 'raw/*.sass', ['styles']);
     gulp.watch(scriptdevdir + 'raw/*.js', ['scripts']);
     gulp.watch(libdevdir + '**/*', ['libs']);
@@ -103,10 +113,5 @@ gulp.task('watch', function() {
 });
 
 gulp.task('default', function() {
-    gulp.start('styles');
-    gulp.start('scripts');
-    gulp.start('libs');
-    gulp.start('imgs');
-    gulp.start('htmls');
-    gulp.start('others');
+	syncAll();
 });
