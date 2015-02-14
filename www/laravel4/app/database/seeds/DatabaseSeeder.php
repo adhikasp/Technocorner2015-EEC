@@ -99,3 +99,23 @@ class AdminTableSeeder extends Seeder
 		$a->user()->save($u);
     }
 }
+
+class QTypeTableSeeder extends Seeder
+{
+	public function run()
+	{
+		DB::table('qtypes')->delete();
+
+		$u = new QType;
+		$u->name = 'Matematika';
+		$u->save();
+
+        $u = new QType;
+		$u->name = 'Fisika';
+		$u->save();
+
+        $u = new QType;
+		$u->name = 'Komputer';
+		$u->save();
+    }
+}
