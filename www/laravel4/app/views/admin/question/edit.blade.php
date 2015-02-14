@@ -39,19 +39,19 @@
 @stop
 
 @section('field_answerB')
-  {{ Form::radio('answer', 'B', ($question->answer == 'B')? true : false) }}
+  {{ Form::radio('answer', 'B', ($question->answer == 'B')? true : false, ['class' => 'col-sm-1']) }}
 @stop
 
 @section('field_answerC')
-  {{ Form::radio('answer', 'C', ($question->answer == 'C')? true : false) }}
+  {{ Form::radio('answer', 'C', ($question->answer == 'C')? true : false, ['class' => 'col-sm-1']) }}
 @stop
 
 @section('field_answerD')
-  {{ Form::radio('answer', 'D', ($question->answer == 'D')? true : false) }}
+  {{ Form::radio('answer', 'D', ($question->answer == 'D')? true : false, ['class' => 'col-sm-1']) }}
 @stop
 
 @section('field_answerE')
-  {{ Form::radio('answer', 'E', ($question->answer == 'E')? true : false) }}
+  {{ Form::radio('answer', 'E', ($question->answer == 'E')? true : false, ['class' => 'col-sm-1']) }}
 @stop
 
 @section('script')
