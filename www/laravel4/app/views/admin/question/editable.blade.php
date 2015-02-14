@@ -86,3 +86,7 @@
     {{ Form::close() }}
   </main>
 @stop
+
+@section('script')
+  <script src="/script/admin.question.editable.min.js"></script>
+@stop
