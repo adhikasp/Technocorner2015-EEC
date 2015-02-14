@@ -53,7 +53,6 @@
       {{ Form::close() }}
 
       <hr>
-      <a href="edit" class="btn-dasar">Edit Tim</a>
       <a href="#" class="btn-dasar btn-important" >Mulai Ujian</a>
       <a href="#" class="btn-dasar disabled">Lihat Hasil</a>
       <hr>
@@ -61,6 +60,7 @@
       <h2>Petunjuk Persiapan Ujian</h2>
       <ul>
         <li>Pastikan detail tim kamu benar sebelum memulai ujian.</li>
+        <li>Jika terdapat kesalahan pada detail tim kamu, segera laporkan ke admin Technocorner di ~alamat email admin~</li>
         <li>Tombol mulai ujian dapat diakses ketika waktu babak penyisihan online (1 Maret 2015)</li>
         <li>Sangat disarankan untuk melakukan Ujian Online dengan menggunakan desktop/PC dan browser modern (IE versi 10, Chrome versi xx, atau Firefox versi xx keatas)</li>
       </ul>
