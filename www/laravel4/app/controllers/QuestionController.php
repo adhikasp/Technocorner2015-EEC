@@ -16,6 +16,20 @@ class QuestionController extends BaseController {
     $q = Input::get('id')? Question::find(Input::get('id')) : new Question;
 
     $q->question = Input::get('question');
+
+    $qtype = QType::where('id', '=', Input::get('qtype'))->first();
+    $qtype_id = $qtype? $qtype->id : null;
+    if (!$qtype_id && Input::get('qtype') == 0) {
+      $qtype = new QType;
+      $qtype->name = Input::get('qtype_new');
+      $qtype->save();
+
+      $qtype_id = $qtype->id;
+    } else {
+      Log::error('QType is undefined : wrong id.');
+    }
+
+    $q->qtype_id = $qtype_id;
     $q->chA = Input::get('chA');
     $q->chB = Input::get('chB');
     $q->chC = Input::get('chC');
@@ -53,8 +67,14 @@ class QuestionController extends BaseController {
   {
     $q = Question::find($id);
 
+    $qtypes = QType::lists('name', 'id');
+    $qtypes[0] = 'Buat baru';
+    // Sort array based on key
+    ksort($qtypes);
+
     return View::make('admin.question.edit')
-      ->withQuestion($q);
+      ->withQuestion($q)
+      ->withQtypes($qtypes);
   }
 
   public function delete($id)
