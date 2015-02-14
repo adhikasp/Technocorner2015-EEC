@@ -1,7 +1,8 @@
 @extends('admin.question.editable')
 
 @section('field_qtype')
-  {{ Form::text('qtype', Input::old('qtype'), ['class' => 'form-control', 'rows' => 1, 'required' => true]) }}
+  {{ Form::select('qtype', $qtypes, Input::old('qtype'), ['id' => 'qtype', 'class' => 'form-control', 'rows' => 1, 'required' => true]) }}
+  {{ Form::text('qtype_new', Input::old('qtype_new'), ['id' => 'qtype-new', 'class' => 'form-control', 'rows' => 1, 'placeholder' => 'Buat tipe baru']) }}
 @stop
 
 @section('field_question')

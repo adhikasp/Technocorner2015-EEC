@@ -4,7 +4,13 @@ class QuestionController extends BaseController {
 
   public function create()
   {
-    return View::make('admin.question.create');
+    $qtypes = QType::lists('name', 'id');
+    $qtypes[0] = 'Buat baru';
+    // Sort array based on key
+    ksort($qtypes);
+
+    return View::make('admin.question.create')
+      ->withQtypes($qtypes);
   }
 
   public function store()
