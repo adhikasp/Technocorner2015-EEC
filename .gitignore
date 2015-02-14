@@ -1,5 +1,6 @@
-/www/public_html/onlinetest/node_modules/*
 /html
+/app
+.sass-cache/
 /www/laravel4/vendor
 /www/laravel4/composer.phar
 /www/laravel4/composer.lock
@@ -9,6 +10,13 @@
 /www/laravel4/Thumbs.db
 /www/laravel4/bootstrap/paths.php
 /www/laravel4/bootstrap/compiled.php
-.sass-cache/
 /www/public_html/onlinetest/node_modules/
-/www/laravel4/app/dev/sass/min/
+/www/laravel4/app/dist/style/temp
+/www/laravel4/app/dist/script/temp
+/www/public_html/onlinetest/*
+!/www/public_html/onlinetest/gulpfile.js
+!/www/public_html/onlinetest/package.json
+!/www/public_html/onlinetest/crossdomain.xml
+!/www/public_html/onlinetest/doc
+!.gitkeep
+
