@@ -52,3 +52,7 @@
 @section('field_answerE')
   {{ Form::radio('answer', 'E', false, ['class' => 'col-sm-1']) }}
 @stop
+
+@section('field_randomize')
+  {{ Form::checkbox('randomize', Input::old('randomize')) }}
+@stop

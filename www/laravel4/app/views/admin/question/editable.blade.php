@@ -77,6 +77,15 @@
         </div>
       </div>
 
+      <div class="form-group">
+        <div class="col-sm-2">
+          {{ Form::label('randomize', 'Acak', ['class' => 'col-sm-10 control-label']) }}
+        </div>
+        <div class="col-sm-10">
+          @yield('field_randomize', Form::checkbox('randomize', Input::old('randomize')))
+        </div>
+      </div>
+
       <hr/>
       <div class="col-sm-offset-6 col-sm-6">
         {{ link_to_route('admin.dashboard', 'Kembali', null, ['class' => 'btn-dasar col-sm-5']) }}
