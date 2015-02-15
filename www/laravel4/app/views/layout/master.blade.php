@@ -72,7 +72,7 @@
         @yield('body', "Generic content")
 
         <footer>
-            <h2>Tes ini adalah bagian footer.</h2>
+          <h2>Tes ini adalah bagian footer.</h2>
         </footer>
 
 

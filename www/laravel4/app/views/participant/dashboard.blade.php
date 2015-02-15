@@ -70,5 +70,9 @@
         <li>Login pada hari ujian</li>
       </ul>
     </section>
+    <hr/>
+    <div class="paper-footer">
+      <small>(c) Technocorner</small>
+    </div>
   </main>
 @stop

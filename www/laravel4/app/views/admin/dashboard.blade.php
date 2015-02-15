@@ -53,9 +53,12 @@
 
       <a href="{{ route('admin.question.create') }}" class="btn-dasar btn-primary">Tambah Soal</a>
     </section>
+    <hr/>
+    <div class="paper-footer">
+      <small>(c) Technocorner</small>
+    </div>
   </main>
 @stop
 
 @section('script')
 @stop
-

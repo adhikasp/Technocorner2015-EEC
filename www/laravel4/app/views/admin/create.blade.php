@@ -57,12 +57,17 @@
 
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-         {{ Form::submit('Daftar', array('class' => 'btn-dasar btn-primary')) }}
+          {{ link_to_route('admin.home', 'Kembali', null, ['class' => 'btn-dasar']) }}
+          {{ Form::submit('Daftar', array('class' => 'btn-dasar btn-primary')) }}
         </div>
       </div>
 
     </fieldset>
     {{ Form::close() }}
+    <hr/>
+    <div class="paper-footer">
+      <small>(c) Technocorner</small>
+    </div>
   </main>
 
 @stop
