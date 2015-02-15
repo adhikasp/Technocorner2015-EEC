@@ -16,6 +16,9 @@ class DatabaseSeeder extends Seeder {
 
 		$this->call('AdminTableSeeder');
 		$this->command->info('Admin table seeded!');
+
+		$this->call('QTypeTableSeeder');
+		$this->command->info('QType table seeded!');
 	}
 
 }
@@ -25,6 +28,7 @@ class ParticipantTableSeeder extends Seeder
 
 	public function run()
 	{
+		DB::table('users')->delete();
 		DB::table('users_participant')->delete();
 
 		Participant::create([
@@ -87,7 +91,7 @@ class AdminTableSeeder extends Seeder
 
 		$a->user()->save($u);
 
-        $u = new User;
+    $u = new User;
 		$u->email = 'abdillah96bu@gmail.com';
 		$u->password = Hash::make('1234');
 		$u->save();
@@ -110,11 +114,11 @@ class QTypeTableSeeder extends Seeder
 		$u->name = 'Matematika';
 		$u->save();
 
-        $u = new QType;
+    $u = new QType;
 		$u->name = 'Fisika';
 		$u->save();
 
-        $u = new QType;
+    $u = new QType;
 		$u->name = 'Komputer';
 		$u->save();
     }
