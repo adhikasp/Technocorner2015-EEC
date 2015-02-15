@@ -14,7 +14,7 @@ class CreateExamsTable extends Migration {
 	{
 		Schema::create('exams', function(Blueprint $t) {
 			$t->increments('id');
-			$t->
+			$t->integer('session');
 		});
 	}
 
