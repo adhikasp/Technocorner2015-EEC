@@ -54,11 +54,11 @@
                     @if(Auth::check())
                     <ul class="nav navbar-nav navbar-right">
                         @if(Auth::user()->userable_type == 'Participant')
-                            <li class="navbar-text">Login sebagai tim {{ Auth::user()->userable->team_name }}</li>
+                          <li class="navbar-text">Hai Tim <strong>{{ Auth::user()->userable->team_name }}</strong></li>
                             <li>{{ link_to_route('participant.dashboard', 'Dashboard') }}</li>
                             <li>{{ link_to_route('participant.logout', 'Logout') }}</li>
                         @elseif(Auth::user()->userable_type == 'Admin')
-                            <li class="navbar-text">Login sebagai ADMIN {{ Auth::user()->userable->name }}</li>
+                            <li class="navbar-text">Hai Admin <strong>{{ Auth::user()->userable->name }}</strong></li>
                             <li>{{ link_to_route('admin.dashboard', 'Dashboard') }}</li>
                             <li>{{ link_to_route('admin.logout', 'Logout') }}</li>
                         @endif
