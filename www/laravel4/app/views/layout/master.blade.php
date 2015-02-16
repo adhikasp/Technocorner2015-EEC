@@ -72,7 +72,7 @@
         @yield('body', "Generic content")
 
         <footer>
-            Tes ini adalah bagian footer.
+            <h2>Tes ini adalah bagian footer.</h2>
         </footer>
 
 
@@ -102,7 +102,13 @@
         */
         </script>
         @if( App::environment() == 'local')
-            <script src="http://localhost:9000/livereload.js?snipver=1"></script>
+            {{--
+            * window.location.href will return full current url
+            * then split it at '/', and get the third elemet (always the domain/ip of url)
+            --}}
+            <script>
+                document.write('<script src="http://' + window.location.href.split('/')[2].split(':')[0] + ':9000/livereload.js?snipver=1"><\/script>');
+            </script>
         @endif
     </body>
 </html>
