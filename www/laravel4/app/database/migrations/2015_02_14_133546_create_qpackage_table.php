@@ -18,9 +18,8 @@ class CreateQpackageTable extends Migration {
 		Schema::create('qpackages', function(Blueprint $t)
 		{
 			$t->increments('id');
-			$t->string('name');
-
-			$t->timestamps();
+			$t->integer('pack_id');
+			$t->integer('question_id');
 		});
 	}
 

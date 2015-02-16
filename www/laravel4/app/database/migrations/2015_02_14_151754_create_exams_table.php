@@ -15,6 +15,12 @@ class CreateExamsTable extends Migration {
 		Schema::create('exams', function(Blueprint $t) {
 			$t->increments('id');
 			$t->integer('session');
+
+			$t->integer('participant_id');
+			$t->integer('qpack_id');
+			$t->dateTime('start_time')->nullable();
+			$t->dateTime('end_time')->nullable();
+			$t->integer('score')->nullable();
 		});
 	}
 

@@ -15,7 +15,7 @@ class CreateQuestionsTable extends Migration {
 		Schema::create('questions', function(Blueprint $t)
 		{
 			$t->increments('id');
-            
+
             $t->string('qtype_id');
 			$t->string('question');
 			$t->string('image')->nullable();
@@ -25,7 +25,7 @@ class CreateQuestionsTable extends Migration {
 			$t->string('chD');
 			$t->string('chE');
 			$t->boolean('randomize');
-			$t->string('answer', 1);
+			$t->char('answer', 1);
 
 			$t->timestamps();
 		});
