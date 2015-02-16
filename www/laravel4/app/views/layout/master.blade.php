@@ -102,7 +102,7 @@
         */
         </script>
         @if( App::environment() == 'local')
-        <script src="http://{{ $_SERVER['SERVER_NAME'] }}:9000/livereload.js?snipver=1"></script>
+            <script src="http://localhost:9000/livereload.js?snipver=1"></script>
         @endif
     </body>
 </html>
