@@ -4,9 +4,10 @@
 
   <main class="containter-fluid">
     <h1>Buat Admin Baru</h1>
-
+    <hr/>
     {{ Form::open(['route' => 'admin.store', 'class' => 'form-horizontal form-daftar']) }}
     <fieldset>
+      <legend>Data Admin Baru</legend>
 
       <div class="form-group">
         {{ Form::label('name', 'Nama', ['class' => 'control-label col-sm-2']) }}
@@ -38,7 +39,7 @@
 
     </fieldset>
     <fieldset>
-      <legend>Pertanyaan rahasia untuk memastikan kamu benar-benar Panitia TC</legend>
+      <legend>Verifikasi Panitia Technocorner 2015</legend>
 
       <div class="form-group">
         {{ Form::label('secretOne', 'Nama panggilan ketua PH KMTETI periode 2013/2014 ', ['class' => 'control-label col-sm-2']) }}
@@ -56,12 +57,17 @@
 
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-         {{ Form::submit('Daftar', array('class' => 'btn-dasar btn-primary')) }}
+          {{ link_to_route('admin.home', 'Kembali', null, ['class' => 'btn-dasar']) }}
+          {{ Form::submit('Daftar', array('class' => 'btn-dasar btn-primary')) }}
         </div>
       </div>
 
     </fieldset>
     {{ Form::close() }}
+    <hr/>
+    <div class="paper-footer">
+      <small>(c) Technocorner</small>
+    </div>
   </main>
 
 @stop

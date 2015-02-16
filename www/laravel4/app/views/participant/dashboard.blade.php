@@ -6,13 +6,13 @@
 
 @section('body')
   <main class="container-fluid">
-    <h1>Selamat Datang</h1>
+    <h1>Selamat Datang Peserta EEC 2015</h1>
     <hr/>
     <section class="dashboard">
-      <h2>Detail tim kamu ({{ Auth::user()->userable->team_name }})</h2>
-      <br/>
+      <h2>Detail Tim Kamu</h2>
       {{ Form::open(['url' => '#', 'class' => 'form-horizontal']) }}
       <fieldset>
+        <legend> {{ Auth::user()->userable->team_name }}</legend>
         <div class="form-group">
           <label for="" class="control-label col-sm-2">Nama Tim</label>
           <div class="col-sm-10">
@@ -55,7 +55,7 @@
       <hr>
       <a href="{{ route('participant.exam.preparation') }}" class="btn-dasar btn-important" >Mulai Ujian</a>
       <a href="#" class="btn-dasar disabled">Lihat Hasil</a>
-      <hr>
+      <hr/>
 
       <h2>Petunjuk Persiapan Ujian</h2>
       <ul>
@@ -71,5 +71,9 @@
         <li>Login pada hari ujian</li>
       </ul>
     </section>
+    <hr/>
+    <div class="paper-footer">
+      <small>(c) Technocorner</small>
+    </div>
   </main>
 @stop
