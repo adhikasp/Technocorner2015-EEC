@@ -53,7 +53,7 @@
       {{ Form::close() }}
 
       <hr>
-      <a href="#" class="btn-dasar btn-important" >Mulai Ujian</a>
+      <a href="{{ route('participant.exam.preparation') }}" class="btn-dasar btn-important" >Mulai Ujian</a>
       <a href="#" class="btn-dasar disabled">Lihat Hasil</a>
       <hr>
 
