@@ -38,6 +38,7 @@
   "devDependencies": {
     "del": "^1.1.1",
     "gulp": "^3.8.11",
+    "gulp-cache": "^0.2.4",
     "vinyl-paths": "^1.0.0"
   }
 }

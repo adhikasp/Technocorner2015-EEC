@@ -6,6 +6,7 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     notify = require('gulp-notify'),
     livereload = require('gulp-livereload'),
+    cache = require('gulp-cache')
 	vinylPaths = require('vinyl-paths'),
 	del = require('del');
 
@@ -94,27 +95,27 @@ gulp.task('scripts', ['script:move-ready-to-deploy'], function() {
  */
 gulp.task('libs', function() {
     return gulp.src(libdevdir + '**/*')
-        .pipe(gulp.dest('./lib'));
+        .pipe(cache(gulp.dest('./lib')));
 });
 
 gulp.task('fonts', function() {
     return gulp.src(fontdevdir + '**/*')
-        .pipe(gulp.dest('./font'));
+        .pipe(cache(gulp.dest('./font')));
 });
 
 gulp.task('imgs', function() {
     return gulp.src(imgdevdir + '**/*')
-        .pipe(gulp.dest('./img'));
+        .pipe(cache(gulp.dest('./img')));
 });
 
 gulp.task('htmls', function() {
     return gulp.src(devdir + '**/*.html')
-        .pipe(gulp.dest('./'));
+        .pipe(cache(gulp.dest('./')));
 });
 
 gulp.task('others', function() {
     return gulp.src(devdir + '*')
-        .pipe(gulp.dest('./'));
+        .pipe(cache(gulp.dest('./')));
 });
 
 function syncAll() {
