@@ -50,7 +50,7 @@ class QuestionController extends BaseController {
     if (Input::hasFile('image')) {
       if (Input::File('image')->isValid()) {
         $imgSuffix = Input::file('image')->getClientOriginalExtension();
-        $imgName = $imgPrefix . $q->id . $imgSuffix;
+        $imgName = $imgPrefix . $q->id . '.' . $imgSuffix;
         Input::file('image')->move($imgPath, $imgName);
         $q->image = $imgPath . $imgName;
       }
