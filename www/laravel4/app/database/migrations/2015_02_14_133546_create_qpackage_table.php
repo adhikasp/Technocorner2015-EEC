@@ -30,7 +30,7 @@ class CreateQpackageTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('qpackage');
+		Schema::drop('qpackages');
 	}
 
 }
