@@ -66,7 +66,7 @@ class AdminController extends BaseController {
   public function viewAllParticipant() {
     $participant = Participant::all();
 
-    return View::make('admin.allParticipant')
+    return View::make('admin.participant.list')
       ->withParticipant($participant);
   }
 
@@ -74,7 +74,7 @@ class AdminController extends BaseController {
   {
     $participant = Participant::find($id);
 
-    return View::make('admin.detailParticipant')
+    return View::make('admin.participant.detail')
       ->withParticipant($participant);
   }
 
