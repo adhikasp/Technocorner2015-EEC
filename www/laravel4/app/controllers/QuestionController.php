@@ -15,7 +15,7 @@ class QuestionController extends BaseController {
 
   public function store()
   {
-    $imgPath = 'app/dist/question/img/';
+    $imgPath = '/app/dist/question/img/';
     $imgPrefix = 'soal-';
 
     // Is the question new? Or so old?

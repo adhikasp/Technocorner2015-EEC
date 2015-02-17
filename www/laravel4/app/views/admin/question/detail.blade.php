@@ -33,7 +33,7 @@
           <div class="col-sm-10">
             <p class="form-control-static">
               @if(isset($question->image))
-                <img src="/{{ $question->image }}" alt="Gambar soal" class="img-responsive">
+                <img src="{{ $question->image }}" alt="Gambar soal" class="img-responsive">
               @else
                 Tidak ada gambar.
               @endif

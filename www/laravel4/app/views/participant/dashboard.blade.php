@@ -58,7 +58,9 @@
       <hr>
 
       @if( App::environment() == 'local' )
-        <h1>DEVELOP MODE ONLY DATA</h1>
+        <h1>DEVELOP MODE ONLY</h1>
+        <h2>Cek Time <small>Pastikan waktu server = waktu lokal</small></h2>
+        {{ Carbon::now() }}
         <h2>Exam Model Data</h2>
 
         <p>

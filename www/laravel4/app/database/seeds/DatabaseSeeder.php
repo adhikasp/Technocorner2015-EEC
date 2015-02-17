@@ -19,6 +19,9 @@ class DatabaseSeeder extends Seeder {
 
 		$this->call('QTypeTableSeeder');
 		$this->command->info('QType table seeded!');
+
+		$this->call('QuestionTableSeeder');
+		$this->command->info('Question table seeded!');
 	}
 
 }
@@ -31,7 +34,9 @@ class ParticipantTableSeeder extends Seeder
 		DB::table('users')->delete();
 		DB::table('users_participant')->delete();
 
-		Participant::create([
+		$now = Carbon::now();
+
+		Participant::insert([
 			'id' 					 => 1,
 			'team_name'     => 'Technocorner Dummy Team 4EVER',
 			// 'email'        => 'adhika.setyap@gmail.com',
@@ -122,4 +127,45 @@ class QTypeTableSeeder extends Seeder
 		$u->name = 'Komputer';
 		$u->save();
     }
+}
+
+class QuestionTableSeeder extends Seeder
+{
+	public function run()
+	{
+		DB::table('questions')->delete();
+
+		$now = Carbon::now();
+
+		Question::insert([
+			[
+				'qtype_id' => 1,
+				'question' => 'Berapakah 1 + 1?',
+				'image'    => 'https://presbyterianblues.files.wordpress.com/2012/06/1-1-2.jpg',
+				'chA'			 => '2',
+				'chB'			 => '3',
+				'chC'			 => '4',
+				'chD'			 => '5',
+				'chE'			 => '6',
+				'randomize' => true,
+				'answer'   => 'A',
+				'created_at' => $now,
+				'updated_at' => $now
+			],
+			[
+				'qtype_id' => 1,
+				'question' => 'Berapakah 3 + 6?',
+				'image'    => 'http://janbrett.com/images/addition_flash3+3=6.jpg',
+				'chA'			 => '10',
+				'chB'			 => '9',
+				'chC'			 => '8',
+				'chD'			 => '7',
+				'chE'			 => '6',
+				'randomize' => true,
+				'answer'   => 'B',
+				'created_at' => $now,
+				'updated_at' => $now
+			]
+		]);
+	}
 }

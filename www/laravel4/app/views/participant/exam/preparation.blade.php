@@ -18,9 +18,11 @@
       <li>Segala peraturan mengenai persiapan ujian</li>
     </ul>
 
-    {{ $exam->id }}<hr>
 
-    <a href="#" class="btn btn-dasar">MULAI UJIAN</a> <-- Nanti dibuat besar dan gede
+    @if ( App::environment() == 'local' )
+      {{ link_to_route('participant.dashboard', 'DEVELOP : back to dashboard', null, ['class' => 'btn btn-dasar']) }}
+    @endif
+    <a href="{{ route('participant.exam.start') }}" class="btn btn-dasar btn-important">MULAI UJIAN</a> <-- Nanti dibuat besar dan gede
 
   </main>
 

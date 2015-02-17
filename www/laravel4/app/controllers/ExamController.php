@@ -24,17 +24,23 @@ class ExamController extends BaseController {
     $e = Auth::user()->userable->exam;
 
     $e->session = 1;
-    $e->start_time = new DateTime();
-    $e->end_time = $e->start_time + $e->exam_duration;
 
-    Redirect::route('participant.exam.page');
+    // Carbon DateTime extension
+    // github.com/briannesbitt/Carbon
+    $e->start_time = Carbon::now();
+    $e->end_time = (Carbon::now()->addSeconds(7200));
+    $e->save();
+
+    return Redirect::route('participant.exam.page');
   }
 
   public function exam()
   {
     $e = Auth::user()->userable->exam;
+    $q = Question::all();
 
-    View::make('participant.exam.page');
+    return View::make('participant.exam.page')
+      ->withQuestions($q);
   }
 
   public function destroy()

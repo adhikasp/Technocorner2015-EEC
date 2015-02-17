@@ -117,16 +117,16 @@ Route::filter('examPreparation', function()
 
 	if (isset($p->exam) and $p->exam->session != 0)
 	{
-		Redirect::route('participant.exam.page');
+		return Redirect::route('participant.exam.page');
 	}
 });
 
 Route::filter('inExam', function() {
 	$p = Auth::user()->userable;
 
-	if (!isset($p->exam) or $p->exam->session == 0)
+	if (!count($p->exam) or $p->exam->session == 0)
 	{
-		Redirect::route('participant.exam.preparation');
+		return Redirect::route('participant.exam.preparation');
 	}
 	elseif (in_array($p->exam->session, [2, 3]))
 	{
