@@ -4,7 +4,10 @@ class ParticipantController extends BaseController {
 
     public function dashboard()
     {
-        return View::make('participant.dashboard');
+      $p = Auth::user()->userable;
+
+      return View::make('participant.dashboard')
+        ->withParticipant($p);
     }
 
     public function create()

@@ -73,8 +73,32 @@ Route::group(['before' => 'auth|participant'], function() {
   ]);
 
   Route::get('user/exam/preparation', [
+    'before' => 'examPreparation',
     'as' => 'participant.exam.preparation',
     'uses' => 'ExamController@showPreparation'
+  ]);
+
+  Route::get('user/exam/start', [
+    'as' => 'participant.exam.start',
+    'uses' => 'ExamController@startExam',
+  ]);
+
+  Route::get('user/exam', [
+    'before' => 'inExam',
+    'as' => 'participant.exam.page',
+    'uses' => 'ExamController@exam'
+  ]);
+
+  Route::get('user/exam/result', [
+    'before' => 'examComplete',
+    'as' => 'participant.exam.result',
+    'uses' => 'ExamController@result'
+  ]);
+
+  Route::get('user/exam/destroy', [
+    'before' => 'examComplete',
+    'as' => 'participant.exam.destroy',
+    'uses' => 'ExamController@destroy'
   ]);
 
 });

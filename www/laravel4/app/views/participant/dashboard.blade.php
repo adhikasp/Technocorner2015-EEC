@@ -12,41 +12,41 @@
       <h2>Detail Tim Kamu</h2>
       {{ Form::open(['url' => '#', 'class' => 'form-horizontal']) }}
       <fieldset>
-        <legend> {{ Auth::user()->userable->team_name }}</legend>
+        <legend> {{ $participant->team_name }}</legend>
         <div class="form-group">
           <label for="" class="control-label col-sm-2">Nama Tim</label>
           <div class="col-sm-10">
-            <p class="form-control-static">{{ Auth::user()->userable->team_name }}</p>
+            <p class="form-control-static">{{ $participant->team_name }}</p>
           </div>
         </div>
         <div class="form-group">
           <label for="" class="control-label col-sm-2">Asal Sekolah</label>
           <div class="col-sm-10">
-            <p class="form-control-static">{{ Auth::user()->userable->school }}</p>
+            <p class="form-control-static">{{ $participant->school }}</p>
           </div>
         </div>
         <div class="form-group">
           <label for="" class="control-label col-sm-2">Anggota 1</label>
           <div class="col-sm-10">
-            <p class="form-control-static">{{ Auth::user()->userable->member_1 }}</p>
+            <p class="form-control-static">{{ $participant->member_1 }}</p>
           </div>
         </div>
         <div class="form-group">
           <label for="" class="control-label col-sm-2">Anggota 2</label>
           <div class="col-sm-10">
-            <p class="form-control-static">{{ Auth::user()->userable->member_2 }}</p>
+            <p class="form-control-static">{{ $participant->member_2 }}</p>
           </div>
         </div>
         <div class="form-group">
           <label for="" class="control-label col-sm-2">Anggota 3</label>
           <div class="col-sm-10">
-            <p class="form-control-static">{{ Auth::user()->userable->member_3 }}</p>
+            <p class="form-control-static">{{ $participant->member_3 }}</p>
           </div>
         </div>
         <div class="form-group">
           <label for="" class="control-label col-sm-2">Email</label>
           <div class="col-sm-10">
-            <p class="form-control-static">{{ Auth::user()->email }}</p>
+            <p class="form-control-static">{{ $participant->user->email }}</p>
           </div>
         </div>
       </fieldset>
@@ -55,7 +55,24 @@
       <hr>
       <a href="{{ route('participant.exam.preparation') }}" class="btn-dasar btn-important" >Mulai Ujian</a>
       <a href="#" class="btn-dasar disabled">Lihat Hasil</a>
-      <hr/>
+      <hr>
+
+      @if( App::environment() == 'local' )
+        <h1>DEVELOP MODE ONLY DATA</h1>
+        <h2>Exam Model Data</h2>
+
+        <p>
+        ID : {{ count($participant->exam) ? $participant->exam->id : 'User belum punya model Exam' }} <br>
+        @if (count($participant->exam))
+          Here, just read the JSON yourself. <br>
+          <pre>{{ json_encode($participant->exam, JSON_PRETTY_PRINT) }}</pre>
+        @endif
+
+        </p>
+
+        <a href="{{ route('participant.exam.destroy') }}" class="btn-dasar disabled">DEVELOP ONLY: destroy user Exam</a>
+        <hr>
+      @endif
 
       <h2>Petunjuk Persiapan Ujian</h2>
       <ul>

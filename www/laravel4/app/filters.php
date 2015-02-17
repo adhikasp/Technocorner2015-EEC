@@ -100,3 +100,37 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+
+/*
+|--------------------------------------------------------------------------
+| Exam Related Filter
+|--------------------------------------------------------------------------
+|
+|
+|
+*/
+
+Route::filter('examPreparation', function()
+{
+	$p = Auth::user()->userable;
+
+	if (isset($p->exam) and $p->exam->session != 0)
+	{
+		Redirect::route('participant.exam.page');
+	}
+});
+
+Route::filter('inExam', function() {
+	$p = Auth::user()->userable;
+
+	if (!isset($p->exam) or $p->exam->session == 0)
+	{
+		Redirect::route('participant.exam.preparation');
+	}
+	elseif (in_array($p->exam->session, [2, 3]))
+	{
+		Redirect::route('participant.exam.result');
+	}
+
+});

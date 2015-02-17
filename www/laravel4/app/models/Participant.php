@@ -16,4 +16,9 @@ class Participant extends Eloquent {
 		return $this->morphOne('User', 'userable');
 	}
 
+	public function exam()
+	{
+		return $this->hasOne('Exam');
+	}
+
 }
