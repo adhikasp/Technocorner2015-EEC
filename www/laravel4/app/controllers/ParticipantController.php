@@ -17,17 +17,17 @@ class ParticipantController extends BaseController {
 
     public function store()
     {
-      $p = new Participant;
-      $p->team_name    = Input::get('team_name');
-      $p->member_1    = Input::get('member_1');
-      $p->member_2    = Input::get('member_2');
-      $p->member_3    = Input::get('member_3');
-      $p->school = Input::get('school');
+      $p            = new Participant;
+      $p->team_name = Input::get('team_name');
+      $p->member_1  = Input::get('member_1');
+      $p->member_2  = Input::get('member_2');
+      $p->member_3  = Input::get('member_3');
+      $p->school    = Input::get('school');
       $p->save();
 
-      $u = new User;
-      $u->email        = Input::get('email');
-      $u->password     = Hash::make(Input::get('password'));
+      $u            = new User;
+      $u->email     = Input::get('email');
+      $u->password  = Hash::make(Input::get('password'));
       $u->save();
 
       // Polymorph magic

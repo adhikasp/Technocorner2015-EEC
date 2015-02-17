@@ -113,9 +113,9 @@ Route::filter('csrf', function()
 
 Route::filter('examPreparation', function()
 {
-	$p = Auth::user()->userable;
+	$e = Auth::user()->userable->exam;
 
-	if (isset($p->exam) and $p->exam->session != 0)
+	if (count($e) and $e->session != 0)
 	{
 		return Redirect::route('participant.exam.page');
 	}
