@@ -57,7 +57,9 @@ class AdminController extends BaseController {
 
   public function dashboard()
   {
-    $questions = Question::all();
+    // eager loading optimization
+    // http://laravel.com/docs/4.2/eloquent#eager-loading
+    $questions = Question::with('qtype')->get();
 
     return View::make('admin.dashboard')
       ->withQuestions($questions);

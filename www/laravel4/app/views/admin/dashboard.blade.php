@@ -33,6 +33,7 @@
           <th>ID</th>
           <th>Pertanyaan (cuplikan)</th>
           <th>Gambar (ada/tidak)</th>
+          <th>Mata Pelajaran</th>
           <th>Aksi</th>
         </tr>
 
@@ -41,6 +42,7 @@
             <td>{{ $q->id }}</td>
             <td>{{ substr($q->question, 0, 50)}}</td>
             <td>{{ isset($q->image) ? 'ada' : 'tidak' }}</td>
+            <td>{{ $q->qtype->name }}</td>
             <td class="dashboard-action">
               <a href="{{route('admin.question.detail', $q->id)}}"><span class="glyphicon glyphicon-eye-open"></span> Lihat</a> |
               <a href="{{route('admin.question.edit', $q->id)}}"><span class="glyphicon glyphicon-pencil"></span> Edit</a> |

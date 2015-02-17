@@ -165,7 +165,70 @@ class QuestionTableSeeder extends Seeder
 				'answer'   => 'B',
 				'created_at' => $now,
 				'updated_at' => $now
+			],
+			[
+				'qtype_id' => 2,
+				'question' => 'Air adalah salah satu contoh benda...',
+				'image'    => 'http://lorempixel.com/300/200',
+				'chA'			 => 'Padat',
+				'chB'			 => 'Cair',
+				'chC'			 => 'Gas',
+				'chD'			 => 'Plasma',
+				'chE'			 => 'Air? Aku mau es teh!',
+				'randomize' => true,
+				'answer'   => 'B',
+				'created_at' => $now,
+				'updated_at' => $now
+			],
+			[
+				'qtype_id' => 2,
+				'question' => 'Bumi berbentuk menyerupai apa?',
+				'image'    => '//lorempixel.com/300/200',
+				'chA'			 => 'Pensil',
+				'chB'			 => 'Lobak',
+				'chC'			 => 'Persegi',
+				'chD'			 => 'Bulat telur',
+				'chE'			 => 'Kotak',
+				'randomize' => true,
+				'answer'   => 'D',
+				'created_at' => $now,
+				'updated_at' => $now
+			],
+			[
+				'qtype_id' => 3,
+				'question' => 'Web ini dibuat menggunakan framework apa?',
+				'image'    => '//lorempixel.com/300/200',
+				'chA'			 => 'Kembang api',
+				'chB'			 => 'C++',
+				'chC'			 => 'Kuda',
+				'chD'			 => 'Pong',
+				'chE'			 => 'Laravel',
+				'randomize' => true,
+				'answer'   => 'E',
+				'created_at' => $now,
+				'updated_at' => $now
 			]
 		]);
+
+		$f = Faker\Factory::create();
+
+		// 5 pseudo question above + 115 random question = 120 questions
+		for ($i=0; $i < 115; $i++) {
+			$randomAnswer = $f->randomElement(['A', 'B', 'C', 'D', 'E']);
+			Question::create([
+				'qtype_id' => $f->numberBetween(1,3),
+				'question' => '__KUNCI : ' . $randomAnswer . "__ " . $f->text(200),
+				'image'    => '//lorempixel.com/300/200',
+				'chA'			 => $f->word,
+				'chB'			 => $f->word,
+				'chC'			 => $f->word,
+				'chD'			 => $f->word,
+				'chE'			 => $f->word,
+				'randomize' => true,
+				'answer'   => $randomAnswer,
+				'created_at' => $now,
+				'updated_at' => $now
+			]);
+		}
 	}
 }
