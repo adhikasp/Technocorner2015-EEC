@@ -89,10 +89,16 @@ Route::group(['before' => 'auth|participant'], function() {
     'uses' => 'ExamController@exam'
   ]);
 
-  Route::post('user/exam', [
+  Route::post('user/exam/submit', [
     'before' => 'inExam',
     'as' => 'participant.exam.submit',
     'uses' => 'ExamController@submit'
+  ]);
+
+  Route::get('user/exam/result/confirm', [
+    'before' => 'inExam',
+    'as' => 'participant.exam.confirmFinish',
+    'uses' => 'ExamController@confirmFinish'
   ]);
 
   Route::get('user/exam/result', [

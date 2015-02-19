@@ -66,10 +66,16 @@ class ExamController extends BaseController {
       ->withSubjectList($subjectList);
   }
 
+  public function confirmFinish()
+  {
+
+  }
+
   public function submit ()
   {
-    return Redirect::route('participant.exam.page')
-      ->withMessage('answer_saved');
+    return Response::json([
+      'status' => 'success'
+    ]);
   }
 
 }

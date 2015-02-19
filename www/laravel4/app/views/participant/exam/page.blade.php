@@ -3,7 +3,11 @@
 @section('body')
 
   <main class="container-fluid">
-    <h1>BABAK PENYISIHAN EEC 2015</h1>
+    <h1>
+      BABAK PENYISIHAN EEC 2015 <br>
+      <small>Mata pelajaran {{ ucwords(Input::get('mapel')) }}</small>
+    </h1>
+
 
     @if (App::environment() == 'local')
       <h3>DEVELOP MODE ONLY</h3>
@@ -25,7 +29,7 @@
       {{-- So we can make <hr> separator every 5 question --}}
       @foreach (array_chunk($questions->all(), 5) as $question_group)
         @foreach ($question_group as $q)
-          <div class="row">
+          <div class="row question" id="{{ $q->id }}">
             <div class="col-sm-1" style="text-align:right"> {{-- BEWARE: inline styles --}}
               <label>{{ $no++ }}.</label>
             </div>
@@ -94,10 +98,13 @@
         </div>
       </div>
 
-      {{ Form::submit('Selesai', ['class' => 'col-sm-offset-1 btn btn-success'])}}
+      {{ Form::submit('Selesai', ['class' => 'col-sm-offset-1 btn btn-success', 'id' => 'submit-answer'])}}
 
     {{ Form::close() }}
-
   </main>
 
+@stop
+
+@section('script')
+  <script src="/script/exam.min.js"></script>
 @stop
