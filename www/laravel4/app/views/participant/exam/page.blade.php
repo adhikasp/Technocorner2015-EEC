@@ -13,6 +13,9 @@
         <li>Perbaiki radio button, sekarang kalau tulisannya panjaang nanti jadi gak rata sama radionya</li>
       </ul>
       <hr>
+      @if(Session::has('message'))
+        <h3>Jawaban sudah tersiman di DB</h3>
+      @endif
     @endif
 
     {{ Form::open() }}

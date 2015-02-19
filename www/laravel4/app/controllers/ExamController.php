@@ -66,4 +66,10 @@ class ExamController extends BaseController {
       ->withSubjectList($subjectList);
   }
 
+  public function submit ()
+  {
+    return Redirect::route('participant.exam.page')
+      ->withMessage('answer_saved');
+  }
+
 }
