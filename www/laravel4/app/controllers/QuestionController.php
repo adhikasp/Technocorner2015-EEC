@@ -87,6 +87,8 @@ class QuestionController extends BaseController {
   public function delete($id)
   {
     $q = Question::find($id);
+    // Remove image
+    unlink(public_path() . $q->image);
     $q->delete();
 
     return Redirect::route('admin.dashboard')
