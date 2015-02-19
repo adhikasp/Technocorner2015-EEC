@@ -14,7 +14,8 @@
 @stop
 
 @section('field_img')
-  {{ Form::file('image', $question->image, ['class' => 'form-control', 'required' => true]) }}
+  <img src="{{ $question->image }}" alt="question image" />
+  {{ Form::file('image', []) }}
 @stop
 
 @section('field_chA')
