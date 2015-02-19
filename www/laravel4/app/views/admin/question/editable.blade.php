@@ -4,7 +4,7 @@
   <main class="container-fluid">
     <h1>Buat Soal Baru</h1>
     <hr/>
-    {{ Form::open(['route' => 'admin.question.store', 'class' => 'form-horizontal', 'files' => true]) }}
+    @yield('form_open', Form::open(['route' => 'admin.question.store', 'class' => 'form-horizontal', 'files' => true]))
     <fieldset>
       <div class="form-group">
         <div class="col-sm-2">

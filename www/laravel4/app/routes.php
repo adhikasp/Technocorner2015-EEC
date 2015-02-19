@@ -184,6 +184,11 @@ Route::group(['before' => 'auth|admin'], function()
     'uses' => 'QuestionController@edit'
   ])->where('id', '[0-9]+');
 
+  Route::post('admin-tc/dashboard/soal/{id}/perbarui', [
+    'as' => 'admin.question.update',
+    'uses' => 'QuestionController@update'
+  ])->where('id', '[0-9]+');
+
   Route::get('admin-tc/dashboard/soal/{id}/hapus', [
     'as' => 'admin.question.delete',
     'uses' => 'QuestionController@delete'

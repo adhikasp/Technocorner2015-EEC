@@ -20,6 +20,11 @@
             <span class="glyphicon glypichon-check"></span>
             <strong>Sukses</strong>: Soal berhasil ditambahkan ke DataBase.
           </div>
+        @elseif(Session::get('message') == 'quest_update')
+          <div class="bg-success">
+            <span class="glyphicon glypichon-check"></span>
+            <strong>Sukses</strong>: Soal berhasil diperbarui.
+          </div>
         @elseif(Session::get('message') == 'quest_delete')
           <div class="bg-success">
             <span class="glyphicon glypichon-check"></span>

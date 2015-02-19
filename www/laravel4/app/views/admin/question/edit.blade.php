@@ -1,12 +1,15 @@
 @extends('admin.question.editable')
 
+@section('form_open')
+  {{ Form::open(['route' => array('admin.question.update', $question->id), 'class' => 'form-horizontal', 'files' => true]) }}
+@stop
+
 @section('field_qtype')
   {{ Form::select('qtype', $qtypes, $question->qtype->id, ['id' => 'qtype', 'class' => 'form-control', 'rows' => 1, 'required' => true]) }}
   {{ Form::text('qtype_new', '', ['id' => 'qtype-new', 'class' => 'form-control', 'rows' => 1, 'placeholder' => 'Buat tipe baru']) }}
 @stop
 
 @section('field_question')
-  {{ Form::hidden('id', $question->id) }}
   {{ Form::textarea('question', $question->question, ['class' => 'form-control', 'rows' => 5, 'required' => true]) }}
 @stop
 
