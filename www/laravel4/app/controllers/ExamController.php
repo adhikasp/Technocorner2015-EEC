@@ -34,15 +34,8 @@ class ExamController extends BaseController {
     return Redirect::route('participant.exam.page');
   }
 
-  public function exam()
-  {
-    $e = Auth::user()->userable->exam;
-    $q = Question::all();
-
-    return View::make('participant.exam.page')
-      ->withQuestions($q);
-  }
-
+  // DEVELOPER MODE : destroy user related Exam instance
+  //
   public function destroy()
   {
     if (count(Auth::user()->userable->exam)) {
@@ -50,6 +43,27 @@ class ExamController extends BaseController {
     }
 
     return Redirect::route('participant.dashboard');
+  }
+
+  public function exam()
+  {
+    // Get the current exam type subject from url (GET input)
+    // If not present, default to the first subject in Qtype
+    // In case of this EEC exam, the order is: Matematika, Fisika, Computer.
+
+    // For better optimization, just hardcode the Matematika
+    $questionSubject = Input::get('mapel', 'matematika');
+    $subjectId = QType::where('name', '=', $questionSubject)->first()->id;
+
+    // Get ALL the question in requested subject
+    $q = Question::where('qtype_id', '=', $subjectId)->get();
+
+    // Get all the QType for pagination
+    $subjectList = QType::all()->lists('name');
+
+    return View::make('participant.exam.page')
+      ->withQuestions($q)
+      ->withSubjectList($subjectList);
   }
 
 }

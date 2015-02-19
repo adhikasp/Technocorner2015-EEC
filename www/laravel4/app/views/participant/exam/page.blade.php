@@ -77,6 +77,20 @@
         <hr>
       @endforeach
 
+      <div class="row">
+        <div class="col-sm-offset-1 col-sm-11">
+          <nav>
+            <div class="pagination pagination-lg">
+              @foreach ($subject_list as $subject)
+                <li {{ Input::get('mapel') == strtolower($subject) ? 'class="active"' : null }}>
+                  {{ link_to_route('participant.exam.page', $subject, ['mapel' => strtolower($subject)]) }}
+                </li>
+              @endforeach
+            </div>
+          </nav>
+        </div>
+      </div>
+
       {{ Form::submit('Selesai', ['class' => 'col-sm-offset-1 btn btn-success'])}}
 
     {{ Form::close() }}
