@@ -37,6 +37,7 @@
         <tr>
           <th>ID</th>
           <th>Pertanyaan (cuplikan)</th>
+          <th>Acak</th>
           <th>Gambar (ada/tidak)</th>
           <th>Mata Pelajaran</th>
           <th>Aksi</th>
@@ -46,6 +47,7 @@
           <tr>
             <td>{{ $q->id }}</td>
             <td>{{ substr($q->question, 0, 50)}}</td>
+            <td>{{ $q->randomize ? 'acak' : 'tetap' }}</td>
             <td>{{ isset($q->image) ? 'ada' : 'tidak' }}</td>
             <td>{{ $q->qtype->name }}</td>
             <td class="dashboard-action">
