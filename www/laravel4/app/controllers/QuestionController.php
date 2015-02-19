@@ -42,6 +42,7 @@ class QuestionController extends BaseController {
     $q->chC = Input::get('chC');
     $q->chD = Input::get('chD');
     $q->chE = Input::get('chE');
+    $q->randomize = Input::get('randomize')? true : false;
     $q->answer = Input::get('answer');
     $q->save();
 
