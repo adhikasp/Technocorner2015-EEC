@@ -6,9 +6,9 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     notify = require('gulp-notify'),
     livereload = require('gulp-livereload'),
-    cache = require('gulp-cache')
-	vinylPaths = require('vinyl-paths'),
-	del = require('del');
+    cache = require('gulp-cache'),
+    vinylPaths = require('vinyl-paths'),
+    del = require('del');
 
 var devdir = '../../laravel4/app/dist/';
 var styledevdir = devdir + 'style/';
@@ -42,7 +42,7 @@ gulp.task('style:minify', ['style:sass-compile', 'style:css-compile'], function(
     return gulp.src(styledevdir + 'temp/*.max.css')
         .pipe(rename({ extname: '' }))
         .pipe(rename({ extname: '.min.css' }))
-		// See bug https://github.com/jonathanepollack/gulp-minify-css/issues/61
+        // See bug https://github.com/jonathanepollack/gulp-minify-css/issues/61
         .pipe(minifycss({ processImport: false }))
         .pipe(gulp.dest(styledevdir + 'temp/'));
 });
@@ -59,15 +59,15 @@ gulp.task('style:move-ready-to-deploy', function() {
  * Concatenate all style and put on public dir
  */
 gulp.task('styles', ['style:minify', 'style:move-ready-to-deploy'], function() {
-	// See bug https://github.com/jonathanepollack/gulp-minify-css/issues/61
-	var vp = vinylPaths();
+    // See bug https://github.com/jonathanepollack/gulp-minify-css/issues/61
+    var vp = vinylPaths();
 
     return gulp.src(styledevdir + 'temp/*.min.css')
         .pipe(concat('styles.min.css'))
         .pipe(gulp.dest('./style'))
         .pipe(notify({ message: 'SASS compiled, all styles minifyed and concated.' }))
-		.on('end', function () {
-        	del(vp.paths, { force: true });
+        .on('end', function () {
+            del(vp.paths, { force: true });
         });
 });
 
@@ -131,7 +131,7 @@ function syncAll() {
  * Watch for change event
  */
 gulp.task('watch', function() {
-	syncAll();
+    syncAll();
     gulp.watch(styledevdir + 'raw/*', ['styles']);
     gulp.watch(scriptdevdir + 'raw/*.js', ['scripts']);
     gulp.watch(libdevdir + '**/*', ['libs']);
@@ -148,5 +148,5 @@ gulp.task('watch', function() {
 });
 
 gulp.task('default', function() {
-	syncAll();
+    syncAll();
 });
