@@ -15,7 +15,8 @@ class QuestionController extends BaseController {
 
   public function store()
   {
-    $imgPath = '/app/dist/question/img/';
+    $imgRelPath = '/question/img/';
+    $imgPath = public_path() . $imgRelPath;
     $imgPrefix = 'soal-';
 
     // Is the question new? Or so old?
@@ -52,7 +53,7 @@ class QuestionController extends BaseController {
         $imgSuffix = Input::file('image')->getClientOriginalExtension();
         $imgName = $imgPrefix . $q->id . '.' . $imgSuffix;
         Input::file('image')->move($imgPath, $imgName);
-        $q->image = $imgPath . $imgName;
+        $q->image = $imgRelPath . $imgName;
       }
     }
     $q->save();
