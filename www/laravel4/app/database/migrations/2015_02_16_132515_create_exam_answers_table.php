@@ -15,7 +15,7 @@ class CreateExamAnswersTable extends Migration {
 		//
 		Schema::create('exam_answer', function(Blueprint $t) {
 			$t->increments('id');
-			$t->integer('exams_id');
+			$t->integer('exam_id');
 			$t->integer('question_id');
 			$t->char('answer', 1);
 		});

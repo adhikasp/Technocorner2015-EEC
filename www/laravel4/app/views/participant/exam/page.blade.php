@@ -24,6 +24,8 @@
 
     {{ Form::open() }}
 
+      {{ Form::hidden('exam_id', $exam_id, ['id' => 'exam_id']) }}
+
       <?php $no = 1 ?>
       {{-- Get all the question and chunk it in group of 5 #explaining what code already does, what a bad comment --}}
       {{-- So we can make <hr> separator every 5 question --}}

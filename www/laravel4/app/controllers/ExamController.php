@@ -61,21 +61,41 @@ class ExamController extends BaseController {
     // Get all the QType for pagination
     $subjectList = QType::all()->lists('name');
 
+    $examId = Auth::user()->userable->exam->id;
+
     return View::make('participant.exam.page')
       ->withQuestions($q)
-      ->withSubjectList($subjectList);
-  }
-
-  public function confirmFinish()
-  {
-
+      ->withSubjectList($subjectList)
+      ->withExamId($examId);
   }
 
   public function submit ()
   {
+    $answers = Input::get('answers');
+    $examId = Input::get('exam_id');
+
+    foreach ($answers as $answer) {
+      // First we check if there is already an answer with
+      // matching exam_id and question_id in our database.
+      // If there is no match then create new EAnswer model.
+      $ea = EAnswer::alreadyAnswer($examId, $answer['id'])->first();
+      if ( $ea == null ) {
+        $ea = New EAnswer;
+        $ea->exam_id = $examId;
+        $ea->question_id = $answer['id'];
+      }
+      $ea->answer = $answer['answer'];
+      $ea->save();
+    }
+
     return Response::json([
       'status' => 'success'
     ]);
+  }
+
+  public function confirmFinish()
+  {
+    return View::make('participant.exam.confirmFinish');
   }
 
 }

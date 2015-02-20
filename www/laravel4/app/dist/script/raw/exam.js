@@ -1,6 +1,5 @@
 $(document).ready(function() {
-    $('#submit-answer').on('click', function() {
-
+    function submitAnswer() {
         // JSON syntax
         // "answer":[
         //     {"id":"1", "answer":"A"},
@@ -9,6 +8,7 @@ $(document).ready(function() {
         // ]
 
         var $answer = [];
+        var $exam_id = $('#exam_id').val();
 
         $('.question').each(function() {
             var question_answer = {};
@@ -16,28 +16,32 @@ $(document).ready(function() {
             question_answer['id'] = id;
             question_answer['answer'] = $(this).find('[name='+id+'-ch]:checked').val();
 
+            // Just insert the data of question that have answer
+            // to lighten the load of server>
             if(question_answer['answer']) {
                 $answer.push(question_answer);
             }
         });
-        console.log($answer);
 
 
         $.ajax({
             type: 'POST',
             url : '/user/exam/submit',
             data: {
-                answer: $answer,
-                tes: 'tes'
+                answers: $answer,
+                exam_id: $exam_id,
             },
             success: function() {
-                alert('sukses')
+                alert('sukses');
             },
             error: function() {
-                alert('Error POST data baru.');
+                alert('Gagal menyimpan jawaban, harap ulangi klik tombol. Jika hal ini terus terjadi segera hubungi Admin.');
             }
         });
+    }
 
-        return false;
+    $('#submit-answer').on('click', function(e) {
+        e.preventDefault();
+        submitAnswer();
     });
 })
