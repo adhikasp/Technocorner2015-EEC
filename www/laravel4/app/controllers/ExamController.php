@@ -9,6 +9,7 @@ class ExamController extends BaseController {
     if (!isset($p->exam)) {
       $pkg = new QPackage;
       $pkg->save();
+      $pkg->enumerateQuestions();  // Must be called after dB insertion
 
       $e = new Exam;
       $e->session = 0;
@@ -62,8 +63,11 @@ class ExamController extends BaseController {
     $questionSubject = Input::get('mapel', 'matematika');
     $subjectId = QType::where('name', '=', $questionSubject)->first()->id;
 
+    $qpkg = Auth::user()->userable->exam->qpackage;
+
     // Get ALL the question in requested subject
-    $q = Question::where('qtype_id', '=', $subjectId)->get();
+    // $q = $qpkg->questions()->where('qtype_id', '=', $subjectId)->get();
+    $q = $qpkg->scopeQType($subjectId)->get();
 
     // Get all the QType for pagination
     $subjectList = QType::all()->lists('name');
@@ -84,5 +88,4 @@ class ExamController extends BaseController {
       'status' => 'success'
     ]);
   }
-
 }
