@@ -15,4 +15,9 @@ class QPackage extends Eloquent {
     public function exam() {
         return $this->belongsTo('Exam');
     }
+
+    public function qsortables() {
+        return $this->hasMany('QSortable');
+    }
+
 }
