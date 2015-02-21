@@ -1,8 +1,10 @@
 <?php
 
+/**
+ * Provide persistent randomized questions per User basis.
+ *
+ */
 class QPackage extends Eloquent {
-
-
     /**
      * The database table used by the model.
      *
@@ -10,7 +12,7 @@ class QPackage extends Eloquent {
      */
     protected $table = 'qpackages';
 
-    public function questions() {
-        return $this->hasMany('Question');
+    public function exam() {
+        return $this->belongsTo('Exam');
     }
 }

@@ -7,11 +7,18 @@ class ExamController extends BaseController {
     $p = Auth::user()->userable;
 
     if (!isset($p->exam)) {
+      $pkg = new QPackage;
+      $pkg->save();
+
       $e = new Exam;
       $e->session = 0;
+      $e->qpackage_id = $pkg->id;
       Auth::user()->userable->exam()->save($e);
-    }
-    else {
+
+      // Assign the exam
+      $pkg->exam_id = $e->id;
+      $pkg->save();
+    } else {
       $e = $p->exam;
     }
 
