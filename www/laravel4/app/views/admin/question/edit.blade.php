@@ -14,7 +14,7 @@
 @stop
 
 @section('field_img')
-  <img src="{{ $question->image }}" alt="question image" />
+  <img class="image-responsive" src="{{ $question->image }}" alt="question image" />
   {{ Form::file('image', []) }}
 @stop
 
@@ -59,5 +59,5 @@
 @stop
 
 @section('field_randomize')
-  {{ Form::checkbox('randomize', $question->randomize) }}
+  {{ Form::checkbox('randomize', $question->randomize, $question->randomize? true : false) }}
 @stop
