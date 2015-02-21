@@ -88,11 +88,11 @@
       @endforeach
 
       <div class="row">
-        <div class="col-sm-offset-1 col-sm-11">
-          <nav>
+        <div class="col-sm-offset-1 col-sm-10">
+          <nav class="paging" style="text-align: center">
             <div class="pagination pagination-lg">
               @foreach ($subject_list as $subject)
-                <li {{ Input::get('mapel') == strtolower($subject) ? 'class="active"' : null }}>
+                <li {{ (Input::get('mapel')? Input::get('mapel') : 'matematika') == strtolower($subject) ? 'class="active"' : null }}>
                   {{ link_to_route('participant.exam.page', $subject, ['mapel' => strtolower($subject)]) }}
                 </li>
               @endforeach
@@ -101,7 +101,9 @@
         </div>
       </div>
 
-      {{ Form::submit('Selesai', ['class' => 'col-sm-offset-1 btn btn-success', 'id' => 'submit-answer'])}}
+	  <hr/>
+
+      {{ Form::submit('Selesai', ['class' => 'col-sm-offset-4 col-sm-4 btn btn-success', 'id' => 'submit-answer'])}}
 
     {{ Form::close() }}
   </main>
