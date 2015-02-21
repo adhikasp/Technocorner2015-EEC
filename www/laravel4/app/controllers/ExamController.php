@@ -59,7 +59,7 @@ class ExamController extends BaseController {
     // If not present, default to the first subject in Qtype
     // In case of this EEC exam, the order is: Matematika, Fisika, Computer.
 
-    // For better optimization, just hardcode the Matematika
+    // For better optimization, just hardcode the default : Matematika
     $questionSubject = Input::get('mapel', 'matematika');
     $subjectId = QType::where('name', '=', $questionSubject)->first()->id;
 

@@ -16,7 +16,7 @@ class CreateQuestionsTable extends Migration {
 		{
 			$t->increments('id');
 
-      $t->string('qtype_id');
+			$t->string('qtype_id');
 			$t->string('question');
 			$t->string('image')->nullable();
 			$t->string('chA');
