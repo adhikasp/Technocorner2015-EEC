@@ -7,11 +7,19 @@ class ExamController extends BaseController {
     $p = Auth::user()->userable;
 
     if (!isset($p->exam)) {
+      $pkg = new QPackage;
+      $pkg->save();
+      $pkg->enumerateQuestions();  // Must be called after dB insertion
+
       $e = new Exam;
       $e->session = 0;
+      $e->qpackage_id = $pkg->id;
       Auth::user()->userable->exam()->save($e);
-    }
-    else {
+
+      // Assign the exam
+      $pkg->exam_id = $e->id;
+      $pkg->save();
+    } else {
       $e = $p->exam;
     }
 
@@ -51,12 +59,15 @@ class ExamController extends BaseController {
     // If not present, default to the first subject in Qtype
     // In case of this EEC exam, the order is: Matematika, Fisika, Computer.
 
-    // For better optimization, just hardcode the Matematika
+    // For better optimization, just hardcode the default : Matematika
     $questionSubject = Input::get('mapel', 'matematika');
     $subjectId = QType::where('name', '=', $questionSubject)->first()->id;
 
+    $qpkg = Auth::user()->userable->exam->qpackage;
+
     // Get ALL the question in requested subject
-    $q = Question::where('qtype_id', '=', $subjectId)->get();
+    // $q = $qpkg->questions()->where('qtype_id', '=', $subjectId)->get();
+    $q = $qpkg->scopeQType($subjectId)->get();
 
     // Get all the QType for pagination
     $subjectList = QType::all()->lists('name');
@@ -97,5 +108,4 @@ class ExamController extends BaseController {
   {
     return View::make('participant.exam.confirmFinish');
   }
-
 }

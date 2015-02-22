@@ -154,6 +154,20 @@ class QuestionTableSeeder extends Seeder
 			],
 			[
 				'qtype_id' => 1,
+				'question' => 'Berapakah 1 + 3?',
+				'image'    => 'qimg-2.png',
+				'chA'			 => '2',
+				'chB'			 => '3',
+				'chC'			 => '4',
+				'chD'			 => '5',
+				'chE'			 => '6',
+				'randomize' => true,
+				'answer'   => 'C',
+				'created_at' => $now,
+				'updated_at' => $now
+			],
+			[
+				'qtype_id' => 1,
 				'question' => 'Berapakah 3 + 6?',
 				'image'    => 'http://janbrett.com/images/addition_flash3+3=6.jpg',
 				'chA'			 => '10',
@@ -212,19 +226,28 @@ class QuestionTableSeeder extends Seeder
 
 		$f = Faker\Factory::create();
 
+        $j = 4;
 		// 5 pseudo question above + 115 random question = 120 questions
 		for ($i=0; $i < 115; $i++) {
 			$randomAnswer = $f->randomElement(['A', 'B', 'C', 'D', 'E']);
+            $qtype_rand = $f->numberBetween(1,3);
+            $random_rand = $f->boolean();
+            $hint = '';
+            if ($qtype_rand == 1) {
+                $hint .= '[ MTK urutan ' . $j . ' ]';
+                $hint .= '[ Acak ? ' . var_export($random_rand, true) . ' ]';
+                $j++;
+            }
 			Question::create([
-				'qtype_id' => $f->numberBetween(1,3),
-				'question' => '__KUNCI : ' . $randomAnswer . "__ " . $f->text(200),
+				'qtype_id' => $qtype_rand,
+				'question' => '__KUNCI : ' . $randomAnswer . "__ " . '[ qtype: ' . $qtype_rand .' ] ' . $hint . $f->text(25),
 				'image'    => '//lorempixel.com/300/200',
 				'chA'			 => $f->word,
 				'chB'			 => $f->word,
 				'chC'			 => $f->word,
 				'chD'			 => $f->word,
 				'chE'			 => $f->word,
-				'randomize' => true,
+				'randomize' => $random_rand,
 				'answer'   => $randomAnswer,
 				'created_at' => $now,
 				'updated_at' => $now

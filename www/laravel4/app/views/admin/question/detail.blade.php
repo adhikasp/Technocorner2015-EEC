@@ -31,13 +31,13 @@
         <div class="form-group">
           {{ Form::label('image', 'Gambar', ['class' => 'control-label col-sm-2']) }}
           <div class="col-sm-10">
-            <p class="form-control-static">
-              @if(isset($question->image))
+            @if(isset($question->image))
+			  <div class="form-control-static col-sm-10">
                 <img src="{{ $question->image }}" alt="Gambar soal" class="img-responsive">
-              @else
-                Tidak ada gambar.
-              @endif
-            </p>
+			  </div>
+            @else
+              Tidak ada gambar.
+            @endif
           </div>
         </div>
 

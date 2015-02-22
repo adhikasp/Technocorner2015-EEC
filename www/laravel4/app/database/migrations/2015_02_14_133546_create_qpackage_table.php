@@ -18,10 +18,23 @@ class CreateQpackageTable extends Migration {
 		Schema::create('qpackages', function(Blueprint $t)
 		{
 			$t->increments('id');
-			$t->integer('pack_id');
-			$t->integer('question_id');
+			$t->integer('exam_id');
+
+            $t->timestamps();
+
 		});
-	}
+
+        Schema::create('qsortables', function(Blueprint $t)
+		{
+			$t->increments('id');
+			$t->integer('qpackage_id');
+			$t->integer('qtype_id');
+            $t->integer('index');
+			$t->string('question_id');
+
+			$t->timestamps();
+		});
+    }
 
 	/**
 	 * Reverse the migrations.

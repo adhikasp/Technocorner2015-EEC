@@ -58,5 +58,5 @@
 @stop
 
 @section('field_randomize')
-  {{ Form::checkbox('randomize', Input::old('randomize')) }}
+  {{ Form::checkbox('randomize', Input::old('randomize'), true) }}
 @stop

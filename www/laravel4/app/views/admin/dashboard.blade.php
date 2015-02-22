@@ -38,7 +38,7 @@
           <th>ID</th>
           <th>Pertanyaan (cuplikan)</th>
           <th>Acak</th>
-          <th>Gambar (ada/tidak)</th>
+          <th>Gambar</th>
           <th>Mata Pelajaran</th>
           <th>Aksi</th>
         </tr>
@@ -47,8 +47,8 @@
           <tr>
             <td>{{ $q->id }}</td>
             <td>{{ substr($q->question, 0, 50)}}</td>
-            <td>{{ $q->randomize ? 'acak' : 'tetap' }}</td>
-            <td>{{ isset($q->image) ? 'ada' : 'tidak' }}</td>
+            <td><span class="glyphicon {{ $q->randomize ? 'glyphicon-ok' : 'glyphicon-remove' }}"></span></td>
+            <td><span class="glyphicon {{ isset($q->image) ? 'glyphicon-ok' : 'glyphicon-remove' }}"></span></td>
             <td>{{ $q->qtype->name }}</td>
             <td class="dashboard-action">
               <a href="{{route('admin.question.detail', $q->id)}}"><span class="glyphicon glyphicon-eye-open"></span> Lihat</a> |
