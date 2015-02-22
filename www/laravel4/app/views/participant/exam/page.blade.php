@@ -95,7 +95,7 @@
             <div class="pagination pagination-lg">
               @foreach ($subject_list as $subject)
                 <li {{ (Input::get('mapel')? Input::get('mapel') : 'matematika') == strtolower($subject) ? 'class="active"' : null }}>
-                  {{ link_to_route('participant.exam.page', $subject, ['mapel' => strtolower($subject)]) }}
+                  {{ link_to_route('participant.exam.page', $subject, ['mapel' => strtolower($subject)], ['class' => 'subject-link']) }}
                 </li>
               @endforeach
             </div>

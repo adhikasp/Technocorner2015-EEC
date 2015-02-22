@@ -72,8 +72,10 @@ Route::group(['before' => 'auth|participant'], function() {
     'uses' => 'ParticipantController@logout'
   ]);
 
+
+
   Route::get('user/exam/preparation', [
-    'before' => 'examPreparation',
+    'before' => 'noExam',
     'as' => 'participant.exam.preparation',
     'uses' => 'ExamController@showPreparation'
   ]);
@@ -84,35 +86,37 @@ Route::group(['before' => 'auth|participant'], function() {
   ]);
 
   Route::get('user/exam', [
-    'before' => 'inExam',
+    'before' => 'haveExam|inExam',
     'as' => 'participant.exam.page',
     'uses' => 'ExamController@exam'
   ]);
 
-  Route::post('user/exam/submit', [
-    'before' => 'inExam',
-    'as' => 'participant.exam.submit',
-    'uses' => 'ExamController@submit'
-  ]);
-
   Route::get('user/exam/result/confirm', [
-    'before' => 'inExam',
+    'before' => 'haveExam|stopExam',
     'as' => 'participant.exam.showConfirmFinish',
     'uses' => 'ExamController@showConfirmFinish'
   ]);
 
-  Route::post('user/exam/result/confirm', [
-    'before' => 'inExam',
-    'as' => 'participant.exam.confirmFinish',
-    'uses' => 'ExamController@confirmFinish'
-  ]);
-
   Route::get('user/exam/result', [
-    'before' => 'haveExam|examResultCalculated',
+    'before' => 'haveExam|completedExam',
     'as' => 'participant.exam.result',
     'uses' => 'ExamController@result'
   ]);
 
+
+
+  Route::post('user/exam/submit', [
+    'as' => 'participant.exam.submit',
+    'uses' => 'ExamController@submit'
+  ]);
+
+  Route::post('user/exam/result/confirm', [
+    'before' => 'haveExam|inExam',
+    'as' => 'participant.exam.confirmFinish',
+    'uses' => 'ExamController@confirmFinish'
+  ]);
+
+  // DEVELOPER MODE ONLY
   Route::get('user/exam/destroy', [
     'as' => 'participant.exam.destroy',
     'uses' => 'ExamController@destroy'

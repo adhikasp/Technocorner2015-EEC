@@ -90,23 +90,25 @@ class ExamController extends BaseController {
       ->withExamId($examId);
   }
 
-  public function submit ()
+  public function submit()
   {
-    $answers = Input::get('answers');
-    $examId = Input::get('exam_id');
+    if (Input::has('answers')) {
+      $answers = Input::get('answers');
+      $examId = Input::get('exam_id');
 
-    foreach ($answers as $answer) {
-      // First we check if there is already an answer with
-      // matching exam_id and question_id in our database.
-      // If there is no match then create new EAnswer model.
-      $ea = EAnswer::alreadyAnswer($examId, $answer['id'])->first();
-      if ( $ea == null ) {
-        $ea = New EAnswer;
-        $ea->exam_id = $examId;
-        $ea->question_id = $answer['id'];
+      foreach ($answers as $answer) {
+        // First we check if there is already an answer with
+        // matching exam_id and question_id in our database.
+        // If there is no match then create new EAnswer model.
+        $ea = EAnswer::alreadyAnswer($examId, $answer['id'])->first();
+        if ( $ea == null ) {
+          $ea = New EAnswer;
+          $ea->exam_id = $examId;
+          $ea->question_id = $answer['id'];
+        }
+        $ea->answer = $answer['answer'];
+        $ea->save();
       }
-      $ea->answer = $answer['answer'];
-      $ea->save();
     }
 
     return Response::json([

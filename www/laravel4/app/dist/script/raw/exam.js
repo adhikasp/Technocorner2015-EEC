@@ -42,9 +42,19 @@ $(document).ready(function() {
         });
     }
 
-    $('#submit-answer').on('click', function() {
+    $('#exam-paper').submit(function(e) {
+        e.preventDefault();
         var self = this;
-        alert('aaaaaaaaaaaa');
-        return false;
+
+        submitAnswer(self.submit());
+    });
+
+    $('.subject-link').on('click', function(e) {
+        e.preventDefault();
+        var self = this;
+
+        submitAnswer(function() {
+            window.location = self.href;
+        });
     });
 })

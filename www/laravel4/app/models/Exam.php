@@ -33,13 +33,16 @@ class Exam extends Eloquent {
 
   public function calculateResult()
   {
-    $answers = EAnswer::where('exam_id', '=', $this->id)->get();
-    // $questionsKey = Question::all()->select(['id', 'answer']);
-    dd($this->id);
+    $answers = EAnswer::where('exam_id', '=', $this->id)
+      ->select(['question_id', 'answer'])
+      ->with(['question' => function($q){
+            $q->select(['id', 'answer']);
+          }])
+      ->get();
 
-    $VALUE_CORRECT = 3;
+    $VALUE_CORRECT = 4;
     $VALUE_EMPTY = 0;
-    $VALUE_WRONG = -2;
+    $VALUE_WRONG = -1;
 
     $score = 0;
 

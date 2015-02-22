@@ -107,46 +107,73 @@ Route::filter('csrf', function()
 | Exam Related Filter
 |--------------------------------------------------------------------------
 |
-|
+| Todo: make the repetitive redirect code to modular Class
 |
 */
 
-Route::filter('haveExam', function() {
+Route::filter('noExam', function() {
 	$e = Auth::user()->userable->exam;
-	if (!count($e))
+
+	// Check if user already have Exam
+	// if they DO have Exam, then check their session
+	if ($e ? $e->session != 0 : false)
 	{
-		return Redirect::route('participant.exam.preparation');
+		if ($e->session == 1) {
+			return Redirect::route('participant.exam.page');
+		} elseif ($e->session == 2) {
+			return Redirect::route('participant.exam.confirmFinish');
+		} elseif ($e->session == 3) {
+			return Redirect::route('participant.exam.result');
+		}
 	}
 });
 
-Route::filter('examPreparation', function()
-{
-	$e = Auth::user()->userable->exam;
-
-	if (count($e) and $e->session != 0)
-	{
-		return Redirect::route('participant.exam.page');
+Route::filter('haveExam', function() {
+	if (!Auth::user()->userable->exam) {
+		return Redirect::route('participant.exam.preparation');
 	}
 });
 
 Route::filter('inExam', function() {
 	$e = Auth::user()->userable->exam;
+	$s = $e->session;
 
-	if (!count($e) or $e->session == 0)
+	if ($s != 1)
 	{
-		return Redirect::route('participant.exam.preparation');
-	}
-	elseif (in_array($e->session, [2, 3]))
-	{
-		Redirect::route('participant.exam.result');
+		if ($s == 0) {
+			return Redirect::route('participant.exam.preparation');
+		} elseif ($s == 2) {
+			return Redirect::route('participant.exam.confirmFinish');
+		} elseif ($s == 3) {
+			return Redirect::route('participant.exam.result');
+		}
 	}
 });
 
-Route::filter('examResultCalculated', function() {
+Route::filter('stopExam', function() {
+	$e = Auth::user()->userable->exam;
+
+	if ($e->session != 2)
+	{
+		if ($s == 0) {
+			return Redirect::route('participant.exam.preparation');
+		} elseif ($s == 3) {
+			return Redirect::route('participant.exam.result');
+		}
+	}
+});
+
+Route::filter('completedExam', function() {
 	$e = Auth::user()->userable->exam;
 
 	if ($e->session != 3)
 	{
-		return Redirect::route('participant.exam.page');
+		if ($s == 0) {
+			return Redirect::route('participant.exam.preparation');
+		} elseif ($s == 1) {
+			return Redirect::route('participant.exam.page');
+		} elseif ($s == 2) {
+			return Redirect::route('participant.exam.confirmFinish');
+		}
 	}
 });
