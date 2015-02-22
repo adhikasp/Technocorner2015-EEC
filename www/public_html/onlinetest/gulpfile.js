@@ -65,29 +65,35 @@ gulp.task('styles', ['style:minify', 'style:move-ready-to-deploy'], function() {
     return gulp.src(styledevdir + 'temp/*.min.css')
         .pipe(concat('styles.min.css'))
         .pipe(gulp.dest('./style'))
-        .pipe(notify({ message: 'SASS compiled, all styles minifyed and concated.' }))
         .on('end', function () {
             del(vp.paths, { force: true });
         });
 });
 
 /**
+ * Minify script
+ */
+gulp.task('script:minify', function() {
+    return gulp.src(scriptdevdir + 'raw/*.js')
+        .pipe(uglify())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest(scriptdevdir + 'temp'));
+});
+
+/**
  * Move all ready-to-deploy script into public dir
  */
-gulp.task('script:move-ready-to-deploy', function() {
-    return gulp.src(scriptdevdir + 'deploy/*.js')
-        .pipe(gulp.dest('./script'));
+gulp.task('script:move-ready-to-deploy', ['script:minify'], function() {
+    return gulp.src(scriptdevdir + 'temp/*.min.js')
+        .pipe(gulp.dest(scriptdevdir + 'deploy'));
 });
 
 /**
  * Minify (uglify) then concatenate all script and put on public dir
  */
 gulp.task('scripts', ['script:move-ready-to-deploy'], function() {
-    return gulp.src(scriptdevdir + 'raw/*.js')
-        .pipe(uglify())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./script'))
-        .pipe(notify({ message: 'JavaScript ready.' }));
+    return gulp.src(scriptdevdir + 'deploy/*.js')
+        .pipe(gulp.dest('./script'));
 });
 
 /**
