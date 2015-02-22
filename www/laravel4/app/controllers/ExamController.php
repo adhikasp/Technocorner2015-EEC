@@ -6,6 +6,8 @@ class ExamController extends BaseController {
 
     $p = Auth::user()->userable;
 
+    // If Participant is opening exam preparation page for the first time,
+    // then we create new Exam instance and assign it to them.
     if (!isset($p->exam)) {
       $pkg = new QPackage;
       $pkg->save();
@@ -14,12 +16,17 @@ class ExamController extends BaseController {
       $e = new Exam;
       $e->session = 0;
       $e->qpackage_id = $pkg->id;
-      Auth::user()->userable->exam()->save($e);
+      $p->exam()->save($e);
 
       // Assign the exam
       $pkg->exam_id = $e->id;
       $pkg->save();
-    } else {
+    }
+    // Or if the participant already open the page before but NOT yet taken the exam,
+    // then we just reference it.
+    // Note: it is impossible for user that ALREADY TAKE EXAM to visit this page
+    //       because there is filter in routes to this page.
+    else {
       $e = $p->exam;
     }
 
@@ -55,6 +62,8 @@ class ExamController extends BaseController {
 
   public function exam()
   {
+    $e = Auth::user()->userable->exam;
+
     // Get the current exam type subject from url (GET input)
     // If not present, default to the first subject in Qtype
     // In case of this EEC exam, the order is: Matematika, Fisika, Computer.
@@ -63,7 +72,7 @@ class ExamController extends BaseController {
     $questionSubject = Input::get('mapel', 'matematika');
     $subjectId = QType::where('name', '=', $questionSubject)->first()->id;
 
-    $qpkg = Auth::user()->userable->exam->qpackage;
+    $qpkg = $e->qpackage;
 
     // Get ALL the question in requested subject
     // $q = $qpkg->questions()->where('qtype_id', '=', $subjectId)->get();
@@ -72,7 +81,8 @@ class ExamController extends BaseController {
     // Get all the QType for pagination
     $subjectList = QType::all()->lists('name');
 
-    $examId = Auth::user()->userable->exam->id;
+    // Pass the user's exam id to View for AJAX push saving to Database
+    $examId = $e->id;
 
     return View::make('participant.exam.page')
       ->withQuestions($q)
@@ -104,8 +114,28 @@ class ExamController extends BaseController {
     ]);
   }
 
-  public function confirmFinish()
+  public function showConfirmFinish()
   {
     return View::make('participant.exam.confirmFinish');
+  }
+
+  public function confirmFinish()
+  {
+    $e = Auth::user()->userable->exam;
+
+    $e->session = 2;
+    $e->calculateResult();
+
+    return Redirect::route('participant.exam.result');
+  }
+
+  public function result()
+  {
+    $p = Auth::user()->userable;
+    $e = $p->exam;
+
+    return View::make('participant.exam.result')
+      ->withParticipant($p)
+      ->withExam($e);
   }
 }

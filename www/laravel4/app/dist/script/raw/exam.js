@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    function submitAnswer() {
+    function submitAnswer(callback) {
         // JSON syntax
         // "answer":[
         //     {"id":"1", "answer":"A"},
@@ -25,6 +25,7 @@ $(document).ready(function() {
 
 
         $.ajax({
+            async: false,
             type: 'POST',
             url : '/user/exam/submit',
             data: {
@@ -33,6 +34,7 @@ $(document).ready(function() {
             },
             success: function() {
                 alert('sukses');
+                callback();
             },
             error: function() {
                 alert('Gagal menyimpan jawaban, harap ulangi klik tombol. Jika hal ini terus terjadi segera hubungi Admin.');
@@ -40,8 +42,9 @@ $(document).ready(function() {
         });
     }
 
-    $('#submit-answer').on('click', function(e) {
-        e.preventDefault();
-        submitAnswer();
+    $('#submit-answer').on('click', function() {
+        var self = this;
+        alert('aaaaaaaaaaaa');
+        return false;
     });
 })

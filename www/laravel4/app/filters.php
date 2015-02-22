@@ -111,6 +111,14 @@ Route::filter('csrf', function()
 |
 */
 
+Route::filter('haveExam', function() {
+	$e = Auth::user()->userable->exam;
+	if (!count($e))
+	{
+		return Redirect::route('participant.exam.preparation');
+	}
+});
+
 Route::filter('examPreparation', function()
 {
 	$e = Auth::user()->userable->exam;
@@ -122,15 +130,23 @@ Route::filter('examPreparation', function()
 });
 
 Route::filter('inExam', function() {
-	$p = Auth::user()->userable;
+	$e = Auth::user()->userable->exam;
 
-	if (!count($p->exam) or $p->exam->session == 0)
+	if (!count($e) or $e->session == 0)
 	{
 		return Redirect::route('participant.exam.preparation');
 	}
-	elseif (in_array($p->exam->session, [2, 3]))
+	elseif (in_array($e->session, [2, 3]))
 	{
 		Redirect::route('participant.exam.result');
 	}
+});
 
+Route::filter('examResultCalculated', function() {
+	$e = Auth::user()->userable->exam;
+
+	if ($e->session != 3)
+	{
+		return Redirect::route('participant.exam.page');
+	}
 });

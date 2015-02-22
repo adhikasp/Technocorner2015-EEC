@@ -23,7 +23,7 @@
       @endif
     @endif
 
-    {{ Form::open() }}
+    {{ Form::open(['route' => 'participant.exam.showConfirmFinish', 'id' => 'exam-paper']) }}
 
       {{ Form::hidden('exam_id', $exam_id, ['id' => 'exam_id']) }}
 

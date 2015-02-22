@@ -12,6 +12,11 @@ class EAnswer extends Eloquent {
 
   public $timestamps = false;
 
+  public function question()
+  {
+    return $this->belongsTo('Question');
+  }
+
   public function scopeAlreadyAnswer($query, $examId, $questionId)
   {
     $matchingAnswer = [

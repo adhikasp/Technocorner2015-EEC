@@ -12,28 +12,27 @@ class CreateQpackageTable extends Migration {
 	 */
 	public function up()
 	{
-        /**
-         * Question package
-         */
+    /**
+     * Question package
+     */
 		Schema::create('qpackages', function(Blueprint $t)
 		{
 			$t->increments('id');
 			$t->integer('exam_id');
 
-            $t->timestamps();
-
+      $t->timestamps();
 		});
 
-        Schema::create('qsortables', function(Blueprint $t)
-		{
-			$t->increments('id');
-			$t->integer('qpackage_id');
-			$t->integer('qtype_id');
-            $t->integer('index');
-			$t->string('question_id');
+    Schema::create('qsortables', function(Blueprint $t)
+			{
+				$t->increments('id');
+				$t->integer('qpackage_id');
+				$t->integer('qtype_id');
+	      $t->integer('index');
+				$t->string('question_id');
 
-			$t->timestamps();
-		});
+				$t->timestamps();
+			});
     }
 
 	/**
@@ -44,6 +43,7 @@ class CreateQpackageTable extends Migration {
 	public function down()
 	{
 		Schema::dropIfExists('qpackages');
+		Schema::dropIfExists('qsortables');
 	}
 
 }

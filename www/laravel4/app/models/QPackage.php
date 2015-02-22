@@ -21,11 +21,15 @@ class QPackage extends Eloquent {
     }
 
     public function scopeQType($qtype_id) {
+        // Get the randomized sequence form QSortable model
         $qsorts = QSortable::where('qpackage_id', '=', $this->id)
                 ->where('qtype_id', '=', $qtype_id)
                 ->orderBy('index', 'asc')->get();
 
+        // Get ALL the question that have the asked subject (qtype)
         $q = Question::where('qtype_id', '=', $qtype_id);
+
+        // Then we order the $q according to randomized $qsorts order
         $orderstr = 'FIELD(id';
         foreach($qsorts as $qsort) {
             $q_id = $qsort->question_id;
@@ -72,7 +76,7 @@ class QPackage extends Eloquent {
                 $qsort = new QSortable;
                 $qsort->index = $i;
                 $qsort->qpackage_id = $this->id;
-                $qsort->qtype_id = $qtype->id;
+                $qsort->qtype_id = $qtype_id;
                 $qsort->question_id = $q_id['id'];
                 $qsort->save();
                 $i++;

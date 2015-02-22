@@ -226,7 +226,7 @@ class QuestionTableSeeder extends Seeder
 
 		$f = Faker\Factory::create();
 
-        $j = 4;
+    $j = 4;
 		// 5 pseudo question above + 115 random question = 120 questions
 		for ($i=0; $i < 115; $i++) {
 			$randomAnswer = $f->randomElement(['A', 'B', 'C', 'D', 'E']);
@@ -239,16 +239,16 @@ class QuestionTableSeeder extends Seeder
                 $j++;
             }
 			Question::create([
-				'qtype_id' => $qtype_rand,
-				'question' => '__KUNCI : ' . $randomAnswer . "__ " . '[ qtype: ' . $qtype_rand .' ] ' . $hint . $f->text(25),
-				'image'    => '//lorempixel.com/300/200',
-				'chA'			 => $f->word,
-				'chB'			 => $f->word,
-				'chC'			 => $f->word,
-				'chD'			 => $f->word,
-				'chE'			 => $f->word,
-				'randomize' => $random_rand,
-				'answer'   => $randomAnswer,
+				'qtype_id'   => $qtype_rand,
+				'question'   => '__KUNCI : ' . $randomAnswer . "__ " . '[ qtype: ' . $qtype_rand .' ] ' . $hint . $f->text(25),
+				'image'      => '//lorempixel.com/300/200',
+				'chA'        => $f->word,
+				'chB'        => $f->word,
+				'chC'        => $f->word,
+				'chD'        => $f->word,
+				'chE'        => $f->word,
+				'randomize'  => $random_rand,
+				'answer'     => $randomAnswer,
 				'created_at' => $now,
 				'updated_at' => $now
 			]);
