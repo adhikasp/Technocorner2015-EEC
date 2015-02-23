@@ -8,7 +8,7 @@ $(document).ready(function() {
     var subject = $('form').attr('id').replace('quest-', '');
 
     // Backup answer, accident prevention
-    $('.choice-button').click(function (ev) {
+    $('.choice-radio').click(function (ev) {
         var qid = $(this).attr('name').split('-')[0];
         var val = $(this).attr('value');
 

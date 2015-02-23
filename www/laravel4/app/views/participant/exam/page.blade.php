@@ -23,7 +23,9 @@
       @endif
     @endif
 
-    {{ Form::open(['route' => 'participant.exam.showConfirmFinish', 'id' => 'exam-paper']) }}
+<<<<<<< HEAD
+    {{ Form::open(['route' => 'participant.exam.showConfirmFinish', 'class' => 'exam-paper',
+		           'id' => (Input::get('mapel')? Input::get('mapel') : 'matematika') . '-paper']) }}
 
       {{ Form::hidden('exam_id', $exam_id, ['id' => 'exam_id']) }}
 
@@ -50,35 +52,35 @@
 
               <div class="radio">
                 <label>
-                  {{ Form::radio( $q->id . '-ch', 'A', Input::old( $q->id . '-ch') ) }}
+                  {{ Form::radio( $q->id . '-ch', 'A', Input::old( $q->id . '-ch'), ['class' => 'choice-radio']) }}
                   <strong>A.</strong> {{ $q->chA }}
                 </label>
               </div>
 
               <div class="radio">
                 <label>
-                  {{ Form::radio( $q->id . '-ch', 'B', Input::old( $q->id . '-ch') ) }}
+                  {{ Form::radio( $q->id . '-ch', 'B', Input::old( $q->id . '-ch'), ['class' => 'choice-radio'] ) }}
                   <strong>B.</strong> {{ $q->chB }}
                 </label>
               </div>
 
               <div class="radio">
                 <label>
-                  {{ Form::radio( $q->id . '-ch', 'C', Input::old( $q->id . '-ch') ) }}
+                  {{ Form::radio( $q->id . '-ch', 'C', Input::old( $q->id . '-ch'), ['class' => 'choice-radio'] ) }}
                   <strong>C.</strong> {{ $q->chC }}
                 </label>
               </div>
 
               <div class="radio">
                 <label>
-                  {{ Form::radio( $q->id . '-ch', 'D', Input::old( $q->id . '-ch') ) }}
+                  {{ Form::radio( $q->id . '-ch', 'D', Input::old( $q->id . '-ch'), ['class' => 'choice-radio'] ) }}
                   <strong>D.</strong> {{ $q->chD }}
                 </label>
               </div>
 
               <div class="radio">
                 <label>
-                  {{ Form::radio( $q->id . '-ch', 'E', Input::old( $q->id . '-ch') ) }}
+                  {{ Form::radio( $q->id . '-ch', 'E', Input::old( $q->id . '-ch'), ['class' => 'choice-radio'] ) }}
                   <strong>E.</strong> {{ $q->chE }}
                 </label>
               </div>
