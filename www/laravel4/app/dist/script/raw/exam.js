@@ -1,5 +1,12 @@
 $(document).ready(function() {
+
+    // Prevent premature submission
+    $(window).keydown(function(event) {
+        return (event.keyCode == 13)? false : true;
+    });
+
     function submitAnswer(callback) {
+
         // JSON syntax
         // "answer":[
         //     {"id":"1", "answer":"A"},
