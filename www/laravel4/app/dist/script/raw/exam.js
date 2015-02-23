@@ -5,7 +5,7 @@ $(document).ready(function() {
         return (event.keyCode == 13)? false : true;
     });
 
-    var subject = $('form').attr('id').replace('quest-', '');
+    var subject = $('form').attr('id').replace('-paper', '');
 
     // Backup answer, accident prevention
     $('.choice-radio').click(function (ev) {
