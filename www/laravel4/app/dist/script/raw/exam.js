@@ -11,7 +11,6 @@ $(document).ready(function() {
     $('.choice-radio').click(function (ev) {
         var qid = $(this).attr('name').split('-')[0];
         var val = $(this).attr('value');
-
         localStorage.setItem(subject + '-' + qid, val);
     });
 
@@ -22,7 +21,7 @@ $(document).ready(function() {
             if(value == null) {
                 continue;
             }
-            $("#" + quests[i].id + " input[value=" + value + "]").attr('checked', 'checked').trigger('click');
+            $("#" + quests[i].id + " input[value=" + value + "]").prop('checked', true);
         }
     }
 
@@ -64,7 +63,6 @@ $(document).ready(function() {
                 exam_id: $exam_id,
             },
             success: function() {
-                alert('sukses');
                 callback();
             },
             error: function() {
