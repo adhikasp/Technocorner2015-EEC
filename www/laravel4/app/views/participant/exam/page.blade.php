@@ -15,7 +15,7 @@
       <ul>
         <li>Nomor soal masih pake inline style agar rata kanan</li>
         <li>Perbaiki radio button, sekarang kalau tulisannya panjaang nanti jadi gak rata sama radionya</li>
-        <li>Disable kirim form saat tekan <kbd>[Enter]</kbd></li>
+        <li>[v] Disable kirim form saat tekan <kbd>[Enter]</kbd></li>
       </ul>
       <hr>
       @if(Session::has('message'))
