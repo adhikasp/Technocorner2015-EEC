@@ -81,18 +81,18 @@ gulp.task('script:minify', function() {
 });
 
 /**
- * Move all ready-to-deploy script into public dir
+ * Move all ready-to-deploy script (inside 'deploy/') into public dir
  */
 gulp.task('script:move-ready-to-deploy', ['script:minify'], function() {
-    return gulp.src(scriptdevdir + 'temp/*.min.js')
-        .pipe(gulp.dest(scriptdevdir + 'deploy'));
+    return gulp.src(scriptdevdir + 'deploy/*.js')
+        .pipe(gulp.dest('./script'));
 });
 
 /**
- * Minify (uglify) then concatenate all script and put on public dir
+ * Move scripts and put on public dir
  */
-gulp.task('scripts', ['script:move-ready-to-deploy'], function() {
-    return gulp.src(scriptdevdir + 'deploy/*.js')
+gulp.task('scripts', ['script:minify', 'script:move-ready-to-deploy'], function() {
+    return gulp.src(scriptdevdir + 'temp/*.min.js')
         .pipe(gulp.dest('./script'));
 });
 
