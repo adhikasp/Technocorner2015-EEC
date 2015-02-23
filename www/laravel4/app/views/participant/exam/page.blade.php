@@ -23,7 +23,6 @@
       @endif
     @endif
 
-<<<<<<< HEAD
     {{ Form::open(['route' => 'participant.exam.showConfirmFinish', 'class' => 'exam-paper',
 		           'id' => (Input::get('mapel')? Input::get('mapel') : 'matematika') . '-paper']) }}
 
