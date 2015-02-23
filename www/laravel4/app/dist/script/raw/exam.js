@@ -5,6 +5,30 @@ $(document).ready(function() {
         return (event.keyCode == 13)? false : true;
     });
 
+    var subject = $('form').attr('id').replace('quest-', '');
+
+    // Backup answer, accident prevention
+    $('.choice-button').click(function (ev) {
+        var qid = $(this).attr('name').split('-')[0];
+        var val = $(this).attr('value');
+
+        localStorage.setItem(subject + '-' + qid, val);
+    });
+
+    function loadChoices() {
+        var quests = $("div.row.question").get();  // Get questions count
+        for(var i = 0; i < quests.length; i++) {
+            var value = localStorage.getItem(subject + '-' + quests[i].id);
+            if(value == null) {
+                continue;
+            }
+            $("#" + quests[i].id + " input[value=" + value + "]").attr('checked', 'checked').trigger('click');
+        }
+    }
+
+    // On ready load all saved answer
+    loadChoices();
+
     function submitAnswer(callback) {
 
         // JSON syntax
