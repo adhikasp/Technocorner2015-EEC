@@ -15,6 +15,7 @@ class Exam extends Eloquent {
 
   // Hardcode exam duration 2 hours.
   protected $exam_duration = 7200;
+  protected $QUEST_COUNT = 120;
 
   public function qpackage()
   {
@@ -45,17 +46,27 @@ class Exam extends Eloquent {
     $VALUE_WRONG = -1;
 
     $score = 0;
+    $score_true = 0;
+    $score_false = 0;
+    $score_null = 0;
 
     foreach ($answers as $answer) {
       if ($answer->answer == $answer->question->answer)
       {
         $score += $VALUE_CORRECT;
+        $score_true++;
       } else {
         $score += $VALUE_WRONG;
+        $score_false++;
       }
     }
 
+    $score_null = $this->QUEST_COUNT - ($score_true + $score_false);
+
     $this->score = $score;
+    $this->score_true = $score_true;
+    $this->score_false = $score_false;
+    $this->score_null = $score_null;
     $this->session = 3;
     $this->save();
   }

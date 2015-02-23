@@ -21,7 +21,11 @@ class CreateExamsTable extends Migration {
 			$t->dateTime('start_time')->nullable();
 			$t->dateTime('end_time')->nullable();
 			$t->integer('score')->nullable();
-		});
+
+			$t->integer('score_true')->nullable();
+			$t->integer('score_null')->nullable();
+			$t->integer('score_false')->nullable();
+        });
 	}
 
 	/**
