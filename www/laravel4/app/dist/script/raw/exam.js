@@ -60,7 +60,7 @@ $(document).ready(function() {
             url : '/user/exam/submit',
             data: {
                 answers: $answer,
-                exam_id: $exam_id,
+                exam_id: $exam_id
             },
             success: function() {
                 callback();
