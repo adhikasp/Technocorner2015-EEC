@@ -10,7 +10,9 @@
 /www/laravel4/Thumbs.db
 /www/laravel4/bootstrap/compiled.php
 /www/public_html/onlinetest/node_modules/
+/www/laravel4/app/dist/style/deploy
 /www/laravel4/app/dist/style/temp
+/www/laravel4/app/dist/script/deploy
 /www/laravel4/app/dist/script/temp
 /www/public_html/onlinetest/*
 !/www/public_html/onlinetest/gulpfile.js
