@@ -17,11 +17,20 @@ var libdevdir = devdir + 'lib/';
 var fontdevdir = devdir + 'font/';
 var imgdevdir = devdir + 'img/';
 
+function swallowError (error) {
+
+    //If you want details of the error in the console
+    console.log(error.toString());
+
+    this.emit('end');
+}
+
 /**
  * Compile sass based style and put on temporary dir
  */
 gulp.task('style:sass-compile', function() {
-    return sass(styledevdir + 'raw/', ({ style: 'expanded' }))
+    return sass(styledevdir + 'raw/', ({ style: 'expanded', trace: true }))
+	    .on('error', swallowError)
         .pipe(rename({ extname: '.max.css' }))
         .pipe(gulp.dest(styledevdir + 'temp'));
 });
