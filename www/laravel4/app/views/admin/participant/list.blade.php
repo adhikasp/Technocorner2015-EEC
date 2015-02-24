@@ -32,5 +32,10 @@
       </table>
 
     </section>
+
+	<hr/>
+    <div class="paper-footer">
+      <small>(c) Technocorner</small>
+    </div>
   </main>
 @stop
