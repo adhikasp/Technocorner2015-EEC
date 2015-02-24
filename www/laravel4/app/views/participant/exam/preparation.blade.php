@@ -24,6 +24,10 @@
     @endif
     <a href="{{ route('participant.exam.start') }}" class="btn btn-dasar btn-important">MULAI UJIAN</a> <-- Nanti dibuat besar dan gede
 
+	<hr/>
+    <div class="paper-footer col-sm-12">
+      <small>(c) Technocorner</small>
+    </div>
   </main>
 
 @stop

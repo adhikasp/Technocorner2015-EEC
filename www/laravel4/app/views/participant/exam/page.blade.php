@@ -17,11 +17,11 @@
         <li>Perbaiki radio button, sekarang kalau tulisannya panjaang nanti jadi gak rata sama radionya</li>
         <li>[v] Disable kirim form saat tekan <kbd>[Enter]</kbd></li>
       </ul>
-      <hr>
       @if(Session::has('message'))
         <h3>Jawaban sudah tersiman di DB</h3>
       @endif
     @endif
+    <hr/>
 
     {{ Form::open(['route' => 'participant.exam.showConfirmFinish', 'class' => 'exam-paper',
 		           'id' => (Input::get('mapel')? Input::get('mapel') : 'matematika') . '-paper']) }}
@@ -108,7 +108,12 @@
 
       {{ Form::submit('Selesai', ['class' => 'col-sm-offset-4 col-sm-4 btn btn-success', 'id' => 'submit-answer'])}}
 
-    {{ Form::close() }}
+      {{ Form::close() }}
+
+	  <hr/>
+      <div class="paper-footer col-sm-12">
+		<small>(c) Technocorner</small>
+      </div>
   </main>
 
 @stop
