@@ -45,6 +45,9 @@ section.dashboard h1
 strong
   font-weight: 700
 
+input[type=submit]
+  height: 2.5em
+
 .login-container
   min-height: 0
 
@@ -94,35 +97,57 @@ form
     padding: 0 20px
 
 .btn-dasar
-  background-color: $tc-dark
-  display: inline-block
-  padding: 7px 15px
+  background-color: #667
+  border: 0
   border-radius: 0
   color: white
-  border: 1px solid white
-  transition: all 200ms ease
+  display: inline-block
+  min-height: 2.5em
   min-width: 100px
+  padding: 7px 15px
   text-align: center
+  transition: all 200ms ease
 
 .btn-dasar:visited, .btn-dasar:link
+  border: 0
   text-decoration: none
   color: white
 
 .btn-dasar:hover
-  background-color: white
-  color: $tc-dark
+  background-color: $tc-light
+  border: 0
   text-decoration: none
 
 .btn-dasar:active
   color: $tc-dark
   background-color: white
+  border: 0
   text-decoration: none
 
 .btn-primary
   background-color: $tc-blue
+  border: 0
+  border-radius: 0
 
 .btn-important
   background-color: $tc-green
+
+.btn-disabled
+  background-color: #ccc
+  color: #999
+  display: inline-block
+  padding: 7px 15px
+  border-radius: 0
+  border: 1px solid white
+  transition: all 200ms ease
+  min-width: 100px
+  text-align: center
+
+.btn-disabled:hover, .btn-disabled:visited, .btn-disabled:link
+  background-color: #ccc
+  color: #999
+  cursor: inherit
+  text-decoration: none
 
 .bg-error
   padding: 1rem
