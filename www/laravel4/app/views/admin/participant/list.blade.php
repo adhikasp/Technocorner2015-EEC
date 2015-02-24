@@ -26,11 +26,16 @@
             <td>{{ $team->team_name }}</td>
             <td>{{ $team->user->email }}</td>
             <td>{{ $team->school }}</td>
-            <td class="dashboard-action">{{ link_to_route('admin.viewDetailParticipant', 'Detail', $team->id) }}</td>
+            <td class="dashboard-action">
+			  <a href="{{route('admin.participant.detail', $team->id)}}"><span class="glyphicon glyphicon-eye-open"></span> Detail</a> |
+			  <a href="{{route('admin.participant.edit', $team->id)}}"><span class="glyphicon glyphicon-pencil"></span> Edit</a> |
+			  <a href="{{route('admin.participant.delete', $team->id)}}" class="need-confirmation"><span class="glyphicon glyphicon-trash"></span> HAPUS</a>
+			</td>
           </tr>
         @endforeach
       </table>
 
+      <a href="{{ route('admin.participant.create') }}" class="btn-dasar btn-primary">Tambah Peserta</a>
     </section>
 
 	<hr/>

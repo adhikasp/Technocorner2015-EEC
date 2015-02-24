@@ -183,6 +183,42 @@ Route::group(['before' => 'auth|admin'], function()
     'uses' => 'AdminController@viewDetailParticipant'
   ])->where('id', '[0-9]+');
 
+
+  Route::get('admin-tc/dashboard/peserta', [
+    'as' => 'admin.participant.list',
+    'uses' => 'AdminController@viewAllParticipant'
+  ]);
+
+  Route::get('admin-tc/dashboard/participant/create', [
+    'as' => 'admin.participant.create',
+    'uses' => 'AdminController@createParticipant'
+  ]);
+
+  Route::post('admin-tc/dashboard/participant/store', [
+    'as' => 'admin.participant.store',
+    'uses' => 'AdminController@storeParticipant'
+  ])->where('id', '[0-9]+');
+
+  Route::get('admin-tc/dashboard/participant/{id}', [
+    'as' => 'admin.participant.detail',
+    'uses' => 'AdminController@viewDetailParticipant'
+  ])->where('id', '[0-9]+');
+
+  Route::get('admin-tc/dashboard/participant/{id}/edit', [
+    'as' => 'admin.participant.edit',
+    'uses' => 'AdminController@editParticipant'
+  ])->where('id', '[0-9]+');
+
+  Route::post('admin-tc/dashboard/participant/{id}/update', [
+    'as' => 'admin.participant.update',
+    'uses' => 'AdminController@updateParticipant'
+  ])->where('id', '[0-9]+');
+
+  Route::get('admin-tc/dashboard/participant/{id}/delete', [
+    'as' => 'admin.participant.delete',
+    'uses' => 'AdminController@deleteParticipant'
+  ])->where('id', '[0-9]+');
+
   // Question CRUD related routes
 
   Route::get('admin-tc/dashboard/soal/tambah', [

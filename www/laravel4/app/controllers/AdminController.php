@@ -80,4 +80,63 @@ class AdminController extends BaseController {
       ->withParticipant($participant);
   }
 
+    public function createParticipant() {
+        return View::make('admin.participant.create');
+    }
+
+    public function storeParticipant() {
+        $p            = new Participant;
+        $p->team_name = Input::get('team_name');
+        $p->member_1  = Input::get('member_1');
+        $p->member_2  = Input::get('member_2');
+        $p->member_3  = Input::get('member_3');
+        $p->school    = Input::get('school');
+        $p->save();
+
+        $u            = new User;
+        $u->email     = Input::get('email');
+        $u->password  = Hash::make(Input::get('password'));
+        $u->save();
+
+        // Polymorph magic
+        $p->user()->save($u);
+
+        return Redirect::route('admin.participant.list')
+          ->withParticipant($p);
+    }
+
+    public function editParticipant($id) {
+        $p = Participant::find($id);
+
+        return View::make('admin.participant.edit')->withParticipant($p);
+    }
+
+    public function updateParticipant($id) {
+        $p            = Participant::find($id);
+        $p->team_name = Input::get('team_name');
+        $p->member_1  = Input::get('member_1');
+        $p->member_2  = Input::get('member_2');
+        $p->member_3  = Input::get('member_3');
+        $p->school    = Input::get('school');
+        $p->save();
+
+        $u            = User::find($p->user->id);
+        $u->email     = Input::get('email');
+        if (Input::get('password') != '') {
+            $u->password  = Hash::make(Input::get('password'));
+        }
+        $u->save();
+
+        // Polymorph magic
+        $p->user()->save($u);
+
+        return Redirect::route('admin.participant.list');
+    }
+
+    public function deleteParticipant($id) {
+        Participant::find($id)->delete();
+
+        return Redirect::route('admin.participant.list');
+    }
+
 }
