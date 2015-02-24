@@ -9,7 +9,7 @@
 
       <ul class="nav nav-tabs">
         <li class="active"><a href="#daftar-soal">Daftar Soal</a></li>
-        <li><a href="{{ route('admin.viewAllParticipant') }}">Daftar Peserta</a></li>
+        <li><a href="{{ route('admin.participant.list') }}">Daftar Peserta</a></li>
       </ul>
 
       <h2>Daftar Soal</h2>

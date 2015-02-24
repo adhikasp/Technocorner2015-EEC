@@ -8,7 +8,7 @@
 
       <ul class="nav nav-tabs">
         <li><a href="{{ route('admin.dashboard') }}">Daftar Soal</a></li>
-        <li class="active"><a href="{{ route('admin.viewAllParticipant') }}">Daftar Peserta</a></li>
+        <li class="active"><a href="{{ route('admin.participant.list') }}">Daftar Peserta</a></li>
       </ul>
       <h2>Daftar Peserta EEC Technocorner</h2>
 
