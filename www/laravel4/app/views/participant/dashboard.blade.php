@@ -53,8 +53,24 @@
       {{ Form::close() }}
 
       <hr>
-      <a href="{{ route('participant.exam.preparation') }}" class="btn-dasar btn-important" >Bersiap Ujian</a>
-      <a href="#" class="btn-dasar disabled">Lihat Hasil</a>
+      <a href="{{ route('participant.exam.preparation') }}" class="btn-dasar btn-important" >
+        <?php
+        switch ($participant->exam->session) {
+          case 0:
+          case 1:
+            echo "Bersiap Ujian";
+            break;
+          case 2:
+            echo "Lanjutkan Ujian";
+            break;
+          case 3:
+            echo "Lihat Hasil";
+            break;
+          default:
+            echo "Error!";
+        }
+        ?>
+      </a>
       <hr>
 
       @if( App::environment() == 'local' )
