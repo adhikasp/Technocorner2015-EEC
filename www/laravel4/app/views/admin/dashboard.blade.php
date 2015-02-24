@@ -5,8 +5,6 @@
     <h1>Dashboard Admin</h1>
     <hr/>
     <section class="dashboard">
-      <h2>Hai {{ Auth::user()->userable->name }} :)</h2>
-
       <ul class="nav nav-tabs">
         <li class="active"><a href="#daftar-soal">Daftar Soal</a></li>
         <li><a href="{{ route('admin.participant.list') }}">Daftar Peserta</a></li>

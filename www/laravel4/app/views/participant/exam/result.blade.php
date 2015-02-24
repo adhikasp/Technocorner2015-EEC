@@ -33,7 +33,7 @@
 
 	  <div class="col-sm-6">
 		<h2>Point Akhir</h2>
-		<p>Tim kamu, "{{ $participant->team_name }}" medapatkan skor : </p>
+		<p>Tim kamu, "<strong>{{ $participant->team_name }}</strong>" medapatkan skor : </p>
 		<h1><strong>{{ $exam->score }}</strong></h1>
 	  </div>
 	</section>

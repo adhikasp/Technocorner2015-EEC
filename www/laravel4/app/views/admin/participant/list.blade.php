@@ -2,10 +2,10 @@
 
 @section('body')
   <main class="container-fluid">
-    <section class="dashboard">
-      <h1>Dashboard Admin</h1>
-      <h2>Hai {{ Auth::user()->userable->name }} :)</h2>
+    <h1>Dashboard Admin</h1>
+	<hr/>
 
+    <section class="dashboard">
       <ul class="nav nav-tabs">
         <li><a href="{{ route('admin.dashboard') }}">Daftar Soal</a></li>
         <li class="active"><a href="{{ route('admin.participant.list') }}">Daftar Peserta</a></li>
