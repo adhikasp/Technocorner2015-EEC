@@ -9,6 +9,8 @@
 	<section class="score-board">
 	  <div class="col-sm-6">
 		<h2>Perhitungan</h2>
+		<div class="col-sm-offset-5 col-sm-7" style="font-family: monospace">(SOAL x Skor)</div>
+
 		<div class="col-sm-3">Benar</div>
 		<div class="col-sm-2"> : </div>
 		<div class="col-sm-4" style="font-family: monospace">({{ $exam->score_true }} x 4)</div>
