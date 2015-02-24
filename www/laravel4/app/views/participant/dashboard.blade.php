@@ -55,7 +55,8 @@
       <hr>
       <a href="{{ route('participant.exam.preparation') }}" class="btn-dasar btn-important" >
         <?php
-        switch ($participant->exam->session) {
+        $x = isset($participant->exam->session) ? $participant->exam->session : 0;
+        switch ($x) {
           case 0:
           case 1:
             echo "Bersiap Ujian";

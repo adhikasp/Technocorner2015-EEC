@@ -53,9 +53,24 @@
           <p class="form-control-static">{{ $participant->user->password }}</p>
         </div>
       </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Exam</label>
+        <div class="col-sm-10">
+          @if (count($participant->exam))
+          <pre class="form-control-static">{{ json_encode($participant->exam, JSON_PRETTY_PRINT)}}
+          </pre>
+          @else
+            <p class="form-control-static">
+              Belum memulai ujian
+            </p>
+          @endif
+        </div>
+      </div>
     </fieldset>
     {{ Form::close() }}
 
     {{ link_to_route('admin.viewAllParticipant', 'Kembali', null, ['class' => 'btn-dasar'])}}
+    {{ link_to_route('admin.deleteExamParticipant', 'Reset Exam', null, ['class' => 'btn-dasar btn-important'])}}
   </main>
 @stop

@@ -222,6 +222,11 @@ Route::group(['before' => 'auth|admin'], function()
     'uses' => 'AdminController@deleteParticipant'
   ])->where('id', '[0-9]+');
 
+  Route::get('admin-tc/dashboard/participant/{id}/exam/delete', [
+    'as' => 'admin.deleteExamParticipant',
+    'uses' => 'AdminController@deleteExamParticipant'
+  ])->where('id', '[0-9]+');
+
   // Question CRUD related routes
 
   Route::get('admin-tc/dashboard/soal/tambah', [

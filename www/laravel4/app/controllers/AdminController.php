@@ -59,10 +59,13 @@ class AdminController extends BaseController {
   {
     // eager loading optimization
     // http://laravel.com/docs/4.2/eloquent#eager-loading
-    $questions = Question::with('qtype')->get();
+    $questions = Question::with('qtype')->orderBy('qtype_id')->get();
+
+    $qtype = QType::all();
 
     return View::make('admin.dashboard')
-      ->withQuestions($questions);
+      ->withQuestions($questions)
+      ->withType($qtype);
   }
 
   public function viewAllParticipant() {
@@ -137,6 +140,16 @@ class AdminController extends BaseController {
         Participant::find($id)->delete();
 
         return Redirect::route('admin.participant.list');
+    }
+
+    public function deleteExamParticipant($id) {
+      $e = Participant::find($id)->exam;
+
+      if (count($e)) {
+        $e->delete();
+      }
+
+      return Redirect::route('admin.viewDetailParticipant', $id);
     }
 
 }

@@ -121,7 +121,7 @@
 				<th>Gambar</th>
 				<th>Mata Pelajaran</th>
 				<th>Aksi</th>
-			  </tr>			  
+			  </tr>
 			@endif
 			<? $exist++ ?>
 			<tr>
