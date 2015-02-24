@@ -42,18 +42,101 @@
         </tr>
 
         @foreach ($questions as $q)
-          <tr>
-            <td>{{ $q->id }}</td>
-            <td>{{ substr($q->question, 0, 50)}}</td>
-            <td><span class="glyphicon {{ $q->randomize ? 'glyphicon-ok' : 'glyphicon-remove' }}"></span></td>
-            <td><span class="glyphicon {{ isset($q->image) ? 'glyphicon-ok' : 'glyphicon-remove' }}"></span></td>
-            <td>{{ $q->qtype->name }}</td>
-            <td class="dashboard-action">
-              <a href="{{route('admin.question.detail', $q->id)}}"><span class="glyphicon glyphicon-eye-open"></span> Lihat</a> |
-              <a href="{{route('admin.question.edit', $q->id)}}"><span class="glyphicon glyphicon-pencil"></span> Edit</a> |
-              <a href="{{route('admin.question.delete', $q->id)}}" class="need-confirmation"><span class="glyphicon glyphicon-trash"></span> HAPUS</a>
-            </td>
-          </tr>
+		  @if ($q->qtype_id == 1)
+			<tr>
+              <td>{{ $q->id }}</td>
+              <td>{{ substr($q->question, 0, 50)}}</td>
+              <td><span class="glyphicon {{ $q->randomize ? 'glyphicon-ok' : 'glyphicon-remove' }}"></span></td>
+              <td><span class="glyphicon {{ isset($q->image) ? 'glyphicon-ok' : 'glyphicon-remove' }}"></span></td>
+              <td>{{ $q->qtype->name }}</td>
+              <td class="dashboard-action">
+				<a href="{{route('admin.question.detail', $q->id)}}"><span class="glyphicon glyphicon-eye-open"></span> Lihat</a> |
+				<a href="{{route('admin.question.edit', $q->id)}}"><span class="glyphicon glyphicon-pencil"></span> Edit</a> |
+				<a href="{{route('admin.question.delete', $q->id)}}" class="need-confirmation"><span class="glyphicon glyphicon-trash"></span> HAPUS</a>
+              </td>
+			</tr>
+		  @endif
+        @endforeach
+
+		<tr>
+          <th>ID</th>
+          <th>Pertanyaan (cuplikan)</th>
+          <th>Acak</th>
+          <th>Gambar</th>
+          <th>Mata Pelajaran</th>
+          <th>Aksi</th>
+        </tr>
+
+		@foreach ($questions as $q)
+		  @if ($q->qtype_id == 2)
+			<tr>
+              <td>{{ $q->id }}</td>
+              <td>{{ substr($q->question, 0, 50)}}</td>
+              <td><span class="glyphicon {{ $q->randomize ? 'glyphicon-ok' : 'glyphicon-remove' }}"></span></td>
+              <td><span class="glyphicon {{ isset($q->image) ? 'glyphicon-ok' : 'glyphicon-remove' }}"></span></td>
+              <td>{{ $q->qtype->name }}</td>
+              <td class="dashboard-action">
+				<a href="{{route('admin.question.detail', $q->id)}}"><span class="glyphicon glyphicon-eye-open"></span> Lihat</a> |
+				<a href="{{route('admin.question.edit', $q->id)}}"><span class="glyphicon glyphicon-pencil"></span> Edit</a> |
+				<a href="{{route('admin.question.delete', $q->id)}}" class="need-confirmation"><span class="glyphicon glyphicon-trash"></span> HAPUS</a>
+              </td>
+			</tr>
+		  @endif
+        @endforeach
+
+		<tr>
+		  <th>ID</th>
+          <th>Pertanyaan (cuplikan)</th>
+          <th>Acak</th>
+          <th>Gambar</th>
+          <th>Mata Pelajaran</th>
+          <th>Aksi</th>
+        </tr>
+
+		@foreach ($questions as $q)
+		  @if ($q->qtype_id == 3)
+			<tr>
+              <td>{{ $q->id }}</td>
+              <td>{{ substr($q->question, 0, 50)}}</td>
+              <td><span class="glyphicon {{ $q->randomize ? 'glyphicon-ok' : 'glyphicon-remove' }}"></span></td>
+              <td><span class="glyphicon {{ isset($q->image) ? 'glyphicon-ok' : 'glyphicon-remove' }}"></span></td>
+              <td>{{ $q->qtype->name }}</td>
+              <td class="dashboard-action">
+				<a href="{{route('admin.question.detail', $q->id)}}"><span class="glyphicon glyphicon-eye-open"></span> Lihat</a> |
+				<a href="{{route('admin.question.edit', $q->id)}}"><span class="glyphicon glyphicon-pencil"></span> Edit</a> |
+				<a href="{{route('admin.question.delete', $q->id)}}" class="need-confirmation"><span class="glyphicon glyphicon-trash"></span> HAPUS</a>
+              </td>
+			</tr>
+		  @endif
+        @endforeach
+
+		@foreach ($questions as $q)
+		  <? $exist = 0 ?>
+		  @if ($q->qtype_id != 1 && $q->qtype_id != 2 && $q->qtype_id != 3)
+			@if ($exist == 1)
+			  <tr>
+				<th>ID</th>
+				<th>Pertanyaan (cuplikan)</th>
+				<th>Acak</th>
+				<th>Gambar</th>
+				<th>Mata Pelajaran</th>
+				<th>Aksi</th>
+			  </tr>			  
+			@endif
+			<? $exist++ ?>
+			<tr>
+              <td>{{ $q->id }}</td>
+              <td>{{ substr($q->question, 0, 50)}}</td>
+              <td><span class="glyphicon {{ $q->randomize ? 'glyphicon-ok' : 'glyphicon-remove' }}"></span></td>
+              <td><span class="glyphicon {{ isset($q->image) ? 'glyphicon-ok' : 'glyphicon-remove' }}"></span></td>
+              <td>{{ $q->qtype->name }}</td>
+              <td class="dashboard-action">
+				<a href="{{route('admin.question.detail', $q->id)}}"><span class="glyphicon glyphicon-eye-open"></span> Lihat</a> |
+				<a href="{{route('admin.question.edit', $q->id)}}"><span class="glyphicon glyphicon-pencil"></span> Edit</a> |
+				<a href="{{route('admin.question.delete', $q->id)}}" class="need-confirmation"><span class="glyphicon glyphicon-trash"></span> HAPUS</a>
+              </td>
+			</tr>
+		  @endif
         @endforeach
 
       </table>
