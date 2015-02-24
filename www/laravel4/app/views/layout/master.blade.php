@@ -72,8 +72,38 @@
         @yield('body', "Generic content")
 
         <footer>
-          <h2>Tes ini adalah bagian footer.</h2>
+            <div class="col-sm-4">
+                <h2>Dipersembahkan oleh</h2>
+                <a target="_blank" href="//ugm.ac.id">
+                    <img class="logo img-responsive"src="//technocornerugm.com/img/logo-ugm.png" alt="">
+                </a>
+                <a target="_blank" href="//kmteti.ugm.ac.id">
+                    <img class="logo img-responsive"src="//technocornerugm.com/img/logo-kmteti.png" alt="">
+                </a>
+            </div>
+            <div class="col-sm-8">
+                <h2>Kontak</h2>
+                <img src="//technocornerugm.com/img/icon-cp.png" class="icon"> </span> 085640700720 (Andika) <br>
+                <img src="//technocornerugm.com/img/icon-alamat.png" class="icon"> technocornerugm@gmail.com <br>
+                <img src="//technocornerugm.com/img/icon-sosmedf.png" class="icon"> TechnocornerUGM <br>
+                <img src="//technocornerugm.com/img/icon-sosmedt.png" class="icon"> @TechnocornerUGM <br>
+                <img src="//technocornerugm.com/img/icon-sosmedaskfm16.png" class="icon"> Ask TechnocornerUGM
+             </div>
+
         </footer>
+
+        <div id="copyright" class="col-sm-12">
+            <div class="col-sm-8">
+                <p>
+                    Hak cipta © 2015 <br>
+                    Tim Technocorner
+                </p>
+            </div>
+            <div class="col-sm-4 cc">
+                <p>Common Creative License <br>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Lisensi Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"></a></p>
+            </div>
+        </div>
 
 
         <!-- Footer of base template -->
@@ -91,7 +121,6 @@
 
         @yield('script')
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
         /*  Google Analytics gak usah dipakai dulu
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
