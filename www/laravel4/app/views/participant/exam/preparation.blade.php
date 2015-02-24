@@ -6,10 +6,10 @@
     <h1>Persiapan Ujian</h1>
     <hr>
 
-    <h2>Teknis Soal</h2>
+    <h2>Rincian Soal</h2>
     <ul>
-      <li>Ada 10000 soal</li>
-      <li>Durasi 5 menit</li>
+      <li>Ada 120 soal pilihan ganda, terdiri dari 45 soal Matematika, 40 soal Fisika, dan 35 soal Komputer</li>
+      <li>Waktu ujian dibatasi selama 2 jam, peserta diperbolehkan mengakhiri ujian sebelum batas waktu.</li>
     </ul>
 
     <h2>Tata tertib</h2>

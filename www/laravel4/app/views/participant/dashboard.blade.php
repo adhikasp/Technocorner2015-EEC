@@ -76,18 +76,24 @@
         <hr>
       @endif
 
-      <h2>Petunjuk Persiapan Ujian</h2>
+      <h2>Petunjuk Teknis Persiapan Ujian</h2>
       <ul>
         <li>Pastikan detail tim kamu benar sebelum memulai ujian.</li>
-        <li>Jika terdapat kesalahan pada detail tim kamu, segera laporkan ke admin Technocorner di ~alamat email admin~</li>
+        <li>Jika terdapat kesalahan pada detail tim kamu, segera laporkan ke admin Technocorner di <strong>technocorner2015@gmail.com</strong> atau melalui nomor yang tertera pada bagian bawah halaman</li>
         <li>Tombol mulai ujian dapat diakses ketika waktu babak penyisihan online (1 Maret 2015)</li>
-        <li>Sangat disarankan untuk melakukan Ujian Online dengan menggunakan desktop/PC dan browser modern (IE versi 10, Chrome versi xx, atau Firefox versi xx keatas)</li>
+        <li>Sangat disarankan untuk melakukan Ujian Online dengan menggunakan desktop/PC dan browser modern (IE versi 10 ke atas, Google Chrome, Chromium, atau Firefox)</li>
       </ul>
 
       <h2>Petunjuk Melakukan Ujian</h2>
       <ul>
-        <li>Berdoa</li>
-        <li>Login pada hari ujian</li>
+        <li>Login pada waktu yang ditentukan oleh panitia (sesuai jadwal).</li>
+        <li>Periksa data diri.</li>
+        <li>Jika telah siap tekan tombol "Bersiap Ujian"</li>
+        <li>Baca dan pahami peraturan pada halaman Persiapan Ujian dengan seksama.</li>
+        <li>Berdo'a sebelum memulai ujian.</li>
+        <li>Jika telah siap, tekan tombol "Mulai Ujian".</li>
+        <li>Baca soal dengan seksama dan pilih jawaban yang paling tepat dengan menekan salah satu jawaban.</li>
+        <li>Jika telah selesai, tekan tombol "Selesai".</li>
       </ul>
     </section>
     <hr/>
