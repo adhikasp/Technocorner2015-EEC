@@ -27,38 +27,42 @@ $(document).ready(function() {
 
     function loadFromServer() {
         var $exam_id = $('#exam_id').val();
-        var $quest;
+        var $subject_id = $('.exam-paper').attr('data-subjectId');
+        var $questionDb;
 
         $.ajax({
             type: 'get',
             url : '/user/exam/get-answer',
             data: {
                 exam_id: $exam_id,
+                subject_id: $subject_id
             },
             success: function(data) {
-                $quest = data;
+                var quests = $("div.row.question").get();  // Get questions count
+                var quest_db = data.question;
+
+                quest_db.forEach(function(element, index, array) {
+                    var exam_question = $('.question#' + element.question_id);
+                    if (exam_question.length) {
+                        exam_question.find('input[value='+element.answer+']').prop('checked', true);
+                        console.log(exam_question.find('[name='+element.exam_id+'-ch]:checked'));
+                    }
+                });
             },
             error: function() {
                 alert('Jawaban gagal di load dari server, meload dari localStorage');
             }
         });
 
-        var $answer = $quest.answer;
-        var quests = $("div.row.question").get();  // Get questions count
-        for(var i = 0; i < quests.length; i++) {
-            console.log($answer);
-            var value = $answer[i].answer;
-            if(value == null) {
-                continue;
-            }
-            $("#" + $answer[i].id + " input[value=" + value + "]").prop('checked', true);
-        }
-
     }
 
     // On ready load all saved answer
+    // Load from local THEN from server
+    //      1. Faster response from user perspective
+    //      2. If local choice is different than in DB, then user can notice and change it
+    //                  (actually.. it's not a problem...)
     loadChoices();
-    // loadFromServer(); not completed
+    loadFromServer();
 
     function submitAnswer(callback) {
 

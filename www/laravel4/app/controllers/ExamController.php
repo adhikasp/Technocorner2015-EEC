@@ -87,6 +87,7 @@ class ExamController extends BaseController {
     return View::make('participant.exam.page')
       ->withQuestions($q)
       ->withSubjectList($subjectList)
+      ->withSubjectId($subjectId)
       ->withExamId($examId);
   }
 
@@ -94,7 +95,8 @@ class ExamController extends BaseController {
   {
     $examId = Input::get('exam_id');
 
-    $ea = EAnswer::where('exam_id', '=', $examId)->select(['id', 'exam_id', 'question_id', 'answer'])->get();
+    $ea = EAnswer::where('exam_id', '=', $examId)
+            ->select(['id', 'exam_id', 'question_id', 'answer'])->get();
 
     return Response::json([
       'status' => 'sukses',

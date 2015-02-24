@@ -23,8 +23,12 @@
     @endif
     <hr/>
 
-    {{ Form::open(['route' => 'participant.exam.showConfirmFinish', 'class' => 'exam-paper',
-		           'id' => (Input::get('mapel')? Input::get('mapel') : 'matematika') . '-paper']) }}
+    {{ Form::open([
+      'route' => 'participant.exam.showConfirmFinish',
+      'class' => 'exam-paper',
+		  'id' => (Input::has('mapel')? Input::get('mapel') : 'matematika') . '-paper',
+      'data-subjectId' => $subject_id
+    ]) }}
 
       {{ Form::hidden('exam_id', $exam_id, ['id' => 'exam_id']) }}
 

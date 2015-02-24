@@ -11,11 +11,11 @@ class Exam extends Eloquent {
   protected $table = 'exams';
   public $timestamps = false;
 
-  protected $appends = ['exam_duration'];
+  protected $appends = ['exam_duration', 'quest_count'];
 
   // Hardcode exam duration 2 hours.
   protected $exam_duration = 7200;
-  protected $QUEST_COUNT = 120;
+  protected $quest_count = 120;
 
   public function qpackage()
   {
@@ -61,13 +61,13 @@ class Exam extends Eloquent {
       }
     }
 
-    $score_null = $this->QUEST_COUNT - ($score_true + $score_false);
+    $score_null = $this->quest_count - ($score_true + $score_false);
 
     $this->score = $score;
     $this->score_true = $score_true;
     $this->score_false = $score_false;
     $this->score_null = $score_null;
-    $this->session = 3;
+    $this->session = 3; // 3 mean EXAM already graded and fully completed
     $this->save();
   }
 }
