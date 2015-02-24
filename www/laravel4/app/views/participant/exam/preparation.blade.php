@@ -18,11 +18,11 @@
       <li>Segala peraturan mengenai persiapan ujian</li>
     </ul>
 
-
     @if ( App::environment() == 'local' )
       {{ link_to_route('participant.dashboard', 'DEVELOP : back to dashboard', null, ['class' => 'btn btn-dasar']) }}
     @endif
-    <a href="{{ route('participant.exam.start') }}" class="btn btn-dasar btn-important">MULAI UJIAN</a> <-- Nanti dibuat besar dan gede
+	<br/>
+    <a href="{{ route('participant.exam.start') }}" class="btn btn-dasar btn-important btn-lg"><strong>MULAI UJIAN</strong></a>
 
 	<hr/>
     <div class="paper-footer col-sm-12">
