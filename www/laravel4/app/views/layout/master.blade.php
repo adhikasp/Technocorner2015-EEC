@@ -85,6 +85,7 @@
         <script src="/lib/modernizr/modernizr-2.6.2.min.js"></script>
         <!-- Temporary commented
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
+		<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script>
         <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
         <script src="/script/main.min.js"></script>
 
