@@ -90,6 +90,18 @@ class ExamController extends BaseController {
       ->withExamId($examId);
   }
 
+  public function getAnswer()
+  {
+    $examId = Input::get('exam_id');
+
+    $ea = EAnswer::where('exam_id', '=', $examId)->select(['id', 'exam_id', 'question_id', 'answer'])->get();
+
+    return Response::json([
+      'status' => 'sukses',
+      'question' => $ea
+    ]);
+  }
+
   public function submit()
   {
     if (Input::has('answers')) {

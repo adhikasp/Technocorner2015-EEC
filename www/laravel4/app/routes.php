@@ -104,7 +104,6 @@ Route::group(['before' => 'auth|participant'], function() {
   ]);
 
 
-
   Route::post('user/exam/submit', [
     'as' => 'participant.exam.submit',
     'uses' => 'ExamController@submit'
@@ -123,6 +122,10 @@ Route::group(['before' => 'auth|participant'], function() {
   ]);
 
 });
+
+  Route::get('user/exam/get-answer', [
+    'uses' => 'ExamController@getAnswer'
+  ]);
 
 /*
 |--------------------------------------------------------------------------

@@ -25,8 +25,40 @@ $(document).ready(function() {
         }
     }
 
+    function loadFromServer() {
+        var $exam_id = $('#exam_id').val();
+        var $quest;
+
+        $.ajax({
+            type: 'get',
+            url : '/user/exam/get-answer',
+            data: {
+                exam_id: $exam_id,
+            },
+            success: function(data) {
+                $quest = data;
+            },
+            error: function() {
+                alert('Jawaban gagal di load dari server, meload dari localStorage');
+            }
+        });
+
+        var $answer = $quest.answer;
+        var quests = $("div.row.question").get();  // Get questions count
+        for(var i = 0; i < quests.length; i++) {
+            console.log($answer);
+            var value = $answer[i].answer;
+            if(value == null) {
+                continue;
+            }
+            $("#" + $answer[i].id + " input[value=" + value + "]").prop('checked', true);
+        }
+
+    }
+
     // On ready load all saved answer
     loadChoices();
+    // loadFromServer(); not completed
 
     function submitAnswer(callback) {
 
