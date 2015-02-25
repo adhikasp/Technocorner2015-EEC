@@ -130,6 +130,47 @@ $(document).ready(function() {
     loadChoices();
     loadFromServer();
 
+	timer.tickCallback = function (remaining) {
+		remaining = Math.floor(remaining);
+		console.log('callback rem : ' + remaining);
+		var h = Math.floor((remaining / 60 / 60) % 24);
+		var m = Math.floor((remaining / 60) % 60);
+		var s = Math.floor((remaining) % 60);
+
+		var timerClass = 'timer col-sm-1 ';
+		// Warn participant
+		if (h == 1 && m > 40) {
+			timerClass += 'time-relax';
+		} else if (h == 1 && m > 0) {
+			timerClass += 'time-running';
+		} else if (h == 0 && m > 30) {
+			timerClass += 'time-warning';
+		} else if (h == 0 && m == 10) {
+			timerClass += 'time-critical';
+		}
+		console.log('class : ' + timerClass + '; m : ' + m);
+
+		$('.timer').attr('class', timerClass);
+
+		if(h < 10) {
+			h = '0' + h.toString();
+		}
+		if(m < 10) {
+			m = '0' + m.toString();
+		}
+		if(s < 10) {
+			s = '0' + s.toString();
+		}
+
+		$('.timer').html(h + ' : ' + m + ' : ' + s);
+	};
+
+	timer.timeoutCallback = function () {
+		$('input[type=submit]').trigger('click');
+	};
+
+	timer.tick();
+
     function submitAnswer(callback) {
 
         // JSON syntax
