@@ -53,8 +53,10 @@
 
         <div class="form-group">
             <div class="form-inline">
-                {{ Form::submit('Masuk', array('class' => 'btn-dasar'))}}
+                {{ Form::submit('Masuk', array('class' => 'btn-dasar btn-important'))}}
+                {{--
                 <a href="{{ route('participant.create') }}" class="btn-dasar btn-important">Daftar Baru</a>
+                --}}
             </div>
         </div>
         </fieldset>
