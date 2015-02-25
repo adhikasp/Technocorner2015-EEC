@@ -55,9 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'forge',
-			'username'  => 'root',
-			'password'  => 'denita',
+			'database'  => 'technoco_eec_db',
+			'username'  => 'technoco_eec',
+			'password'  => 'UeY9LjyLYWn5',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
