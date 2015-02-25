@@ -44,26 +44,27 @@
                 </div>
 
                 <div class="collapse navbar-collapse" id="menu-collapse">
-                    <ul class="nav navbar-nav navbar-left">
-                        @unless(Auth::check())
-                        <li><a href="/home">Home</a></li>
-                        @endunless
-                        <li><a href="//technocornerugm.com" target="_blank">Web Official</a></li>
-                    </ul>
+                  <ul class="nav navbar-nav navbar-left">
+                    @unless(Auth::check())
+                      <li><a href="/home">Home</a></li>
+                    @endunless
+                    <li><a href="//technocornerugm.com" target="_blank">Web Official</a></li>
+                  </ul>
 
-                    @if(Auth::check())
+                  @if(Auth::check())
                     <ul class="nav navbar-nav navbar-right">
-                        @if(Auth::user()->userable_type == 'Participant')
-                          <li class="navbar-text">Hai Tim <strong>{{ Auth::user()->userable->team_name }}</strong></li>
-                            <li>{{ link_to_route('participant.dashboard', 'Dashboard') }}</li>
-                            <li>{{ link_to_route('participant.logout', 'Logout') }}</li>
-                        @elseif(Auth::user()->userable_type == 'Admin')
-                            <li class="navbar-text">Hai Admin <strong>{{ Auth::user()->userable->name }}</strong></li>
-                            <li>{{ link_to_route('admin.dashboard', 'Dashboard') }}</li>
-                            <li>{{ link_to_route('admin.logout', 'Logout') }}</li>
-                        @endif
+                      @if(Auth::user()->userable_type == 'Participant')
+                        <li class="navbar-text">Hai Tim <strong>{{ Auth::user()->userable->team_name }}</strong></li>
+                        <li>{{ link_to_route('participant.dashboard', 'Dashboard') }}</li>
+                        <li>{{ link_to_route('participant.logout', 'Logout') }}</li>
+                      @elseif(Auth::user()->userable_type == 'Admin')
+                        <li class="navbar-text">Hai Admin <strong>{{ Auth::user()->userable->name }}</strong></li>
+                        <li>{{ link_to_route('admin.dashboard', 'Dashboard') }}</li>
+                        <li>{{ link_to_route('admin.logout', 'Logout') }}</li>
+                      @endif
                     </ul>
-                    @endif
+					<div class="timer col-sm-1"></div>
+                  @endif
                 </div>
             </div>
         </nav>

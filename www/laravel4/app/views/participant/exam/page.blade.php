@@ -108,12 +108,11 @@
         </div>
       </div>
 
-	  <hr/>
-
       {{ Form::submit('Selesai', ['class' => 'col-sm-offset-4 col-sm-4 btn btn-success', 'id' => 'submit-answer'])}}
 
       {{ Form::close() }}
 
+	  <div style="clear: both"></div>
 	  <hr/>
       <div class="paper-footer col-sm-12">
 		<small>(c) Technocorner</small>
