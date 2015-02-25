@@ -73,7 +73,7 @@
         @yield('body', "Generic content")
 
         <footer>
-            <div class="col-sm-offset-1 col-sm-3">
+            <div class="col-sm-offset-1 col-sm-4">
                 <h2>Dipersembahkan oleh</h2>
                 <a target="_blank" href="//ugm.ac.id">
                     <img class="logo img-responsive"src="//technocornerugm.com/img/logo-ugm.png" alt="">
@@ -82,7 +82,7 @@
                     <img class="logo img-responsive"src="//technocornerugm.com/img/logo-kmteti.png" alt="">
                 </a>
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-7">
                 <h2>Kontak</h2>
                 <img src="//technocornerugm.com/img/icon-cp.png" class="icon"> 085640700720 (Andika) <br>
                 <a href="mailto://technocornerugm@gmail.com"><img src="//technocornerugm.com/img/icon-alamat.png" class="icon"> technocornerugm@gmail.com</a> <br>
