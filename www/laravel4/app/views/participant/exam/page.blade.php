@@ -5,7 +5,7 @@
   <main class="container-fluid">
     <h1>
       BABAK PENYISIHAN EEC 2015 <br>
-      <small>Mata pelajaran {{ ucwords(Input::get('mapel')) }}</small>
+      <small>Mata pelajaran {{ ucwords((Input::get('mapel')? Input::get('mapel') : 'matematika')) }}</small>
     </h1>
 
 
