@@ -14,7 +14,7 @@ class AdminController extends BaseController {
 
   public function store()
   {
-    if( strtolower(Input::get('secretOne')) != 'reza' && strtolower(Input::get('secretTwo')) != 'fdk' )
+    if( strtolower(Input::get('secretOne')) != 'ahmad' && strtolower(Input::get('secretTwo')) != 'fdk' )
     {
       return Redirect::route('home')
         ->withMessage('unauthorized_create');
