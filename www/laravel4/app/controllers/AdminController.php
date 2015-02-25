@@ -33,9 +33,14 @@ class AdminController extends BaseController {
     $a->user()->save($u);
 
     // Automatic login after creating new Admin
+    $questions = Question::with('qtype')->orderBy('qtype_id')->get();
+    $qtype = QType::all();
+
     Auth::login($u);
 
-    return View::make('admin.dashboard');
+    return View::make('admin.dashboard')
+      ->withQuestions($questions)
+      ->withType($qtype);
   }
 
   public function login()
