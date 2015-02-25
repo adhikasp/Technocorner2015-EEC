@@ -84,13 +84,12 @@
             </div>
             <div class="col-sm-8">
                 <h2>Kontak</h2>
-                <img src="//technocornerugm.com/img/icon-cp.png" class="icon"> </span> 085640700720 (Andika) <br>
-                <img src="//technocornerugm.com/img/icon-alamat.png" class="icon"> technocornerugm@gmail.com <br>
-                <img src="//technocornerugm.com/img/icon-sosmedf.png" class="icon"> TechnocornerUGM <br>
-                <img src="//technocornerugm.com/img/icon-sosmedt.png" class="icon"> @TechnocornerUGM <br>
-                <img src="//technocornerugm.com/img/icon-sosmedaskfm16.png" class="icon"> Ask TechnocornerUGM
+                <img src="//technocornerugm.com/img/icon-cp.png" class="icon"> 085640700720 (Andika) <br>
+                <a href="mailto://technocornerugm@gmail.com"><img src="//technocornerugm.com/img/icon-alamat.png" class="icon"> technocornerugm@gmail.com</a> <br>
+                <a href="//facebook.com/technocornerugm"><img src="//technocornerugm.com/img/icon-sosmedf.png" class="icon"> TechnocornerUGM</a> <br>
+                <a href="//twitter.com/technocornerugm"><img src="//technocornerugm.com/img/icon-sosmedt.png" class="icon"> @TechnocornerUGM</a> <br>
+                <a href="//ask.fm/technocornerugm"><img src="//technocornerugm.com/img/icon-sosmedaskfm16.png" class="icon"> Ask TechnocornerUGM</a>
              </div>
-
         </footer>
 
         <div id="copyright" class="col-sm-12">
