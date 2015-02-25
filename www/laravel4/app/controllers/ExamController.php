@@ -104,6 +104,21 @@ class ExamController extends BaseController {
     ]);
   }
 
+    public function timeSync() {
+        $e = Auth::user()->userable->exam;
+
+        $carbon = Carbon::parse($e->end_time);
+        $max_time = $carbon->timestamp;
+        $now = Carbon::now()->timestamp;
+        $remaining = $max_time - $now;
+
+        return Response::json([
+            'remaining' => $remaining,
+            'max' => $max_time,
+            'now' => $now
+        ]);
+    }
+
   public function submit()
   {
     if (Input::has('answers')) {

@@ -103,6 +103,10 @@ Route::group(['before' => 'auth|participant'], function() {
     'uses' => 'ExamController@result'
   ]);
 
+  Route::get('user/exam/timer', [
+      'as' => 'participant.exam.timer',
+      'uses' => 'ExamController@timeSync'
+  ]);
 
   Route::post('user/exam/submit', [
     'as' => 'participant.exam.submit',
