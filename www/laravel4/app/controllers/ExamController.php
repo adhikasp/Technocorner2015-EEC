@@ -62,6 +62,11 @@ class ExamController extends BaseController {
 
   public function exam()
   {
+    if (!Input::has('mapel')) {
+      Redirect::route('participant.exam.page', ['mapel' => 'matematika'])
+    }
+
+
     $e = Auth::user()->userable->exam;
 
     // Get the current exam type subject from url (GET input)
