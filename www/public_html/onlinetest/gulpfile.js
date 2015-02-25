@@ -133,6 +133,31 @@ gulp.task('others', function() {
         .pipe(cache(gulp.dest('./')));
 });
 
+gulp.task('libs:nocache', function() {
+    return gulp.src(libdevdir + '**/*')
+        .pipe(gulp.dest('./lib'));
+});
+
+gulp.task('fonts:nocache', function() {
+    return gulp.src(fontdevdir + '**/*')
+        .pipe(gulp.dest('./font'));
+});
+
+gulp.task('imgs:nocache', function() {
+    return gulp.src(imgdevdir + '**/*')
+        .pipe(gulp.dest('./img'));
+});
+
+gulp.task('htmls:nocache', function() {
+    return gulp.src(devdir + '**/*.html')
+        .pipe(gulp.dest('./'));
+});
+
+gulp.task('others:nocache', function() {
+    return gulp.src(devdir + '*')
+        .pipe(gulp.dest('./'));
+});
+
 function syncAll() {
     gulp.start('styles');
     gulp.start('scripts');
@@ -141,6 +166,18 @@ function syncAll() {
     gulp.start('htmls');
     gulp.start('others');
 }
+
+/**
+ * Helper for lost file while checking out accross branch
+ */
+gulp.task('init', function() {
+    gulp.start('styles');
+    gulp.start('scripts');
+    gulp.start('libs:nocache');
+    gulp.start('imgs:nocache');
+    gulp.start('htmls:nocache');
+    gulp.start('others:nocache');
+});
 
 /**
  * Watch for change event
