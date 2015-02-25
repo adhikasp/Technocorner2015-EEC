@@ -63,7 +63,7 @@ class ExamController extends BaseController {
   public function exam()
   {
     if (!Input::has('mapel')) {
-      Redirect::route('participant.exam.page', ['mapel' => 'matematika'])
+      return Redirect::route('participant.exam.page', ['mapel' => 'matematika']);
     }
 
 
