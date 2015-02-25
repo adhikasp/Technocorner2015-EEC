@@ -1210,6 +1210,7 @@ return array(
     'Psr\\Log\\LoggerTrait' => $vendorDir . '/psr/log/Psr/Log/LoggerTrait.php',
     'Psr\\Log\\NullLogger' => $vendorDir . '/psr/log/Psr/Log/NullLogger.php',
     'QPackage' => $baseDir . '/app/models/QPackage.php',
+    'QSortable' => $baseDir . '/app/models/QSortable.php',
     'QType' => $baseDir . '/app/models/QType.php',
     'QTypeTableSeeder' => $baseDir . '/app/database/seeds/DatabaseSeeder.php',
     'Question' => $baseDir . '/app/models/Question.php',
