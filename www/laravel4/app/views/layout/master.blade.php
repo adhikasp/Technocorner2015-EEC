@@ -73,7 +73,7 @@
         @yield('body', "Generic content")
 
         <footer>
-            <div class="col-sm-4">
+            <div class="col-sm-offset-1 col-sm-3">
                 <h2>Dipersembahkan oleh</h2>
                 <a target="_blank" href="//ugm.ac.id">
                     <img class="logo img-responsive"src="//technocornerugm.com/img/logo-ugm.png" alt="">
