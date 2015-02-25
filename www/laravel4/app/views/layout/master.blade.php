@@ -15,9 +15,11 @@
         <!-- Library CSS -->
         <!-- Normalize + html5 boilerplate -->
         <link rel="stylesheet" href="/style/reset.min.css">
-        <!-- Temporary commented
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet"> -->
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Obsolete for local development
         <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        -->
 
         <!-- One styles to rule them ALL! -->
         <link rel="stylesheet" href="/style/styles.min.css">
@@ -107,29 +109,30 @@
 
 
         <!-- Footer of base template -->
-        <!-- Temporary commented
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="/lib/jquery/jquery-1.10.2.min.js"><\/script>')</script>
 
         <!-- Library JS -->
-        <script src="/lib/modernizr/modernizr-2.6.2.min.js"></script>
-        <!-- Temporary commented
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
-		<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script>
-        <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.js"></script>
+
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script>
         <script src="/script/main.min.js"></script>
+
+        <!-- Obsolete for local development
+        <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/lib/modernizr/modernizr-2.6.2.min.js"></script>
+        -->
 
         @yield('script')
 
         <script>
-        /*  Google Analytics gak usah dipakai dulu
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
             function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
             e=o.createElement(i);r=o.getElementsByTagName(i)[0];
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        */
+            ga('create','UA-51856252-2');ga('send','pageview');
         </script>
         @if( App::environment() == 'local')
             {{--
