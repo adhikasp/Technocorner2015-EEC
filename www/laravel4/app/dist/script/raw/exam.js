@@ -1,3 +1,69 @@
+
+
+var timer = {
+	// called: 0,
+	max: 0,
+	localTime: {
+		remaining: 0,
+		now: 0
+	},
+	srvTime: {
+		max: 0,
+		remaining: 0,
+		now: 0
+	},
+	tickCallback: null,
+	timeoutCallback: null,
+	tick: function () {
+		// console.log(this.called);
+		// this.called++;
+
+		// If max has not been set
+		if (this.srvTime.max == 0) {
+			this.sync();
+		}
+
+		// Get local millis (converted from micro)
+		this.localTime.now = (new Date).getTime() / 1000;
+
+		// Calc the remaining
+		this.localTime.remaining = this.srvTime.max - this.localTime.now;
+		// console.log('%i = %i - %i', this.localTime.remaining, this.srvTime.max, this.localTime.now);
+
+		// Tick @ 1s and update view
+		setTimeout(function() {
+			timer.tickCallback(timer.localTime.remaining);
+			// Check for timeout
+			if (timer.localTime.remaining > 0) {
+				// console.log('remaining : ' + timer.localTime.remaining);
+				timer.tick(timer.localTime.remaining);
+			} else {
+				// console.log('Timeout :' + timer.localTime.remaining);
+				// console.log('Max :' + timer.srvTime.max);
+				// console.log('Now :' + timer.localTime.now);
+				timer.timeoutCallback();
+			}
+		}, 1000);
+	},
+	sync: function () {
+        $.ajax({
+            type: 'get',
+            url : 'exam/timer',
+			async: false,
+            success: function(data) {
+				// console.log('Success ajax timer sync ' + data.max);
+				timer.srvTime.max = data.max;
+				// console.log('Fetch maxtime : ' + data.max);
+				timer.srvTime.now = data.now;
+				timer.srvTime.remaining = data.remaining;
+            },
+            error: function(e) {
+                console.error("Timer can't be synced. Will use local time instead. Cause : " + e.message);
+            }
+        });
+	}
+};
+
 $(document).ready(function() {
 
     // Prevent premature submission
