@@ -14,7 +14,7 @@
 @stop
 
 @section('field_img')
-  <img class="image-responsive" src="{{ $question->image }}" alt="question image" />
+  <img class="img-responsive" src="{{ $question->image }}" alt="question image" />
   {{ Form::file('image', []) }}
 @stop
 
