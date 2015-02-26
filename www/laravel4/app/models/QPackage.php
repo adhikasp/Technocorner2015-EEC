@@ -57,7 +57,10 @@ class QPackage extends Eloquent {
                 }
             }
 
-            shuffle($q_ids_rand); // Suffle randomizabled question array
+            // Protection against empty array
+            if ($q_ids_rand) {
+                shuffle($q_ids_rand); // Suffle randomizabled question array
+            }
 
             // Return shuffled array into origin
             $innerIt = 0;
