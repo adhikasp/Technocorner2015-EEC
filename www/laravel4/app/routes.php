@@ -72,8 +72,6 @@ Route::group(['before' => 'auth|participant'], function() {
     'uses' => 'ParticipantController@logout'
   ]);
 
-
-
   Route::get('user/exam/preparation', [
     'before' => 'noExam',
     'as' => 'participant.exam.preparation',

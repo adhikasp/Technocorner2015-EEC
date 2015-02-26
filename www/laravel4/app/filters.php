@@ -138,6 +138,20 @@ Route::filter('inExam', function() {
 	$e = Auth::user()->userable->exam;
 	$s = $e->session;
 
+	// Check user time
+	$userEndTime = Carbon::parse($e->end_time);
+	$now         = Carbon::now();
+	$timeExpired = $now->gte($userEndTime);
+
+	if($timeExpired) {
+		$e->session = 2;
+		$e->save();
+
+		return Redirect::route('participant.exam.confirmFinish')
+			->withMessage('exam_time_expired');
+	}
+
+
 	if ($s != 1)
 	{
 		if ($s == 0) {
@@ -152,6 +166,8 @@ Route::filter('inExam', function() {
 
 Route::filter('stopExam', function() {
 	$e = Auth::user()->userable->exam;
+	$s = $e->session;
+
 
 	if ($e->session != 2)
 	{
@@ -165,6 +181,7 @@ Route::filter('stopExam', function() {
 
 Route::filter('completedExam', function() {
 	$e = Auth::user()->userable->exam;
+	$s = $e->session;
 
 	if ($e->session != 3)
 	{
