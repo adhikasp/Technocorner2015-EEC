@@ -143,9 +143,9 @@ $(document).ready(function() {
 			timerClass += 'time-relax';
 		} else if (h == 1 && m > 0) {
 			timerClass += 'time-running';
-		} else if (h == 0 && m > 30) {
+		} else if (h == 0 && m > 20) {
 			timerClass += 'time-warning';
-		} else if (h == 0 && m == 10) {
+		} else if (h == 0 && m < 20) {
 			timerClass += 'time-critical';
 		}
 		console.log('class : ' + timerClass + '; m : ' + m);
