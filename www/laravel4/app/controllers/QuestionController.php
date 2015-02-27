@@ -155,8 +155,8 @@ class QuestionController extends BaseController {
         && is_file(public_path() . $q->image)) {
         // Remove image
         unlink(public_path() . $q->image);
-        $q->delete();
     }
+    $q->delete();
 
     return Redirect::route('admin.dashboard')
       ->withMessage('quest_delete');
