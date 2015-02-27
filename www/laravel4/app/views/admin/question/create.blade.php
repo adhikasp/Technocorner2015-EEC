@@ -5,7 +5,7 @@
 @stop
 
 @section('field_qtype')
-  {{ Form::select('qtype', $qtypes, Input::old('qtype'), ['id' => 'qtype', 'class' => 'form-control', 'rows' => 1, 'required' => true]) }}
+  {{ Form::select('qtype', $qtypes, Input::has('qtype')? array_search(Input::get('qtype'), $qtypes) : Input::old('qtype'), ['id' => 'qtype', 'class' => 'form-control', 'rows' => 1, 'required' => true]) }}
   {{ Form::text('qtype_new', Input::old('qtype_new'), ['id' => 'qtype-new', 'class' => 'form-control', 'rows' => 1, 'placeholder' => 'Buat tipe baru', 'required' => true]) }}
 @stop
 

@@ -59,8 +59,9 @@ class QuestionController extends BaseController {
     }
     $q->save();
 
-    return Redirect::route('admin.dashboard')
-      ->withMessage('quest_add');
+    // return Redirect::route('admin.dashboard')
+    //   ->withMessage('quest_add');
+    return Redirect::route('admin.question.detail', $q->id);
   }
 
   public function update($id)

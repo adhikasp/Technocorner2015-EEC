@@ -92,6 +92,7 @@
 
         <hr/>
         {{ link_to_route('admin.dashboard', 'Kembali', null, ['class' => 'btn-dasar col-sm-offset-2']) }}
+        {{ link_to_route('admin.question.create', 'Tambah Soal Baru', ['qtype' => $question->qtype->name], ['class' => 'btn-dasar']) }}
         {{ link_to_route('admin.question.edit', 'Edit Soal', ['id' => $question->id], ['class' => 'btn-dasar btn-primary']) }}
       </fieldset>
     </form>
