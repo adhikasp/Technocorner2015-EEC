@@ -24,7 +24,7 @@
         <div class="form-group">
           {{ Form::label('question', 'Pertanyaan', ['class' => 'control-label col-sm-2']) }}
           <div class="col-sm-10">
-            <p class="form-control-static">{{ $question->question }}</p>
+            <p class="form-control-static">{{ $question->getQuestion() }}</p>
           </div>
         </div>
 

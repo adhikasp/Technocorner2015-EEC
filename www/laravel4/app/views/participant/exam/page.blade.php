@@ -44,8 +44,8 @@
 
             <div class="col-sm-11">
               <p>
-                {{ $q->question }}
-				<br/>
+                {{ $q->getQuestion() }}
+				        <br/>
                 Id soal : {{ $q->id }}
               </p>
 
