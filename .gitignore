@@ -1,6 +1,5 @@
 /html
 /app
-.sass-cache/
 /www/laravel4/composer.phar
 /www/laravel4/composer.lock
 /www/laravel4/.env.*.php
@@ -23,3 +22,4 @@
 !.gitkeep
 .git-ftp-tmp
 /www/public_html/onlinetest/node_modules/
+/www/public_html/onlinetest/.sass-cache/
