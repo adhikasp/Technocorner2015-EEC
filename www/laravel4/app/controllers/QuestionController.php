@@ -112,6 +112,7 @@ class QuestionController extends BaseController {
 
     // If previous page was detail return to it
     if (Session::get('admin_backlink') == 'detail') {
+        Session::forget('admin_backlink');
         return Redirect::route('admin.question.detail', $q->id)
           ->withQuestion($q);
     }
