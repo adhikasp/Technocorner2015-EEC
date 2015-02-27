@@ -6,7 +6,7 @@
 
 @section('field_qtype')
   {{ Form::select('qtype', $qtypes, Input::old('qtype'), ['id' => 'qtype', 'class' => 'form-control', 'rows' => 1, 'required' => true]) }}
-  {{ Form::text('qtype_new', Input::old('qtype_new'), ['id' => 'qtype-new', 'class' => 'form-control', 'rows' => 1, 'placeholder' => 'Buat tipe baru']) }}
+  {{ Form::text('qtype_new', Input::old('qtype_new'), ['id' => 'qtype-new', 'class' => 'form-control', 'rows' => 1, 'placeholder' => 'Buat tipe baru', 'required' => true]) }}
 @stop
 
 @section('field_question')
