@@ -58,12 +58,12 @@
         $x = isset($participant->exam->session) ? $participant->exam->session : 0;
         switch ($x) {
           case 0:
-          case 1:
             echo "Bersiap Ujian";
             break;
-          case 2:
+          case 1:
             echo "Lanjutkan Ujian";
             break;
+          case 2:
           case 3:
             echo "Lihat Hasil";
             break;
