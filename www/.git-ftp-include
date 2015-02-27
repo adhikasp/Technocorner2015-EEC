@@ -1,8 +1,17 @@
+laravel4/app/dist/404.html:public_html/onlinetest/404.html
+laravel4/app/dist/robots.txt:public_html/onlinetest/robots.txt
+laravel4/app/dist/humans.txt:public_html/onlinetest/humans.txt
+laravel4/app/dist/favicon.ico:public_html/onlinetest/favicon.ico
+
 laravel4/app/dist/script/raw/main.js:public_html/onlinetest/script/main.min.js
 laravel4/app/dist/script/raw/exam.js:public_html/onlinetest/script/exam.min.js
 laravel4/app/dist/script/raw/admin.question.editable.js:public_html/onlinetest/script/admin.question.editable.min.js
+
 laravel4/app/dist/style/raw/main.sass:public_html/onlinetest/style/styles.min.css
 laravel4/app/dist/style/deploy/reset.min.css:public_html/onlinetest/style/reset.min.css
+
+laravel4/app/dist/img/logo-cathead.png:public_html/onlinetest/img/logo-cathead.png
+
 laravel4/app/dist/lib/bootstrap/css/bootstrap-theme.css:public_html/onlinetest/lib/bootstrap/css/bootstrap-theme.css
 laravel4/app/dist/lib/bootstrap/css/bootstrap-theme.css.map:public_html/onlinetest/lib/bootstrap/css/bootstrap-theme.css.map
 laravel4/app/dist/lib/bootstrap/css/bootstrap-theme.min.css:public_html/onlinetest/lib/bootstrap/css/bootstrap-theme.min.css
@@ -22,3 +31,5 @@ laravel4/app/dist/lib/normalize/normalize.css:public_html/onlinetest/lib/normali
 laravel4/app/dist/lib/yahoo.pure/grids-responsive-min.css:public_html/onlinetest/lib/yahoo.pure/grids-responsive-min.css
 laravel4/app/dist/lib/yahoo.pure/grids-responsive-old-ie-min.css:public_html/onlinetest/lib/yahoo.pure/grids-responsive-old-ie-min.css
 laravel4/app/dist/lib/yahoo.pure/pure-min.css:public_html/onlinetest/lib/yahoo.pure/pure-min.css
+
+
