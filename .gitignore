@@ -22,3 +22,4 @@
 !/www/public_html/onlinetest/doc
 !.gitkeep
 .git-ftp-tmp
+node_modules/
