@@ -16,6 +16,7 @@
 !/www/public_html/onlinetest/gulpfile.js
 !/www/public_html/onlinetest/package.json
 !/www/public_html/onlinetest/crossdomain.xml
+!/www/public_html/onlinetest/.htaccess
 !/www/public_html/onlinetest/adminer.php
 !/www/public_html/onlinetest/index.php
 !/www/public_html/onlinetest/doc
