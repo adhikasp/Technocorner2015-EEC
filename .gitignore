@@ -12,7 +12,7 @@
 /www/laravel4/app/dist/script/temp
 /www/laravel4/vendor
 /www/laravel4/bootstrap/compiled.php
-/www/public_html/
+/www/public_html/onlinetest/*
 !/www/public_html/onlinetest/gulpfile.js
 !/www/public_html/onlinetest/package.json
 !/www/public_html/onlinetest/crossdomain.xml
