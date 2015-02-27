@@ -22,7 +22,7 @@ class QuestionController extends BaseController {
     // Is the question new? Or so old?
     $q = new Question;
 
-    $q->question = Input::get('question');
+    $q->question = nl2br(Input::get('question'));
 
     $qtype = QType::where('id', '=', Input::get('qtype'))->first();
     $qtype_id = $qtype? $qtype->id : null;
@@ -72,7 +72,7 @@ class QuestionController extends BaseController {
     // Is the question new? Or so old?
     $q = Question::find($id);
 
-    $q->question = Input::get('question');
+    $q->question = nl2br(Input::get('question'));
 
     $qtype = QType::where('id', '=', Input::get('qtype'))->first();
     $qtype_id = $qtype? $qtype->id : null;
