@@ -110,6 +110,12 @@ class QuestionController extends BaseController {
     }
     $q->save();
 
+    // If previous page was detail return to it
+    if (Session::get('admin_backlink') == 'detail') {
+        return Redirect::route('admin.question.detail', $q->id)
+          ->withQuestion($q);
+    }
+
     return Redirect::route('admin.dashboard')
       ->withMessage('quest_update');
   }
@@ -117,6 +123,10 @@ class QuestionController extends BaseController {
   public function detail($id)
   {
     $q = Question::find($id);
+
+    // Remember last path, before editing
+    // To enable back to it instead of quests list
+    Session::put('admin_backlink', 'detail');
 
     return View::make('admin.question.detail')
       ->withQuestion($q);
