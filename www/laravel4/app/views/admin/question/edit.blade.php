@@ -39,23 +39,23 @@
 @stop
 
 @section('field_answerA')
-  {{ Form::radio('answer', 'A', ($question->answer == 'A')? true : false, ['class' => 'col-sm-1']) }}
+  {{ Form::radio('answer', 'A', ($question->answer == 'A')? true : false, ['class' => 'col-sm-1', 'required' => true]) }}
 @stop
 
 @section('field_answerB')
-  {{ Form::radio('answer', 'B', ($question->answer == 'B')? true : false, ['class' => 'col-sm-1']) }}
+  {{ Form::radio('answer', 'B', ($question->answer == 'B')? true : false, ['class' => 'col-sm-1', 'required' => true]) }}
 @stop
 
 @section('field_answerC')
-  {{ Form::radio('answer', 'C', ($question->answer == 'C')? true : false, ['class' => 'col-sm-1']) }}
+  {{ Form::radio('answer', 'C', ($question->answer == 'C')? true : false, ['class' => 'col-sm-1', 'required' => true]) }}
 @stop
 
 @section('field_answerD')
-  {{ Form::radio('answer', 'D', ($question->answer == 'D')? true : false, ['class' => 'col-sm-1']) }}
+  {{ Form::radio('answer', 'D', ($question->answer == 'D')? true : false, ['class' => 'col-sm-1', 'required' => true]) }}
 @stop
 
 @section('field_answerE')
-  {{ Form::radio('answer', 'E', ($question->answer == 'E')? true : false, ['class' => 'col-sm-1']) }}
+  {{ Form::radio('answer', 'E', ($question->answer == 'E')? true : false, ['class' => 'col-sm-1', 'required' => true]) }}
 @stop
 
 @section('field_randomize')
