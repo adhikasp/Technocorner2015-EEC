@@ -59,8 +59,9 @@ class QuestionController extends BaseController {
     }
     $q->save();
 
-    return Redirect::route('admin.dashboard')
-      ->withMessage('quest_add');
+    // return Redirect::route('admin.dashboard')
+    //   ->withMessage('quest_add');
+    return Redirect::route('admin.question.detail', $q->id);
   }
 
   public function update($id)
@@ -110,6 +111,13 @@ class QuestionController extends BaseController {
     }
     $q->save();
 
+    // If previous page was detail return to it
+    if (Session::get('admin_backlink') == 'detail') {
+        Session::forget('admin_backlink');
+        return Redirect::route('admin.question.detail', $q->id)
+          ->withQuestion($q);
+    }
+
     return Redirect::route('admin.dashboard')
       ->withMessage('quest_update');
   }
@@ -117,6 +125,10 @@ class QuestionController extends BaseController {
   public function detail($id)
   {
     $q = Question::find($id);
+
+    // Remember last path, before editing
+    // To enable back to it instead of quests list
+    Session::put('admin_backlink', 'detail');
 
     return View::make('admin.question.detail')
       ->withQuestion($q);
@@ -139,8 +151,12 @@ class QuestionController extends BaseController {
   public function delete($id)
   {
     $q = Question::find($id);
-    // Remove image
-    unlink(public_path() . $q->image);
+
+    if (file_exists(public_path() . $q->image)
+        && is_file(public_path() . $q->image)) {
+        // Remove image
+        unlink(public_path() . $q->image);
+    }
     $q->delete();
 
     return Redirect::route('admin.dashboard')

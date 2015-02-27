@@ -11,6 +11,7 @@
       </ul>
 
       <h2>Daftar Soal</h2>
+      <a href="{{ route('admin.question.create') }}" class="btn-dasar btn-primary">Tambah Soal</a>
 
       @if(Session::has('message'))
         @if(Session::get('message') == 'quest_add')

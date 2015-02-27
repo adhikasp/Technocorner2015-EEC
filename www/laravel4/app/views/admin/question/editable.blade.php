@@ -35,7 +35,7 @@
 
       <div class="form-group control-row">
         <div class="col-sm-2">
-          @yield('field_answerA', Form::radio('answer', 'A'))
+          @yield('field_answerA', Form::radio('answer', 'A', ['required' => true]))
           {{ Form::label('chA', 'Pilihan A', ['class' => 'col-sm-10']) }}
         </div>
         <div class="col-sm-10">
@@ -45,7 +45,7 @@
 
       <div class="form-group">
         <div class="col-sm-2">
-          @yield('field_answerB', Form::radio('answer', 'B'))
+          @yield('field_answerB', Form::radio('answer', 'B', ['required' => true]))
           {{ Form::label('chB', 'Pilihan B', ['class' => 'col-sm-10']) }}
         </div>
         <div class="col-sm-10">
@@ -55,7 +55,7 @@
 
       <div class="form-group">
         <div class="col-sm-2">
-          @yield('field_answerC', Form::radio('answer', 'C'))
+          @yield('field_answerC', Form::radio('answer', 'C', ['required' => true]))
           {{ Form::label('chC', 'Pilihan C', ['class' => 'col-sm-10']) }}
         </div>
         <div class="col-sm-10">
@@ -65,7 +65,7 @@
 
       <div class="form-group">
         <div class="col-sm-2">
-          @yield('field_answerD', Form::radio('answer', 'D'))
+          @yield('field_answerD', Form::radio('answer', 'D', ['required' => true]))
           {{ Form::label('chD', 'Pilihan D', ['class' => 'col-sm-10']) }}
         </div>
         <div class="col-sm-10">
@@ -75,7 +75,7 @@
 
       <div class="form-group">
         <div class="col-sm-2">
-          @yield('field_answerE', Form::radio('answer', 'E'))
+          @yield('field_answerE', Form::radio('answer', 'E', ['required' => true]))
           {{ Form::label('chE', 'Pilihan E', ['class' => 'col-sm-10']) }}
         </div>
         <div class="col-sm-10">

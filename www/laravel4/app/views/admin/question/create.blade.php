@@ -5,8 +5,8 @@
 @stop
 
 @section('field_qtype')
-  {{ Form::select('qtype', $qtypes, Input::old('qtype'), ['id' => 'qtype', 'class' => 'form-control', 'rows' => 1, 'required' => true]) }}
-  {{ Form::text('qtype_new', Input::old('qtype_new'), ['id' => 'qtype-new', 'class' => 'form-control', 'rows' => 1, 'placeholder' => 'Buat tipe baru']) }}
+  {{ Form::select('qtype', $qtypes, Input::has('qtype')? array_search(Input::get('qtype'), $qtypes) : Input::old('qtype'), ['id' => 'qtype', 'class' => 'form-control', 'rows' => 1, 'required' => true]) }}
+  {{ Form::text('qtype_new', Input::old('qtype_new'), ['id' => 'qtype-new', 'class' => 'form-control', 'rows' => 1, 'placeholder' => 'Buat tipe baru', 'required' => true]) }}
 @stop
 
 @section('field_question')
@@ -38,23 +38,23 @@
 @stop
 
 @section('field_answerA')
-  {{ Form::radio('answer', 'A', false, ['class' => 'col-sm-1 col-sm-offset-5']) }}
+  {{ Form::radio('answer', 'A', false, ['class' => 'col-sm-1', 'required' => true]) }}
 @stop
 
 @section('field_answerB')
-  {{ Form::radio('answer', 'B', false, ['class' => 'col-sm-1']) }}
+  {{ Form::radio('answer', 'B', false, ['class' => 'col-sm-1', 'required' => true]) }}
 @stop
 
 @section('field_answerC')
-  {{ Form::radio('answer', 'C', false, ['class' => 'col-sm-1']) }}
+  {{ Form::radio('answer', 'C', false, ['class' => 'col-sm-1', 'required' => true]) }}
 @stop
 
 @section('field_answerD')
-  {{ Form::radio('answer', 'D', false, ['class' => 'col-sm-1']) }}
+  {{ Form::radio('answer', 'D', false, ['class' => 'col-sm-1', 'required' => true]) }}
 @stop
 
 @section('field_answerE')
-  {{ Form::radio('answer', 'E', false, ['class' => 'col-sm-1']) }}
+  {{ Form::radio('answer', 'E', false, ['class' => 'col-sm-1', 'required' => true]) }}
 @stop
 
 @section('field_randomize')

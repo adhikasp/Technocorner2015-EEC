@@ -44,9 +44,9 @@
 
             <div class="col-sm-11">
               <p>
-                {{ $q->question }}
-				<br/>
-                Id soal : {{ $q->id }}
+                {{ $q->getQuestion() }}
+				<!-- <br/>
+                   Id soal : {{ $q->id }} -->
               </p>
 
               <div class="question-image">

@@ -71,6 +71,6 @@
     {{ Form::close() }}
 
     {{ link_to_route('admin.viewAllParticipant', 'Kembali', null, ['class' => 'btn-dasar'])}}
-    {{ link_to_route('admin.deleteExamParticipant', 'Reset Exam', null, ['class' => 'btn-dasar btn-important'])}}
+    {{ link_to_route('admin.deleteExamParticipant', 'Reset Exam', $participant->id, ['class' => 'btn-dasar btn-important'])}}
   </main>
 @stop

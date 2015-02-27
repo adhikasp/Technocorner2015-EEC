@@ -17,13 +17,13 @@ class CreateQuestionsTable extends Migration {
 			$t->increments('id');
 
 			$t->string('qtype_id');
-			$t->string('question');
+			$t->text('question');
 			$t->string('image')->nullable();
-			$t->string('chA');
-			$t->string('chB');
-			$t->string('chC');
-			$t->string('chD');
-			$t->string('chE');
+			$t->text('chA');
+			$t->text('chB');
+			$t->text('chC');
+			$t->text('chD');
+			$t->text('chE');
 			$t->boolean('randomize');
 			$t->char('answer', 1);
 

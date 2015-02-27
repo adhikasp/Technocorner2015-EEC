@@ -10,6 +10,10 @@ class Question extends Eloquent {
      */
     protected $table = 'questions';
 
+    public function getQuestion() {
+        return $this->question;
+    }
+
     public function qtype() {
         return $this->belongsTo('QType');
     }

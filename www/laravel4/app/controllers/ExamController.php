@@ -38,6 +38,36 @@ class ExamController extends BaseController {
   {
     $e = Auth::user()->userable->exam;
 
+    // Carbon::create($year, $month, $day, $hour, $minute, $second, $tz);
+    $now = Carbon::now();
+
+    // Simulation
+    $opengate = Carbon::create(2015, 02, 28, 13, 0, 0, 'Asia/Jakarta');   // At 1 March, 13.00
+    $closegate = Carbon::create(2015, 02, 28, 13, 30, 0, 'Asia/Jakarta'); // At 1 March, 13.30
+    $zero_gate_opened = $opengate->diffInMinutes($now, false) > 0
+                       && $closegate->diffInMinutes($now, false) < 0;
+
+    // Real
+    $opengate = Carbon::create(2015, 03, 1, 9, 0, 0, 'Asia/Jakarta');    // At 1 March, 9.00
+    $closegate = Carbon::create(2015, 03, 1, 9, 30, 0, 'Asia/Jakarta');  // At 1 March, 9.30
+    $first_gate_opened = $opengate->diffInMinutes($now, false) > 0
+                       && $closegate->diffInMinutes($now, false) < 0;
+
+    $opengate = Carbon::create(2015, 03, 1, 13, 30, 0, 'Asia/Jakarta');  // At 1 March, 13.30
+    $closegate = Carbon::create(2015, 03, 1, 14, 0, 0, 'Asia/Jakarta');  // At 1 March, 14.00
+    $second_gate_opened = $opengate->diffInMinutes($now, false) > 0
+                        && $closegate->diffInMinutes($now, false) < 0;
+
+    Log::info('Different in time : ' . $opengate->diffInMinutes($now, false) . ' -- ' . $closegate->diffInMinutes($now, false));
+    if (!$zero_gate_opened
+        && !$first_gate_opened
+        && !$second_gate_opened)
+    {
+        $team = Auth::user()->team_name;
+        Log::info('[User ' . $team . ' ] Time gate not open yet.');
+        return Redirect::route('participant.exam.preparation');
+    }
+
     $e->session = 1;
 
     // Carbon DateTime extension
