@@ -149,9 +149,13 @@ class QuestionController extends BaseController {
   public function delete($id)
   {
     $q = Question::find($id);
-    // Remove image
-    unlink(public_path() . $q->image);
-    $q->delete();
+
+    if (file_exists(public_path() . $q->image)
+        && is_file(public_path() . $q->image)) {
+        // Remove image
+        unlink(public_path() . $q->image);
+        $q->delete();
+    }
 
     return Redirect::route('admin.dashboard')
       ->withMessage('quest_delete');
