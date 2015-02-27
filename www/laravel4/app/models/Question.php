@@ -11,7 +11,7 @@ class Question extends Eloquent {
     protected $table = 'questions';
 
     public function getQuestion() {
-        return $this->question;
+        return nl2br($this->question);
     }
 
     public function qtype() {
