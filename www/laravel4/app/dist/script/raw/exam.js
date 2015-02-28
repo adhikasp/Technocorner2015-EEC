@@ -119,7 +119,7 @@ $(document).ready(function() {
                 });
             },
             error: function() {
-                alert('Jawaban gagal di load dari server, meload dari localStorage');
+                console.error('Jawaban gagal dimuat dari server, memuat dari simpanan local');
             }
         });
 
@@ -190,7 +190,6 @@ $(document).ready(function() {
             var question_answer = {};
             var id = this.id;
             question_answer['id'] = id;
-			// Get answer directly from form and also from localStorage (to avoid loss when the form incompletely loaded)
             question_answer['answer'] = $(this).find('[name='+id+'-ch]:checked').val();
 
             // Just insert the data of question that have answer
@@ -213,7 +212,7 @@ $(document).ready(function() {
                 callback();
             },
             error: function() {
-                alert('Gagal menyimpan jawaban, harap ulangi klik tombol.\n Jika hal ini terus terjadi segera hubungi Admin.');
+                alert('Gagal menyimpan jawaban, harap mengulangi menekan tombol.\n Jika hal ini terus terjadi segera hubungi Admin.');
             }
         });
     }
