@@ -87,6 +87,15 @@ class AdminController extends BaseController {
     }
 
     public function storeParticipant() {
+
+        // Check if there is any duplicate entry in DB
+        $tesParticipant = Participant::where('team_name', '=', Input::get('team_name'));
+        $tesUser        = User::where('email', '=', Input::get('email'));
+        if($tesUser || $tesParticipant) {
+          return Redirect::route('admin.participant.create')
+            ->withMessage('duplicate_entry');
+        }
+
         $p            = new Participant;
         $p->team_name = Input::get('team_name');
         $p->member_1  = Input::get('member_1');

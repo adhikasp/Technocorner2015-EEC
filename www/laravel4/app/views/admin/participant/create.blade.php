@@ -1,6 +1,14 @@
 @extends('admin.participant.editable')
 
 @section("form_open")
+  @if (Session::has('message'))
+    @if (Session::get('message') == 'duplicate_entry')
+      <p class="bg-error">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          <strong>Error</strong>: Data duplikat, harap cek kebenaran data.
+      </p>
+    @endif
+  @endif
   {{ Form::open(array('route' => 'admin.participant.store', 'class' => 'form-horizontal form-daftar')) }}
 @stop
 
