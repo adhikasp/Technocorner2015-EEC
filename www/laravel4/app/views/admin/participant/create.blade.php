@@ -9,19 +9,19 @@
 @stop
 
 @section('form_teamname')
-  {{ Form::text('team_name', Input::old('team_name'), array('class' => 'form-control')) }}
+  {{ Form::text('team_name', Input::old('team_name'), array('class' => 'form-control', 'required' => true)) }}
 @stop
 
 @section('form_email')
-  {{ Form::email('email', Input::old('email'), array('class' => 'form-control')) }}
+  {{ Form::email('email', Input::old('email'), array('class' => 'form-control', 'required' => true)) }}
 @stop
 
 @section('form_password')
-  {{ Form::text('password', '', array('class' => 'form-control')) }}
+  {{ Form::text('password', '', array('class' => 'form-control', 'required' => true)) }}
 @stop
 
 @section('form_member1')
-  {{ Form::text('member_1', Input::old('member_1'), array('class' => 'form-control')) }}
+  {{ Form::text('member_1', Input::old('member_1'), array('class' => 'form-control', 'required' => true)) }}
 @stop
 
 @section('form_member2')
@@ -33,5 +33,5 @@
 @stop
 
 @section('form_school')
-  {{ Form::text('school', Input::old('school'), array('class' => 'form-control')) }}
+  {{ Form::text('school', Input::old('school'), array('class' => 'form-control', 'required' => true)) }}
 @stop
