@@ -207,11 +207,10 @@ $(document).ready(function() {
                 exam_id: $exam_id
             },
             success: function() {
-                alert('sukses')
                 callback();
             },
             error: function() {
-                alert('Gagal menyimpan jawaban, harap ulangi klik tombol. Jika hal ini terus terjadi segera hubungi Admin.');
+                alert('Gagal menyimpan jawaban, harap ulangi klik tombol.\n Jika hal ini terus terjadi segera hubungi Admin.');
             }
         });
     }
