@@ -56,35 +56,35 @@
               <div class="radio">
                 <label>
                   {{ Form::radio( $q->id . '-ch', 'A', Input::old( $q->id . '-ch'), ['class' => 'choice-radio']) }}
-                  <strong>A.</strong> {{ $q->chA }}
+                  <strong>A.</strong> {{ $q->getChoice('A') }}
                 </label>
               </div>
 
               <div class="radio">
                 <label>
                   {{ Form::radio( $q->id . '-ch', 'B', Input::old( $q->id . '-ch'), ['class' => 'choice-radio'] ) }}
-                  <strong>B.</strong> {{ $q->chB }}
+                  <strong>B.</strong> {{ $q->getChoice('B') }}
                 </label>
               </div>
 
               <div class="radio">
                 <label>
                   {{ Form::radio( $q->id . '-ch', 'C', Input::old( $q->id . '-ch'), ['class' => 'choice-radio'] ) }}
-                  <strong>C.</strong> {{ $q->chC }}
+                  <strong>C.</strong> {{ $q->getChoice('C') }}
                 </label>
               </div>
 
               <div class="radio">
                 <label>
                   {{ Form::radio( $q->id . '-ch', 'D', Input::old( $q->id . '-ch'), ['class' => 'choice-radio'] ) }}
-                  <strong>D.</strong> {{ $q->chD }}
+                  <strong>D.</strong> {{ $q->getChoice('D') }}
                 </label>
               </div>
 
               <div class="radio">
                 <label>
                   {{ Form::radio( $q->id . '-ch', 'E', Input::old( $q->id . '-ch'), ['class' => 'choice-radio'] ) }}
-                  <strong>E.</strong> {{ $q->chE }}
+                  <strong>E.</strong> {{ $q->getChoice('E') }}
                 </label>
               </div>
             </div>
