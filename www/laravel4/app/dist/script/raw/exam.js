@@ -199,6 +199,41 @@ $(document).ready(function() {
             }
         });
 
+		/**
+		 * For case prevention where the team open many tab with different subject
+		 * it will save the whole answers (not only the page currently on, as
+		 * subjected by above 'jQuery.each()').
+		 */
+		var subject = $('form').attr('id').replace('-paper', '');
+		for(var i = 0; i < localStorage.length; i++) {
+			var question_answer = {};
+
+			// Get the key
+			var key = localStorage.key(i);
+			// Check it is not the current subject
+			var cacheSubject = key.split('-')[0];
+			question_answer['id'] = key.split('-')[1];
+			// console.log('subject : ' + cacheSubject + ' ; id : ' + question_answer['id']);
+
+			if (cacheSubject == subject) {
+				continue;
+			}
+
+			// Get it's value
+			question_answer['answer'] = localStorage.getItem(key);
+			var cacheVal = question_answer['answer'];
+			// console.log('val : ' + cacheVal);
+
+			// Check it is not contains other than A-E
+			if (cacheVal == 'A' || cacheVal == 'B' || cacheVal == 'C'
+				|| cacheVal == 'D' || cacheVal == 'E') {
+				// Push it into array
+                $answer.push(question_answer);
+			}
+		}
+
+		// console.log('Answer : ');
+		// console.log($answer);
 
         $.ajax({
             async: false,
