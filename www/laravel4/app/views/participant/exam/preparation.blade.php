@@ -23,6 +23,7 @@
     </ul>
 
 	<br/>
+	<br/>
 
 	<p><center><i>Cheating brings you to the top for a moment before bringing you down to the bottom <br/>
 	  and making you bear the burden of cheating forever, <br/>while<br/>
@@ -33,8 +34,9 @@
 
     @if ( App::environment() == 'local' )
       {{ link_to_route('participant.dashboard', 'DEVELOP : back to dashboard', null, ['class' => 'btn btn-dasar']) }}
+	  <br/>
+	  <br/>
     @endif
-	<br/>
     <a href="{{ route('participant.exam.start') }}" class="btn btn-dasar btn-important btn-lg"><strong>MULAI UJIAN</strong></a>
 
 	<hr/>
