@@ -89,6 +89,13 @@
                   <strong>E.</strong> {{ $q->getChoice('E') }}
                 </label>
               </div>
+
+              <div class="radio">
+                <label>
+                  {{ Form::radio( $q->id . '-ch', '', Input::old( $q->id . '-ch'), ['class' => 'choice-radio'] ) }}
+                  <strong>Kosongkan</strong>
+                </label>
+              </div>
             </div>
           </div>
 
