@@ -207,6 +207,7 @@ $(document).ready(function() {
                 exam_id: $exam_id
             },
             success: function() {
+                alert('sukses')
                 callback();
             },
             error: function() {
@@ -215,7 +216,7 @@ $(document).ready(function() {
         });
     }
 
-    $('#exam-paper').submit(function(e) {
+    $('.exam-paper').submit(function(e) {
         e.preventDefault();
         var self = this;
 
