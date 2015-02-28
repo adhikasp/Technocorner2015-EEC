@@ -36,6 +36,7 @@ class ExamController extends BaseController {
 
   public function startExam()
   {
+    $team = Auth::user()->userable->team_name;
     $e = Auth::user()->userable->exam;
 
     // Carbon::create($year, $month, $day, $hour, $minute, $second, $tz);
@@ -53,18 +54,20 @@ class ExamController extends BaseController {
     $first_gate_opened = $opengate->diffInMinutes($now, false) > 0
                        && $closegate->diffInMinutes($now, false) < 0;
 
+    Log::info($team . ' :: [First gate] Different in time (minute) : ' . $opengate->diffInMinutes($now, false) . ' -- ' . $closegate->diffInMinutes($now, false));
+
     $opengate = Carbon::create(2015, 03, 1, 13, 30, 0, 'Asia/Jakarta');  // At 1 March, 13.30
     $closegate = Carbon::create(2015, 03, 1, 14, 0, 0, 'Asia/Jakarta');  // At 1 March, 14.00
     $second_gate_opened = $opengate->diffInMinutes($now, false) > 0
                         && $closegate->diffInMinutes($now, false) < 0;
 
-    Log::info('Different in time : ' . $opengate->diffInMinutes($now, false) . ' -- ' . $closegate->diffInMinutes($now, false));
+    Log::info($team . ' :: [Second gate] Different in time (minute) : ' . $opengate->diffInMinutes($now, false) . ' -- ' . $closegate->diffInMinutes($now, false));
+
     if (!$zero_gate_opened
         && !$first_gate_opened
-        && !$second_gate_opened)
-    {
-        $team = Auth::user()->team_name;
-        Log::info('[User ' . $team . ' ] Time gate not open yet.');
+        && !$second_gate_opened) {
+        // Log to inform failure on gate closed
+        Log::info($team . ' ::  Time gate not open yet.');
         return Redirect::route('participant.exam.preparation');
     }
 
