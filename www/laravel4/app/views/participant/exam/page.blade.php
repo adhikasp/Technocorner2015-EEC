@@ -49,9 +49,11 @@
                    Id soal : {{ $q->id }} -->
               </p>
 
-              <div class="question-image">
-                <img src="{{ $q->image }}" alt="Pertanyaan untuk soal {{ $q->id }}">
-              </div>
+			  @if ($q->image)
+                <div class="question-image">
+                  <img src="{{ $q->image }}" alt="Pertanyaan untuk soal {{ $q->id }}">
+                </div>
+			  @endif
 
               <div class="radio">
                 <label>
