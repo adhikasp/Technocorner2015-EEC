@@ -11,6 +11,7 @@
         <li class="active"><a href="{{ route('admin.participant.list') }}">Daftar Peserta</a></li>
       </ul>
       <h2>Daftar Peserta EEC Technocorner</h2>
+      <a href="{{ route('admin.participant.create') }}" class="btn-dasar btn-primary">Tambah Peserta</a> <-- Akses cepat
 
       <table class="table">
         <tr>
