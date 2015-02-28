@@ -89,13 +89,13 @@ Route::group(['before' => 'auth|participant'], function() {
     'uses' => 'ExamController@exam'
   ]);
 
-  Route::get('user/exam/result/confirm', [
+  Route::post('user/exam/result/confirm', [
     'before' => 'haveExam|stopExam',
     'as' => 'participant.exam.showConfirmFinish',
     'uses' => 'ExamController@showConfirmFinish'
   ]);
 
-  Route::get('user/exam/result', [
+  Route::get('user/exam/finish', [
     'before' => 'haveExam|completedExam',
     'as' => 'participant.exam.result',
     'uses' => 'ExamController@result'
@@ -111,8 +111,8 @@ Route::group(['before' => 'auth|participant'], function() {
     'uses' => 'ExamController@submit'
   ]);
 
-  Route::post('user/exam/result/confirm', [
-    'before' => 'haveExam|inExam',
+  Route::post('user/exam/result/process', [
+    'before' => 'haveExam',
     'as' => 'participant.exam.confirmFinish',
     'uses' => 'ExamController@confirmFinish'
   ]);

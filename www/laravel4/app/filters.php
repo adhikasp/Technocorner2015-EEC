@@ -169,7 +169,7 @@ Route::filter('stopExam', function() {
 	$s = $e->session;
 
 
-	if ($e->session != 2)
+	if ($s != 1 or $s != 2)
 	{
 		if ($s == 0) {
 			return Redirect::route('participant.exam.preparation');
