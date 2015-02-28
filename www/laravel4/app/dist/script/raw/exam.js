@@ -77,7 +77,10 @@ $(document).ready(function() {
     $('.choice-radio').click(function (ev) {
         var qid = $(this).attr('name').split('-')[0];
         var val = $(this).attr('value');
-        localStorage.setItem(subject + '-' + qid, val);
+
+        if (val != '') {
+            localStorage.setItem(subject + '-' + qid, val);
+        }
     });
 
     function loadChoices() {
