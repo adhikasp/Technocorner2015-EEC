@@ -188,7 +188,7 @@ $(document).ready(function() {
             var id = this.id;
             question_answer['id'] = id;
 			// Get answer directly from form and also from localStorage (to avoid loss when the form incompletely loaded)
-            question_answer['answer'] = $(this).find('[name='+id+'-ch]:checked').val() || localStorage.getItem(subject + '-' + id);
+            question_answer['answer'] = $(this).find('[name='+id+'-ch]:checked').val();
 
             // Just insert the data of question that have answer
             // to lighten the load of server>
