@@ -68,7 +68,7 @@ class AdminController extends BaseController {
   }
 
   public function viewAllParticipant() {
-    $participant = Participant::orderBy('team_name')->get();
+    $participant = Participant::all();
 
     return View::make('admin.participant.list')
       ->withParticipant($participant);
