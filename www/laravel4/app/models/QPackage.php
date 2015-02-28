@@ -45,7 +45,7 @@ class QPackage extends Eloquent {
         // Separately process questions in each QType
         foreach (QType::all() as $qtype) {
             $qtype_id = $qtype->id;
-            $q_ids = Question::where('qtype_id', '=', $qtype_id)->get(['id', 'randomize']);
+            $q_ids = Question::where('qtype_id', '=', $qtype_id)->orderBy('id')->get(['id', 'randomize']);
             $q_ids_rand = null;
 
             // Separate randomizabled-questions into an array

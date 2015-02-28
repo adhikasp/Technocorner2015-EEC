@@ -58,7 +58,7 @@ class AdminController extends BaseController {
   {
     // eager loading optimization
     // http://laravel.com/docs/4.2/eloquent#eager-loading
-    $questions = Question::with('qtype')->orderBy('qtype_id')->get();
+    $questions = Question::with('qtype')->orderBy('qtype_id')->orderBy('id')->get();
 
     $qtype = QType::all();
 
