@@ -3,7 +3,7 @@
 @section('body')
 
   <main class="container-fluid">
-    <h1>Hasil Ujian</h1>
+    <h1>Ujian Telah Berakhir</h1>
 	<hr/>
 
 	<section class="score-board">
