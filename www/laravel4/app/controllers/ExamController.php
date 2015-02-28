@@ -68,13 +68,15 @@ class ExamController extends BaseController {
         return Redirect::route('participant.exam.preparation');
     }
 
-    $e->session = 1;
+    if (!$e->end_time) {
+        $e->session = 1;
 
-    // Carbon DateTime extension
-    // github.com/briannesbitt/Carbon
-    $e->start_time = Carbon::now();
-    $e->end_time = (Carbon::now()->addSeconds(7200));
-    $e->save();
+        // Carbon DateTime extension
+        // github.com/briannesbitt/Carbon
+        $e->start_time = Carbon::now();
+        $e->end_time = (Carbon::now()->addSeconds(7200));
+        $e->save();
+    }
 
     return Redirect::route('participant.exam.page');
   }
