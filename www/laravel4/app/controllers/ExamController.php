@@ -190,11 +190,11 @@ class ExamController extends BaseController {
 
   public function showConfirmFinish()
   {
-    $e = Auth::user()->userable->exam;
+    $p = Auth::user()->userable;
 
-    Log::info($team . " :: Confirmation page");
+    Log::info($p->team_name . " :: Confirmation page");
     return View::make('participant.exam.confirmFinish')
-      ->withExam($e);
+      ->withExam($p->exam);
   }
 
   public function confirmFinish()
