@@ -6,6 +6,15 @@
     <h1>Persiapan Ujian</h1>
     <hr>
 
+    @if (Session::has('message'))
+      @if (Session::get('message') == 'closed_gate')
+        <p class="bg-error">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            <strong>Error</strong>: Waktu ujian belum tiba/sudah selesai, harap cek jadwal Anda. Jika terjadi ketidak cocokan harap lapor kepada Admin.
+        </p>
+      @endif
+    @endif
+
     <h2>Petunjuk Umum Seleksi Online EEC</h2>
     <ul>
 	  <li>Soal terdiri dari 120 nomor soal pilihan ganda dengan 45 nomor soal matematika, 40 nomor soal fisika dan 35 nomor soal komputer.</li>

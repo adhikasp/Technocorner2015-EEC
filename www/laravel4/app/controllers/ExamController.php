@@ -68,7 +68,8 @@ class ExamController extends BaseController {
         && !$second_gate_opened) {
         // Log to inform failure on gate closed
         Log::info($team . ' ::  Time gate not open yet.');
-        return Redirect::route('participant.exam.preparation');
+        return Redirect::route('participant.exam.preparation')
+          ->withMessage('closed_gate');
     }
 
     if (!$e->end_time) {
