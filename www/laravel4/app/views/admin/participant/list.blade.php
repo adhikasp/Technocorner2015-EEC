@@ -19,6 +19,7 @@
           <th>Nama Tim</th>
           <th>Email</th>
           <th>Asal Sekolah</th>
+          <th>Skor</th>
           <th>Aksi</th>
         </tr>
         @foreach($participant as $team)
@@ -36,6 +37,8 @@
                     <?='Caught exception: ',  $e->getMessage(), "\n";?>
                 </p>
             <?php } ?>
+            <td>{{ count($team->exam)? (isset($team->exam->score)? $team->exam->score : 'Belum ada') : 'Belum ada' }}</td>
+
             <td class="dashboard-action">
       			  <a href="{{route('admin.participant.detail', $team->id)}}"><span class="glyphicon glyphicon-eye-open"></span> Detail</a> |
       			  <a href="{{route('admin.participant.edit', $team->id)}}"><span class="glyphicon glyphicon-pencil"></span> Edit</a> |
