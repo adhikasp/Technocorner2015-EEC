@@ -37,7 +37,7 @@
                     <?='Caught exception: ',  $e->getMessage(), "\n";?>
                 </p>
             <?php } ?>
-            <td>{{ count($team->exam)? (isset($team->exam->score)? $team->exam->score : '...') : '-' }}</td>
+			<td><center>{{ count($team->exam)? (isset($team->exam->score)? $team->exam->score : '...') : '-' }}</center></td>
 
             <td class="dashboard-action">
       			  <a href="{{route('admin.participant.detail', $team->id)}}"><span class="glyphicon glyphicon-eye-open"></span> Detail</a> |
