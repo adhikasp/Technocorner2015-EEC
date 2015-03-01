@@ -125,6 +125,8 @@ class ExamController extends BaseController {
     // Pass the user's exam id to View for AJAX push saving to Database
     $examId = $e->id;
 
+    Log::info('Exam_Page :: Tim-> ' . Auth::user()->userable->team_name . ':: Mapel-> ' . $questionSubject);
+
     return View::make('participant.exam.page')
       ->withQuestions($q)
       ->withSubjectList($subjectList)
