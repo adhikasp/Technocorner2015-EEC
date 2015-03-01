@@ -23,15 +23,19 @@
         </tr>
         @foreach($participant as $team)
           <tr>
+            <?php try { ?>
             <td>{{ $team->id }}</td>
             <td>{{ $team->team_name }}</td>
             <td>{{ $team->user->email }}</td>
             <td>{{ $team->school }}</td>
+            <?php } catch (Exception $e) {
+                echo 'Caught exception: ',  $e->getMessage(), "\n";
+            } ?>
             <td class="dashboard-action">
-			  <a href="{{route('admin.participant.detail', $team->id)}}"><span class="glyphicon glyphicon-eye-open"></span> Detail</a> |
-			  <a href="{{route('admin.participant.edit', $team->id)}}"><span class="glyphicon glyphicon-pencil"></span> Edit</a> |
-			  <a href="{{route('admin.participant.delete', $team->id)}}" class="need-confirmation"><span class="glyphicon glyphicon-trash"></span> HAPUS</a>
-			</td>
+      			  <a href="{{route('admin.participant.detail', $team->id)}}"><span class="glyphicon glyphicon-eye-open"></span> Detail</a> |
+      			  <a href="{{route('admin.participant.edit', $team->id)}}"><span class="glyphicon glyphicon-pencil"></span> Edit</a> |
+      			  <a href="{{route('admin.participant.delete', $team->id)}}" class="need-confirmation"><span class="glyphicon glyphicon-trash"></span> HAPUS</a>
+    			</td>
           </tr>
         @endforeach
       </table>
