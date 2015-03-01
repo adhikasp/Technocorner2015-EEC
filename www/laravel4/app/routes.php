@@ -89,7 +89,7 @@ Route::group(['before' => 'auth|participant'], function() {
     'uses' => 'ExamController@exam'
   ]);
 
-  Route::post('user/exam/result/confirm', [
+  Route::any('user/exam/result/confirm', [
     'before' => 'haveExam|stopExam',
     'as' => 'participant.exam.showConfirmFinish',
     'uses' => 'ExamController@showConfirmFinish'

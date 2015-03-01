@@ -121,7 +121,7 @@ Route::filter('noExam', function() {
 		if ($e->session == 1) {
 			return Redirect::route('participant.exam.page');
 		} elseif ($e->session == 2) {
-			return Redirect::route('participant.exam.confirmFinish');
+			return Redirect::route('participant.exam.showConfirmFinish');
 		} elseif ($e->session == 3) {
 			return Redirect::route('participant.exam.result');
 		}
@@ -147,7 +147,7 @@ Route::filter('inExam', function() {
 		$e->session = 2;
 		$e->save();
 
-		return Redirect::route('participant.exam.confirmFinish')
+		return Redirect::route('participant.exam.showConfirmFinish')
 			->withMessage('exam_time_expired');
 	}
 
@@ -157,7 +157,7 @@ Route::filter('inExam', function() {
 		if ($s == 0) {
 			return Redirect::route('participant.exam.preparation');
 		} elseif ($s == 2) {
-			return Redirect::route('participant.exam.confirmFinish');
+			return Redirect::route('participant.exam.showConfirmFinish');
 		} elseif ($s == 3) {
 			return Redirect::route('participant.exam.result');
 		}
@@ -190,7 +190,7 @@ Route::filter('completedExam', function() {
 		} elseif ($s == 1) {
 			return Redirect::route('participant.exam.page');
 		} elseif ($s == 2) {
-			return Redirect::route('participant.exam.confirmFinish');
+			return Redirect::route('participant.exam.showConfirmFinish');
 		}
 	}
 });
