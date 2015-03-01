@@ -50,7 +50,7 @@ class ExamController extends BaseController {
 
     // Real
     $opengate = Carbon::create(2015, 03, 1, 9, 0, 0, 'Asia/Jakarta');    // At 1 March, 9.00
-    $closegate = Carbon::create(2015, 03, 1, 9, 55, 0, 'Asia/Jakarta');  // At 1 March, 9.30
+    $closegate = Carbon::create(2015, 03, 1, 9, 55, 0, 'Asia/Jakarta');  // At 1 March, 9.55
     $first_gate_opened = $opengate->diffInMinutes($now, false) > 0
                        && $closegate->diffInMinutes($now, false) < 0;
 
@@ -190,15 +190,21 @@ class ExamController extends BaseController {
 
   public function showConfirmFinish()
   {
+    $team = Auth::user()->userable->team_name;
+
+    Log::info($team . " :: Confirmation page");
     return View::make('participant.exam.confirmFinish');
   }
 
   public function confirmFinish()
   {
+    $team = Auth::user()->userable->team_name;
     $e = Auth::user()->userable->exam;
 
     $e->session = 2;
     $e->calculateResult();
+
+    Log::info($team . " :: I'm finish");
 
     return Redirect::route('participant.exam.result');
   }
