@@ -28,9 +28,14 @@
             <td>{{ $team->team_name }}</td>
             <td>{{ $team->user->email }}</td>
             <td>{{ $team->school }}</td>
-            <?php } catch (Exception $e) {
-                echo 'Caught exception: ',  $e->getMessage(), "\n";
-            } ?>
+            <?php } catch (Exception $e) { ?>
+
+                <p class="bg-error">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    <strong>Error</strong>: Data peserta ini error, harap lapor admin!
+                    <?='Caught exception: ',  $e->getMessage(), "\n";?>
+                </p>
+            <?php } ?>
             <td class="dashboard-action">
       			  <a href="{{route('admin.participant.detail', $team->id)}}"><span class="glyphicon glyphicon-eye-open"></span> Detail</a> |
       			  <a href="{{route('admin.participant.edit', $team->id)}}"><span class="glyphicon glyphicon-pencil"></span> Edit</a> |
