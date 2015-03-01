@@ -50,7 +50,7 @@ class ExamController extends BaseController {
 
     // Real
     $opengate = Carbon::create(2015, 03, 1, 9, 0, 0, 'Asia/Jakarta');    // At 1 March, 9.00
-    $closegate = Carbon::create(2015, 03, 1, 9, 40, 0, 'Asia/Jakarta');  // At 1 March, 9.30
+    $closegate = Carbon::create(2015, 03, 1, 9, 55, 0, 'Asia/Jakarta');  // At 1 March, 9.30
     $first_gate_opened = $opengate->diffInMinutes($now, false) > 0
                        && $closegate->diffInMinutes($now, false) < 0;
 
