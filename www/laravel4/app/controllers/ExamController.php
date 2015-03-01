@@ -57,7 +57,7 @@ class ExamController extends BaseController {
     Log::info($team . ' :: [First gate] Different in time (minute) : ' . $opengate->diffInMinutes($now, false) . ' -- ' . $closegate->diffInMinutes($now, false));
 
     $opengate = Carbon::create(2015, 03, 1, 13, 30, 0, 'Asia/Jakarta');  // At 1 March, 13.30
-    $closegate = Carbon::create(2015, 03, 1, 14, 0, 0, 'Asia/Jakarta');  // At 1 March, 14.00
+    $closegate = Carbon::create(2015, 03, 1, 14, 20, 0, 'Asia/Jakarta');  // At 1 March, 14.20
     $second_gate_opened = $opengate->diffInMinutes($now, false) > 0
                         && $closegate->diffInMinutes($now, false) < 0;
 
