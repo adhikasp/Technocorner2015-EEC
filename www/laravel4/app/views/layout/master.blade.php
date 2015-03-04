@@ -100,11 +100,10 @@
                 </p>
             </div>
             <div class="col-sm-4 cc">
-                <p>Common Creative License <br>
+              <p>Interface Design of this site is licensed under<br/>
                 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Lisensi Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"></a></p>
             </div>
         </div>
-
 
         <!-- Footer of base template -->
         <!-- Temporary commented
