@@ -22,7 +22,12 @@
       @endif
     @endif
     <hr/>
-
+        {{-- <div class="content-kanan"> --}}
+        <div>
+          <button class="btn" id="tandai">Tandai Soal</button>
+          <button class="btn" id="hilangkan">Hilangkan tanda</button>
+        </div>
+        {{-- </div> --}}
     {{ Form::open([
       'route' => 'participant.exam.showConfirmFinish',
       'class' => 'exam-paper',
@@ -34,9 +39,12 @@
 
       <?php $no = 1 ?>
         <div class="content-kanan">
+
+        
+
         <ul class="nav nav-tabs" role="tablist">
         @foreach ($questions as $q)
-          <li><a href="#{{ $no }}" class="tab-size" role="tab" data-toggle="tab">{{ $no++ }}</a></li>
+          <li class="tab-size"><a href="#{{ $no }}" role="tab" data-toggle="tab">{{ $no++ }}</a></li>
         @endforeach
         </ul>
         </div>
@@ -143,6 +151,19 @@
 		<small>(c) Technocorner</small>
       </div>
   </main>
+
+  <script src="/lib/jquery/jquery-1.10.2.min.js"></script>
+  <script>
+    $(function(){
+        $("#tandai").click(function(){
+          $('.nav-tabs li.active a').css("background-color" , "#bc423b");
+        });
+
+        $("#hilangkan").click(function(){
+          $('.nav-tabs li.active a').css("background-color" , "#343434");
+        })
+    })
+  </script>
 
 @stop
 

@@ -109,7 +109,7 @@
         <!-- Footer of base template -->
         <!-- Temporary commented
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
-        <script>window.jQuery || document.write('<script src="/lib/jquery/jquery-1.10.2.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="/lib/jquery/jquery-1.10.2.min.js"></script>')</script>
 
         <!-- Library JS -->
         <script src="/lib/modernizr/modernizr-2.6.2.min.js"></script>
