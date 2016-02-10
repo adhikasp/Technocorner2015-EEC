@@ -20,6 +20,4 @@ class QSortable extends Eloquent {
     public function question() {
         return $this->hasOne('Question');
     }
-
-
 }
