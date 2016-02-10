@@ -6,13 +6,14 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="Website Tes Online EEC Technocorner 2015">
+        <meta name="description" content="Website Tes Online EEC Technocorner 2016">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <link rel="shortcut icon" href="/img/favicon.ico">
 
         <!-- Library CSS -->
+        <link href="/style/main.css" rel="stylesheet" type="text/css">
         <!-- Normalize + html5 boilerplate -->
         <link rel="stylesheet" href="/style/reset.min.css">
         <!-- Temporary commented
@@ -23,7 +24,7 @@
         <link rel="stylesheet" href="/style/styles.min.css">
 
         <!-- Costum content per page -->
-        @yield('head', '<title>Technocorner 2015</title>')
+        @yield('head', '<title>Technocorner 2016</title>')
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -39,8 +40,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                <a href="#" class="navbar-brand"><img src="/img/logo-cathead.png" class="img-responsive"></a>
-                <a href="#" class="navbar-brand">TECHNOCORNER 2015</a>
+                <a href="#" class="navbar-brand"><img src="/img/headerlogo.png" class="img-responsive"></a>
+                <!-- <a href="#" class="navbar-brand">TECHNOCORNER 2015</a> -->
                 </div>
 
                 <div class="collapse navbar-collapse" id="menu-collapse">
@@ -95,7 +96,7 @@
         <div id="copyright" class="col-sm-12">
             <div class="col-sm-8">
                 <p>
-                    Hak cipta © 2015 <br>
+                    Hak cipta © 2016 <br>
                     Tim Technocorner
                 </p>
             </div>
@@ -108,7 +109,7 @@
         <!-- Footer of base template -->
         <!-- Temporary commented
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
-        <script>window.jQuery || document.write('<script src="/lib/jquery/jquery-1.10.2.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="/lib/jquery/jquery-1.10.2.min.js"></script>')</script>
 
         <!-- Library JS -->
         <script src="/lib/modernizr/modernizr-2.6.2.min.js"></script>

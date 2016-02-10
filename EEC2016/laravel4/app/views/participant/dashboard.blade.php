@@ -1,12 +1,12 @@
 @extends('layout.master')
 
 @section('head')
-  <title>Technocorner 2015 - Dashboard Peserta</title>
+  <title>Technocorner 2016 - Dashboard Peserta</title>
 @stop
 
 @section('body')
   <main class="container-fluid">
-    <h1>Selamat Datang Peserta EEC 2015</h1>
+    <h1>Selamat Datang Peserta EEC 2016</h1>
     <hr/>
     <section class="dashboard">
       <h2>Detail Tim Kamu</h2>
