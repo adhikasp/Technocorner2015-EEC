@@ -4,39 +4,43 @@
 
   <main class="container-fluid">
     <h1>
-      BABAK PENYISIHAN EEC 2015 <br>
+      BABAK PENYISIHAN EEC 2016 <br>
       <small>Mata pelajaran {{ ucwords((Input::get('mapel')? Input::get('mapel') : 'matematika')) }}</small>
     </h1>
-
-
-    @if (App::environment() == 'local')
-      <h3>DEVELOP MODE ONLY</h3>
-      <h3>Todo:</h3>
-      <ul>
-        <li>Nomor soal masih pake inline style agar rata kanan</li>
-        <li>Perbaiki radio button, sekarang kalau tulisannya panjaang nanti jadi gak rata sama radionya</li>
-        <li>[v] Disable kirim form saat tekan <kbd>[Enter]</kbd></li>
-      </ul>
-      @if(Session::has('message'))
-        <h3>Jawaban sudah tersiman di DB</h3>
-      @endif
-    @endif
     <hr/>
 
-    {{ Form::open([
-      'route' => 'participant.exam.showConfirmFinish',
-      'class' => 'exam-paper',
-		  'id' => (Input::has('mapel')? Input::get('mapel') : 'matematika') . '-paper',
-      'data-subjectId' => $subject_id
-    ]) }}
+    <div>
+      <button class="btn" id="tandai">Tandai Soal</button>
+      <button class="btn" id="hilangkan">Hilangkan tanda</button>
+    </div>
+    <hr/>
+
+      {{ Form::open([
+        'route' => 'participant.exam.showConfirmFinish',
+        'class' => 'exam-paper',
+  		  'id' => (Input::has('mapel')? Input::get('mapel') : 'matematika') . '-paper',
+        'data-subjectId' => $subject_id
+      ]) }}
 
       {{ Form::hidden('exam_id', $exam_id, ['id' => 'exam_id']) }}
 
       <?php $no = 1 ?>
+      <div class="content-kanan">
+        <ul class="nav nav-tabs" role="tablist">
+        @foreach ($questions as $q)
+          <li><a class="tab-size" href="#{{ $no }}" role="tab" data-toggle="tab">{{ $no++ }}</a></li>
+        @endforeach
+        </ul>
+      </div>
+
+      <?php $no = 1 ?>
       {{-- Get all the question and chunk it in group of 5 #explaining what code already does, what a bad comment --}}
       {{-- So we can make <hr> separator every 5 question --}}
-      @foreach (array_chunk($questions->all(), 5) as $question_group)
-        @foreach ($question_group as $q)
+      {{-- @foreach (array_chunk($questions->all(), 5) as $question_group) --}}
+      <div class="content-kiri">
+       <div class="tab-content">
+        @foreach ($questions as $q)
+        <div class="tab-pane" id="{{ $no }}">
           <div class="row question" id="{{ $q->id }}">
             <div class="col-sm-1" style="text-align:right"> {{-- BEWARE: inline styles --}}
               <label>{{ $no++ }}.</label>
@@ -45,15 +49,13 @@
             <div class="col-sm-11">
               <p>
                 {{ $q->getQuestion() }}
-				<!-- <br/>
-                   Id soal : {{ $q->id }} -->
               </p>
 
-			  @if ($q->image)
-                <div class="question-image">
-                  <img src="{{ $q->image }}" alt="Pertanyaan untuk soal {{ $q->id }}">
-                </div>
-			  @endif
+      			  @if ($q->image)
+              <div class="question-image">
+                <img src="{{ $q->image }}" alt="Pertanyaan untuk soal {{ $q->id }}">
+              </div>
+      			  @endif
 
               <div class="radio">
                 <label>
@@ -98,10 +100,10 @@
               </div>
             </div>
           </div>
-
+        </div>
         @endforeach
-        <hr>
-      @endforeach
+       </div>
+      </div>
 
       <div class="row">
         <div class="col-sm-offset-1 col-sm-10">
@@ -121,12 +123,25 @@
 
       {{ Form::close() }}
 
-	  <div style="clear: both"></div>
+      <div style="clear: both"></div>
 	  <hr/>
       <div class="paper-footer col-sm-12">
-		<small>(c) Technocorner</small>
+    		<small>(c) Technocorner</small>
       </div>
   </main>
+
+  <script src="/lib/jquery/jquery-1.10.2.min.js"></script>
+  <script>
+    $(function(){
+        $("#tandai").click(function(){
+          $('.nav-tabs li.active a').css("background-color" , "#bc423b");
+        });
+
+        $("#hilangkan").click(function(){
+          $('.nav-tabs li.active a').css("background-color" , "#343434");
+        })
+    })
+  </script>
 
 @stop
 
