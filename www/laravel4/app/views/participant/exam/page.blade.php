@@ -9,11 +9,11 @@
     </h1>
     <hr/>
 
-    <div>
+    <!-- <div>
       <button class="btn" id="tandai">Tandai Soal</button>
       <button class="btn" id="hilangkan">Hilangkan tanda</button>
     </div>
-    <hr/>
+    <hr/> -->
 
       {{ Form::open([
         'route' => 'participant.exam.showConfirmFinish',
@@ -133,6 +133,11 @@
   <script src="/lib/jquery/jquery-1.10.2.min.js"></script>
   <script>
     $(function(){
+        $("ul li:eq(4)").addClass("active");
+        // $("ul li:eq(4) a").css("background-color", "red");
+        $("#1").addClass("active");
+    })
+    /*$(function(){
         $("#tandai").click(function(){
           $('.nav-tabs li.active a').css("background-color" , "#bc423b");
         });
@@ -140,7 +145,7 @@
         $("#hilangkan").click(function(){
           $('.nav-tabs li.active a').css("background-color" , "#343434");
         })
-    })
+    })*/
   </script>
 
 @stop
