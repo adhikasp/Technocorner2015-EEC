@@ -56,8 +56,8 @@ return array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
 			'database'  => 'technoco_eec_db',
-			'username'  => 'root',
-			'password'  => '',
+			'username'  => 'technoco_eec',
+			'password'  => '',   // Isi password secara manual lewat file manager CPanel
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
