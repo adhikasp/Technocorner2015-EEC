@@ -121,6 +121,21 @@
 
         @yield('script')
 
+        <script language="javascript">
+            document.onmousedown=disableclick;
+            status="Right Click Disabled";
+            function disableclick(event)
+            {
+              if(event.button==2)
+               {
+                 return false;    
+               }
+            }
+            jQuery(document).bind("contextmenu cut copy",function(e){
+                e.preventDefault();
+            });
+        </script>
+
         <script>
         /*  Google Analytics gak usah dipakai dulu
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

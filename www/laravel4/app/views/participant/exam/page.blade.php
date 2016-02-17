@@ -134,7 +134,6 @@
   <script>
     $(function(){
         $("ul li:eq(4)").addClass("active");
-        // $("ul li:eq(4) a").css("background-color", "red");
         $("#1").addClass("active");
     })
     /*$(function(){
