@@ -57,7 +57,7 @@
               </div>
       			  @endif
 
-              <div class="radio">
+              <div class="radio" id="a">
                 <label>
                   {{ Form::radio( $q->id . '-ch', 'A', Input::old( $q->id . '-ch'), ['class' => 'choice-radio']) }}
                   <strong>A.</strong> {{ $q->getChoice('A') }}
@@ -133,18 +133,20 @@
   <script src="/lib/jquery/jquery-1.10.2.min.js"></script>
   <script>
     $(function(){
-        $("ul li:eq(4)").addClass("active");
-        $("#1").addClass("active");
-    })
-    /*$(function(){
-        $("#tandai").click(function(){
-          $('.nav-tabs li.active a').css("background-color" , "#bc423b");
-        });
 
-        $("#hilangkan").click(function(){
-          $('.nav-tabs li.active a').css("background-color" , "#343434");
+        $("ul li:eq(4)").addClass("active");
+
+        $("#1").addClass("active");
+        
+        $("body").click(function(){
+        for(var i=1; i<=45; i++){
+          if ($('div.tab-pane#'+ i +' input').is(':Checked')){
+            $('.nav-tabs li a[href=#'+ i +']').css("background-color" , "#3AADA2");
+          }
+        }
         })
-    })*/
+
+    })
   </script>
 
 @stop
