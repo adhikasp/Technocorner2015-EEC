@@ -44,20 +44,20 @@ class ExamController extends BaseController {
 
     // Simulation
     $opengate = Carbon::create(2015, 02, 28, 14, 0, 0, 'Asia/Jakarta');   // At 1 March, 14.00
-    $closegate = Carbon::create(2016, 02, 28, 20, 30, 0, 'Asia/Jakarta'); // At 1 March, 15.30
+    $closegate = Carbon::create(2016, 02, 24, 20, 30, 0, 'Asia/Jakarta'); // At 1 March, 15.30
     $zero_gate_opened = $opengate->diffInMinutes($now, false) > 0
                        && $closegate->diffInMinutes($now, false) < 0;
 
     // Real
-    $opengate = Carbon::create(2015, 03, 1, 9, 0, 0, 'Asia/Jakarta');    // At 1 March, 9.00
-    $closegate = Carbon::create(2016, 03, 1, 9, 55, 0, 'Asia/Jakarta');  // At 1 March, 9.55
+    $opengate = Carbon::create(2016, 02, 28, 9, 00, 0, 'Asia/Jakarta');    // At 1 March, 9.00
+    $closegate = Carbon::create(2016, 02, 28, 9, 30, 0, 'Asia/Jakarta');  // At 1 March, 9.55
     $first_gate_opened = $opengate->diffInMinutes($now, false) > 0
                        && $closegate->diffInMinutes($now, false) < 0;
 
     Log::info($team . ' :: [First gate] Different in time (minute) : ' . $opengate->diffInMinutes($now, false) . ' -- ' . $closegate->diffInMinutes($now, false));
 
     $opengate = Carbon::create(2015, 03, 1, 13, 30, 0, 'Asia/Jakarta');  // At 1 March, 13.30
-    $closegate = Carbon::create(2016, 03, 1, 14, 20, 0, 'Asia/Jakarta');  // At 1 March, 14.20
+    $closegate = Carbon::create(2015, 03, 1, 14, 20, 0, 'Asia/Jakarta');  // At 1 March, 14.20
     $second_gate_opened = $opengate->diffInMinutes($now, false) > 0
                         && $closegate->diffInMinutes($now, false) < 0;
 
