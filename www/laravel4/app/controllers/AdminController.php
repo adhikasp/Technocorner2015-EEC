@@ -86,34 +86,67 @@ class AdminController extends BaseController {
         return View::make('admin.participant.create');
     }
 
-    public function storeParticipant() {
-
+    private function createParticipantModel($data) {
         // Check if there is any duplicate entry in DB
-        $tesParticipant = Participant::where('team_name', '=', Input::get('team_name'));
-        $tesUser        = User::where('email', '=', Input::get('email'));
+        $tesParticipant = Participant::where('team_name', '=', $data['team_name']);
+        $tesUser        = User::where('email', '=', $data['email']);
         // if($tesUser || $tesParticipant) {
-        //   return Redirect::route('admin.participant.create')
-        //     ->withMessage('duplicate_entry');
+        //    return null;
         // }
 
         $p            = new Participant;
-        $p->team_name = Input::get('team_name');
-        $p->member_1  = Input::get('member_1');
-        $p->member_2  = Input::get('member_2');
-        $p->member_3  = Input::get('member_3');
-        $p->school    = Input::get('school');
+        $p->team_name = $data['team_name'];
+        $p->member_1  = $data['member_1'];
+        $p->member_2  = array_key_exists("member_2", $data) ? $data['member_2'] : "";
+        $p->member_3  = array_key_exists("member_3", $data) ? $data['member_3'] : "";
+        $p->school    = $data['school'];
         $p->save();
 
         $u            = new User;
-        $u->email     = Input::get('email');
-        $u->password  = Hash::make(Input::get('password'));
+        $u->email     = $data['email'];
+        $u->password  = Hash::make($data['password']);
         $u->save();
 
         // Polymorph magic
         $p->user()->save($u);
 
+        return $p;
+    }
+
+    public function storeParticipant() {
+        $p = $this->createParticipantModel(Input::all());
+
         return Redirect::route('admin.participant.list')
           ->withParticipant($p);
+    }
+
+    public function massCreateParticipant() {
+        return View::make('admin.participant.massCreate');
+    }
+
+    public function massStoreParticipant() {
+        $data = Input::get("data");
+        $data = explode(PHP_EOL, $data); // Explode to team per element
+        // echo "<pre>";
+        // dd($data);
+        foreach ($data as $team) {
+            try {
+                $teamDetail = explode(";", $team);
+                $teamDetail['team_name'] = $teamDetail[0];
+                $teamDetail['school']    = $teamDetail[1];
+                $teamDetail['member_1']  = $teamDetail[2];
+                $teamDetail['email']     = $teamDetail[3];
+                $teamDetail['password']  = $teamDetail[4];
+
+                $this->createParticipantModel($teamDetail);
+            } catch (Exception $e) {
+                continue;
+            }
+        }
+
+        $participant = Participant::all();
+        return View::make('admin.participant.list')
+          ->withParticipant($participant);
     }
 
     public function editParticipant($id) {

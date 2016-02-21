@@ -204,6 +204,16 @@ Route::group(['before' => 'auth|admin'], function()
     'uses' => 'AdminController@storeParticipant'
   ])->where('id', '[0-9]+');
 
+  Route::get('admin-tc/dashboard/participant/massCreate', [
+    'as' => 'admin.participant.massCreate',
+    'uses' => 'AdminController@massCreateParticipant'
+  ]);
+
+  Route::post('admin-tc/dashboard/participant/massStore', [
+    'as' => 'admin.participant.massStore',
+    'uses' => 'AdminController@massStoreParticipant'
+]);
+
   Route::get('admin-tc/dashboard/participant/{id}', [
     'as' => 'admin.participant.detail',
     'uses' => 'AdminController@viewDetailParticipant'
