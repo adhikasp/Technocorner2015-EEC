@@ -89,7 +89,7 @@
                 <a href="mailto://technocorner2015@gmail.com"><img src="//technocornerugm.com/img/icon-alamat.png" class="icon"> technocorner2016@gmail.com</a> <br>
                 <a href="//facebook.com/technocornerugm"><img src="//technocornerugm.com/img/icon-sosmedf.png" class="icon"> TechnocornerUGM</a> <br>
                 <a href="//twitter.com/technocornerugm"><img src="//technocornerugm.com/img/icon-sosmedt.png" class="icon"> @TechnocornerUGM</a> <br>
-                <a href="//ask.fm/technocornerugm"><img src="//technocornerugm.com/img/icon-sosmedaskfm16.png" class="icon"> Ask TechnocornerUGM</a>
+                <a href="//ask.fm/technocornerugm"><img src="//technocornerugm.com/img/icon-sosmedaskfm.png" class="icon"> Ask TechnocornerUGM</a>
              </div>
         </footer>
 
