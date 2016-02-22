@@ -86,10 +86,9 @@
             <div class="col-sm-7">
                 <h2>Kontak</h2>
                 <img src="//technocornerugm.com/img/icon-cp.png" class="icon"> 081914444145 (Azka) <br>
-                <a href="mailto://technocorner2015@gmail.com"><img src="//technocornerugm.com/img/icon-alamat.png" class="icon"> technocorner2016@gmail.com</a> <br>
-                <a href="//facebook.com/technocornerugm"><img src="//technocornerugm.com/img/icon-sosmedf.png" class="icon"> TechnocornerUGM</a> <br>
-                <a href="//twitter.com/technocornerugm"><img src="//technocornerugm.com/img/icon-sosmedt.png" class="icon"> @TechnocornerUGM</a> <br>
-                <a href="//ask.fm/technocornerugm"><img src="//technocornerugm.com/img/icon-sosmedaskfm16.png" class="icon"> Ask TechnocornerUGM</a>
+                <a href="mailto://technocorner2015@gmail.com" target="_blank"><img src="//technocornerugm.com/img/icon-alamat.png" class="icon"> technocorner@ugm.ac.id</a> <br>
+                <a href="//facebook.com/technocornerugm" target="_blank"><img src="//technocornerugm.com/img/icon-sosmedf.png" class="icon"> TechnocornerUGM</a> <br>
+                <a href="//twitter.com/technocornerugm" target="_blank"><img src="//technocornerugm.com/img/icon-sosmedt.png" class="icon"> @TechnocornerUGM</a>
              </div>
         </footer>
 
@@ -128,7 +127,7 @@
             {
               if(event.button==2)
                {
-                 return false;    
+                 return false;
                }
             }
             jQuery(document).bind("contextmenu cut copy",function(e){
