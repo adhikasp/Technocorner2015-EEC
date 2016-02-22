@@ -31,18 +31,22 @@
             <p class="form-control-static">{{ $participant->member_1 }}</p>
           </div>
         </div>
-        <div class="form-group">
-          <label for="" class="control-label col-sm-2">Anggota 2</label>
-          <div class="col-sm-10">
-            <p class="form-control-static">{{ $participant->member_2 }}</p>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="" class="control-label col-sm-2">Anggota 3</label>
-          <div class="col-sm-10">
-            <p class="form-control-static">{{ $participant->member_3 }}</p>
-          </div>
-        </div>
+        @if(isset($participant->member_2))
+            <div class="form-group">
+                <label for="" class="control-label col-sm-2">Anggota 2</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static">{{ $participant->member_2 }}</p>
+                </div>
+            </div>
+        @endif
+        @if(isset($participant->member_3))
+            <div class="form-group">
+                <label for="" class="control-label col-sm-2">Anggota 3</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static">{{ $participant->member_3 }}</p>
+                </div>
+            </div>
+        @endif
         <div class="form-group">
           <label for="" class="control-label col-sm-2">Email</label>
           <div class="col-sm-10">
