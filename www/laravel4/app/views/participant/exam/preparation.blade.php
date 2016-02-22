@@ -22,11 +22,7 @@
 	  <li>Ujian ini bersifat buku terbuka dan Anda diperkenankan menggunakan alat hitung.</li>
 	  <li>Anda tidak diperkenankan untuk berdiskusi selain dengan sesama anggota tim sendiri.</li>
 	  <li>Waktu ujian yang disediakan adalah 120 menit terhitung setelah tombol “bersiap ujian” ditekan.</li>
-	  <li>Anda diberikan toleransi waktu untuk login (termasuk menekan tombol “bersiap ujian”) selama 30 menit:</li>
-	  <ul>
-		<li>Kloter 1: (pukul 09.00 – 09.30 WIB). Setelah pukul 09.30 WIB, Anda sudah tidak bisa login.</li>
-		<li>Kloter 2: (pukul 13.30 – 14.00 WIB). Setelah pukul 14.00 WIB, Anda sudah tidak bisa login.</li>
-	  </ul>
+	  <li>Anda diberikan toleransi waktu untuk login (termasuk menekan tombol “bersiap ujian”) selama 30 menit (pukul 09.00 – 09.30 WIB). Setelah pukul 09.30 WIB, waktu ujian akan otomatis berjalan sehingga ujian berakhir selambat lambatnya pukul 11.30 WIB.</li>
 	  <li>Jawaban yang benar akan diberi skor +4, jawaban yang kosong diberi skor 0, dan jawaban yang salah diberi skor -1.</li>
 	  <li>Salin jawaban Anda ke secarik kertas untuk mengantisipasi hal-hal yang tidak dikehendaki.</li>
     </ul>
