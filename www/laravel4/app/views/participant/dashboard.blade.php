@@ -31,18 +31,22 @@
             <p class="form-control-static">{{ $participant->member_1 }}</p>
           </div>
         </div>
-        <div class="form-group">
-          <label for="" class="control-label col-sm-2">Anggota 2</label>
-          <div class="col-sm-10">
-            <p class="form-control-static">{{ $participant->member_2 }}</p>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="" class="control-label col-sm-2">Anggota 3</label>
-          <div class="col-sm-10">
-            <p class="form-control-static">{{ $participant->member_3 }}</p>
-          </div>
-        </div>
+        @if(isset($participant->member_2))
+            <div class="form-group">
+                <label for="" class="control-label col-sm-2">Anggota 2</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static">{{ $participant->member_2 }}</p>
+                </div>
+            </div>
+        @endif
+        @if(isset($participant->member_3))
+            <div class="form-group">
+                <label for="" class="control-label col-sm-2">Anggota 3</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static">{{ $participant->member_3 }}</p>
+                </div>
+            </div>
+        @endif
         <div class="form-group">
           <label for="" class="control-label col-sm-2">Email</label>
           <div class="col-sm-10">
@@ -93,12 +97,21 @@
         <hr>
       @endif
 
-      <h2>Petunjuk Teknis Persiapan Ujian</h2>
+      <h2>Petunjuk Web (Mohon dipahami agar tidak terjadi hal yang tidak diinginkan)</h2>
       <ul>
-        <li>Pastikan detail tim kamu benar sebelum memulai ujian.</li>
-        <li>Jika terdapat kesalahan pada detail tim kamu, segera laporkan ke admin Technocorner di <strong>technocorner2015@gmail.com</strong> atau melalui nomor yang tertera pada bagian bawah halaman</li>
-        <li>Tombol mulai ujian dapat diakses ketika waktu babak penyisihan online (1 Maret 2015)</li>
+        <li>Pastikan detail nama tim dan nama ketua tim sudah benar.</li>
+        <li>Jika terdapat kesalahan pada detail tim kamu, segera laporkan ke admin Technocorner di <strong>technocorner@mail.ugm.ac.id</strong> atau melalui nomor yang tertera pada bagian bawah halaman</li>
+        <li>Setiap akun hanya boleh digunakan untuk 1 PC/Laptop./li>
         <li>Sangat disarankan untuk melakukan Ujian Online dengan menggunakan desktop/PC dan browser modern (IE versi 10 ke atas, Google Chrome, Chromium, atau Firefox)</li>
+        <li>Peserta dapat menyimpan jawaban sementara ke server dengan cara berpindah mata pelajaran. Contoh, setelah menjawab beberapa soal di matematika dan berpindah ke soal komputer, maka jawaban soal matematika akan otomatis tersimpan ke server.</li>
+        <li>Setiap tim diberikan toleransi waktu untuk login (termasuk menekan tombol “bersiap ujian” selama 30 menit (pukul 09.00-09.30 WIB). Setelah lewat pukul 09.30 WIB, peserta tidak dapat masuk ke menu ujian dan peserta dinyatakan diskualifikasi.</li>
+        <li>Pastikan koneksi internet anda stabil, terutama saat meng-klik tombol “bersiap ujian”.</li>
+        <li>Refresh pada page ujian tidak mempengaruhi timer, timer tetap berjalan semestinya.</li>
+        <li>Web seleksi Online EEC tidak menyediakan fitur print.</li>
+        <li>Script soal pada web tidak dapat di-block atau di-copy.</li>
+        <li>Setiap tim dapat logout dan login selama proses pengerjaan soal berlangsung, akan tetapi timer tetap berjalan semestinya.</li>
+        <li>Jika waktu pengerjaan telah selesai, secara otomatis ujian akan berakhir dan jawaban terakhir peserta akan tersimpan.</li>
+        <li>Jika  Anda sudah menekan tombol “selesai”, Anda tidak dapat mengulangi ujian ataupun mengganti jawaban.</li>
       </ul>
 
       <h2>Petunjuk Melakukan Ujian</h2>
