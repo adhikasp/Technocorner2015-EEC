@@ -88,8 +88,8 @@ class AdminController extends BaseController {
 
     private function createParticipantModel($data) {
         // Check if there is any duplicate entry in DB
-        $tesParticipant = Participant::where('team_name', '=', $data['team_name']);
-        $tesUser        = User::where('email', '=', $data['email']);
+        // $tesParticipant = Participant::where('team_name', '=', $data['team_name']);
+        // $tesUser        = User::where('email', '=', $data['email']);
         // if($tesUser || $tesParticipant) {
         //    return null;
         // }
@@ -138,6 +138,8 @@ class AdminController extends BaseController {
                 $teamDetail['email']     = $teamDetail[3];
                 $teamDetail['password']  = $teamDetail[4];
 
+                $teamDetail['member_2']  = $teamDetail[4];
+
                 $this->createParticipantModel($teamDetail);
             } catch (Exception $e) {
                 continue;
@@ -178,7 +180,19 @@ class AdminController extends BaseController {
     }
 
     public function deleteParticipant($id) {
-        Participant::find($id)->delete();
+        $p = Participant::find($id);
+        $p->user()->delete();
+        $p->delete();
+
+        return Redirect::route('admin.participant.list');
+    }
+
+    public function dropParticipant() {
+        $p = Participant::all();
+        $p->each(function($p) {
+            $p->user()->delete();
+            $p->delete();
+        });
 
         return Redirect::route('admin.participant.list');
     }

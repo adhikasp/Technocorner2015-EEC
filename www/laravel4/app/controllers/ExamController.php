@@ -50,7 +50,7 @@ class ExamController extends BaseController {
 
     // Real
     $opengate = Carbon::create(2016, 02, 28, 9, 00, 0, 'Asia/Jakarta');    // At 1 March, 9.00
-    $closegate = Carbon::create(2016, 02, 28, 9, 30, 0, 'Asia/Jakarta');  // At 1 March, 9.55
+    $closegate = Carbon::create(2016, 02, 28, 9, 31, 0, 'Asia/Jakarta');  // At 1 March, 9.55
     $first_gate_opened = $opengate->diffInMinutes($now, false) > 0
                        && $closegate->diffInMinutes($now, false) < 0;
 
@@ -63,10 +63,12 @@ class ExamController extends BaseController {
 
     Log::info($team . ' :: [Second gate] Different in time (minute) : ' . $opengate->diffInMinutes($now, false) . ' -- ' . $closegate->diffInMinutes($now, false));
 
+    $whitelistedTeam = ["PanitiaXYZ"];
+
     if (!$zero_gate_opened
         && !$first_gate_opened
         && !$second_gate_opened
-        && $team != 'Google Checker') {
+        && !in_array($team, $whitelistedTeam)) {
         // Log to inform failure on gate closed
         Log::info($team . ' ::  Time gate not open yet.');
         return Redirect::route('participant.exam.preparation')
